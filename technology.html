@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Technology | Semantic Compiler for Optimization</title>
+    <meta name="description" content="Aqua brings compiler-level rigor to optimization systems through semantic understanding and four-layer architecture.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/aquon-logo.png" alt="Aquon Inc.">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="technology.html" class="nav-link active">Technology</a></li>
+                <li class="nav-item"><a href="product.html" class="nav-link">Product</a></li>
+                <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="tech-hero">
+        <div class="container">
+            <div class="tech-hero-content" data-aos="fade-up">
+                <h1 class="tech-hero-title">
+                    Aqua: A Semantic Compiler for<br>
+                    <span class="product-hero-title">Optimization Systems</span>
+                </h1>
+                <p class="tech-hero-subtitle">
+                    Bringing compiler-level rigor and semantic understanding to decision-making systems
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="section why-section">
+        <div class="container">
+            <div class="why-content">
+                <div class="why-text" data-aos="fade-right">
+                    <h2 class="section-title">Why Decision Systems Need Their Own Compiler</h2>
+                    <p class="section-description">
+                        Traditional optimization systems are built on fragile, ad-hoc code. Aqua treats optimization as a first-class programming paradigm, providing the same rigor and safety that compilers bring to general-purpose programming.
+                    </p>
+                </div>
+                <div class="why-visual" data-aos="fade-left">
+                    <div class="why-comparison">
+                        <div class="why-card why-traditional">
+                            <h4>Traditional Approach</h4>
+                            <div class="why-items">
+                                <div class="why-item">
+                                    <i class="fas fa-times"></i>
+                                    <span>Ad-hoc scripts</span>
+                                </div>
+                                <div class="why-item">
+                                    <i class="fas fa-times"></i>
+                                    <span>No type safety</span>
+                                </div>
+                                <div class="why-item">
+                                    <i class="fas fa-times"></i>
+                                    <span>Solver-specific code</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="why-card why-aqua">
+                            <h4>Aqua Approach</h4>
+                            <div class="why-items">
+                                <div class="why-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Declarative language</span>
+                                </div>
+                                <div class="why-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Semantic verification</span>
+                                </div>
+                                <div class="why-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Multi-backend execution</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Features -->
+    <section class="section features-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Language Features</span>
+                <h2 class="section-title">Designed for Optimization</h2>
+            </div>
+            <div class="features-grid">
+                <div class="tech-feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Declarative Syntax</h3>
+                    <p>Express what you want to optimize, not how to solve it</p>
+                </div>
+                <div class="tech-feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Semantic Type System</h3>
+                    <p>Catch errors at compile-time, not runtime</p>
+                </div>
+                <div class="tech-feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Composable Abstractions</h3>
+                    <p>Build complex optimizations from simple components</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Example -->
+    <section class="section code-example-section">
+        <div class="container">
+            <div class="code-example-content">
+                <div class="code-example-text" data-aos="fade-right">
+                    <h2 class="section-title">Expressive and Intuitive</h2>
+                    <p class="section-description">
+                        Aqua's syntax makes optimization problems readable and maintainable. Define objectives, constraints, and universes in a natural, declarative way.
+                    </p>
+                    <div class="code-features">
+                        <div class="code-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Clear objective specification</span>
+                        </div>
+                        <div class="code-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Intuitive constraint syntax</span>
+                        </div>
+                        <div class="code-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Domain-specific abstractions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-code" data-aos="fade-left">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-title">portfolio_optimization.aqua</span>
+                            <button class="code-copy" onclick="copyCode()">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="code-content">
+                            <pre><code><span class="keyword">strategy</span> MaxSharpe {
+    <span class="keyword">objective</span>: maximize(sharpe_ratio)
+    <span class="keyword">constraints</span>: {
+        sum(weights) == 1.0
+        all(weights >= 0)
+        sector_exposure <= 0.3
+    }
+    <span class="keyword">verify</span>: {
+        risk_bounded(portfolio, min_var)
+        diversification_maintained()
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="section architecture-detail-section" id="architecture">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Architecture</span>
+                <h2 class="section-title">Four-Layer Compiler Design</h2>
+                <p class="section-description">A principled approach inspired by LLVM and modern compiler theory</p>
+            </div>
+
+            <div class="architecture-interactive" data-aos="fade-up" data-aos-delay="200">
+                <!-- Layer 1: Frontend -->
+                <div class="arch-detail-layer" data-layer="1">
+                    <div class="arch-detail-header">
+                        <div class="arch-detail-number">01</div>
+                        <div class="arch-detail-title">
+                            <i class="fas fa-code"></i>
+                            <h3>Frontend</h3>
+                        </div>
+                        <button class="arch-detail-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="arch-detail-content">
+                        <p>Parses Aqua programs and performs semantic analysis to ensure correctness before compilation.</p>
+                        <div class="arch-detail-features">
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Lexical and syntactic analysis</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Type checking and inference</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Semantic validation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-flow-arrow"><i class="fas fa-arrow-down"></i></div>
+
+                <!-- Layer 2: OSIR -->
+                <div class="arch-detail-layer" data-layer="2">
+                    <div class="arch-detail-header">
+                        <div class="arch-detail-number">02</div>
+                        <div class="arch-detail-title">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>OSIR (Optimization Semantic IR)</h3>
+                        </div>
+                        <button class="arch-detail-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="arch-detail-content">
+                        <p>An intermediate representation that captures the semantic meaning of optimization problems, enabling powerful transformations.</p>
+                        <div class="arch-detail-features">
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Domain-specific abstractions</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Solver-agnostic representation</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Optimization-aware data structures</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-flow-arrow"><i class="fas fa-arrow-down"></i></div>
+
+                <!-- Layer 3: Optimizer -->
+                <div class="arch-detail-layer" data-layer="3">
+                    <div class="arch-detail-header">
+                        <div class="arch-detail-number">03</div>
+                        <div class="arch-detail-title">
+                            <i class="fas fa-brain"></i>
+                            <h3>Optimizer</h3>
+                        </div>
+                        <button class="arch-detail-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="arch-detail-content">
+                        <p>Applies semantic-aware transformations to improve performance and correctness.</p>
+                        <div class="arch-detail-features">
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Constraint simplification</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Objective reformulation</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Problem decomposition</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-flow-arrow"><i class="fas fa-arrow-down"></i></div>
+
+                <!-- Layer 4: Backends -->
+                <div class="arch-detail-layer" data-layer="4">
+                    <div class="arch-detail-header">
+                        <div class="arch-detail-number">04</div>
+                        <div class="arch-detail-title">
+                            <i class="fas fa-server"></i>
+                            <h3>Backends</h3>
+                        </div>
+                        <button class="arch-detail-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="arch-detail-content">
+                        <p>Generates solver-specific code for execution on multiple optimization engines.</p>
+                        <div class="arch-detail-features">
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>CVXPY backend</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Gurobi backend</span>
+                            </div>
+                            <div class="arch-detail-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Future: Custom solvers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Benefits</span>
+                <h2 class="section-title">Why Compiler-Based Optimization Matters</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Correctness Guarantees</h3>
+                    <p>Catch errors at compile-time before they affect production systems</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Automatic problem reformulation for faster solving</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Maintainability</h3>
+                    <p>Clean, declarative code that's easy to understand and modify</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Vision -->
+    <section class="section research-section" id="research">
+        <div class="container">
+            <div class="research-content">
+                <div class="research-text" data-aos="fade-right">
+                    <span class="section-tag">Research Vision</span>
+                    <h2 class="section-title">The Future of Optimization Infrastructure</h2>
+                    <p class="section-description">
+                        Aqua is the foundation for a new generation of trustworthy optimization systems. 
+                        Our research roadmap explores advanced compiler techniques, formal verification, and domain-specific 
+                        optimizations.
+                    </p>
+                    <div class="research-areas">
+                        <div class="research-area">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h4>AI-Assisted Optimization</h4>
+                                <p>Learning problem structures for better solving</p>
+                            </div>
+                        </div>
+                        <div class="research-area">
+                            <i class="fas fa-network-wired"></i>
+                            <div>
+                                <h4>Distributed Compilation</h4>
+                                <p>Scaling to enterprise-wide optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="research-visual" data-aos="fade-left">
+                    <div class="research-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2024</h4>
+                                <p>Aqua v1.0 - Research Ideation and Early Testing</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2025</h4>
+                                <p>Zeton launch - Portfolio management</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot active"></div>
+                            <div class="timeline-content">
+                                <h4>2026</h4>
+                                <p>Dominate Portfolio Optimization</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2027+</h4>
+                                <p>Enterprise platform</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Interested in Aqua Technology?</h2>
+                <p>Explore how our compiler infrastructure can power your optimization systems</p>
+                <div class="cta-buttons">
+                    <a href="resources.html" class="btn btn-primary btn-large">Read Documentation</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">Contact Research Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/aquon-circle-logo.png" alt="Aquon Inc.">
+                        <span>Aquon</span>
+                    </div>
+                    <p class="footer-tagline">Trustworthy Optimization Infrastructure</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <!-- <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="product.html">Zeton Platform</a></li>
+                        <li><a href="product.html#z-scope">Z-Scope</a></li>
+                        <li><a href="product.html#z-strike">Z-Strike</a></li>
+                        <li><a href="product.html#z-sight">Z-Sight</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li><a href="technology.html">Aqua Language</a></li>
+                        <li><a href="technology.html#architecture">Architecture</a></li>
+                        <li><a href="technology.html#research">Research</a></li>
+                        <li><a href="resources.html">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="company.html">About</a></li>
+                        <li><a href="company.html#team">Team</a></li>
+                        <li><a href="company.html#careers">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aquon Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
