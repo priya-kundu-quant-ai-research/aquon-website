@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* ============================================
+   TAILWIND V4 CUSTOM THEME CONFIGURATION
+   ============================================
+   In Tailwind v4, custom colors must be defined 
+   using the @theme directive, not in tailwind.config.ts
+*/
+
+@theme {
+  /* Your Custom Brand Colors */
+  --color-deep-navy: #0D3D4D;
+  --color-vibrant-teal: #1DBFBF;
+  --color-rich-purple: #8B3FBF;
+  --color-light-gray: #F0F2F5;
+  --color-mid-gray: #A0AEC0;
+  --color-gold: #FFC700;
+  --color-success-green: #28A745;
+  --color-error-red: #DC3545;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+  border-color: hsl(214.3 31.8% 91.4%);
+}
+
+body {
+  background-color: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============================================
+   SHADCN/UI CSS VARIABLES
+   ============================================
+   These are for shadcn/ui components and should
+   remain as CSS custom properties in :root
+*/
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 354 70% 54%; /* Updated to error-red */
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 354 70% 44%; /* Updated to darker error-red */
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+.dark body {
+  background-color: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D3D4D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1DBFBF;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #17a3a3;
+}
+
+/* ============================================
+   SLIDER COMPONENT STYLING
+   ============================================ */
+
+[role="slider"] {
+  position: relative;
+}
+
+/* Track (background) */
+.relative.flex.w-full.touch-none.select-none.items-center > span:first-child {
+  background-color: rgba(154, 154, 154, 0.3) !important;
+  height: 8px !important;
+  border-radius: 9999px !important;
+}
+
+/* Range (filled portion) */
+.relative.flex.w-full.touch-none.select-none.items-center > span:first-child > span {
+  background-color: #17a3a3 !important;
+  height: 100% !important;
+  border-radius: 9999px !important;
+}
+
+/* Thumb (handle) */
+.relative.flex.w-full.touch-none.select-none.items-center button {
+  background-color: #17a3a3 !important;
+  border: 3px solid rgb(88, 85, 85) !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.relative.flex.w-full.touch-none.select-none.items-center button:hover {
+  background-color: #17a3a3 !important;
+  transform: scale(1.1);
+}
+
+.relative.flex.w-full.touch-none.select-none.items-center button:focus {
+  box-shadow: 0 0 0 4px rgba(29, 191, 191, 0.3) !important;
+  outline: none !important;
+}
