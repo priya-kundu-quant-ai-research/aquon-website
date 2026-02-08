@@ -27,20 +27,20 @@ export const FinalCTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/contact" className="cursor-pointer">
-              <Button size="lg" className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold px-8 py-6 text-lg">
+                <Button size="lg" className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold px-8 py-6 text-lg">
                 <Calendar className="mr-2 h-5 w-5" />
-                Schedule a Demo
-              </Button>
+                Talk to Our Team
+                </Button>
             </Link>
-            <Link href="/why-zeton" className="cursor-pointer">
-              <Button 
+            <Link href="/technology" className="cursor-pointer">
+                <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-white text-white hover:bg-white hover:text-deep-navy font-semibold px-8 py-6 text-lg"
-              >
-                Calculate Your ROI
+                >
+                Explore Aqua
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+                </Button>
             </Link>
           </div>
 
@@ -54,7 +54,7 @@ export const FinalCTA = () => {
           >
             <p className="text-white/60 text-sm mb-4">Trusted by leading investment firms</p>
             {/* <div className="flex flex-wrap justify-center items-center gap-8 text-white/40 text-sm">
-              <span>✓ SOC 2 Compliant</span>
+              <span>✓ SOC 2 Compli-ant</span>
               <span>✓ Bank-Grade Security</span>
               <span>✓ 99.9% Uptime</span>
             </div> */}
