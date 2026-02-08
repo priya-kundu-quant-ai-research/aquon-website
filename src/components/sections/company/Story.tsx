@@ -23,7 +23,7 @@ export const Story = () => {
             <div className="space-y-6 text-lg text-neutral-700 leading-relaxed">
               <p>
                 Aquon Inc. builds trustworthy optimization infrastructure for high-impact decision systems. 
-                We believe critical decisions—from capital markets to energy grids to global supply chains—deserve 
+                We believe critical decisions from capital markets to energy grids to global supply chains deserve 
                 computational foundations designed for trust, not just speed.
               </p>
               <p>
@@ -33,7 +33,7 @@ export const Story = () => {
               </p>
               <p>
                 Founded by quantitative researchers and engineers with deep experience in financial markets and compilers, 
-                we’re building the future of decision systems—one verified line of code at a time.
+                we’re building the future of decision systems, one verified line of code at a time.
               </p>
             </div>
 

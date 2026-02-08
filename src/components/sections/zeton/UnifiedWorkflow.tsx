@@ -59,7 +59,7 @@ export const UnifiedWorkflow = () => {
             One Unified Workflow
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-neutral-600">
-            From strategy design to execution to continuous monitoring—all in one platform.
+            From strategy design to execution to continuous monitoring, all in one platform.
           </p>
         </motion.div>
 

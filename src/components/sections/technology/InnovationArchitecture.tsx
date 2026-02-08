@@ -8,7 +8,7 @@ const pillars = [
   {
     icon: TrendingUp,
     title: 'Statistical Foundations',
-    text: 'Ensures mathematical correctness and absolute reliability in every optimization model. We don\'t just run fast—we run right.',
+    text: 'Ensures mathematical correctness and absolute reliability in every optimization model. We don\'t just run fast, we run right.',
     color: 'from-vibrant-teal/20 to-vibrant-teal/5',
     iconColor: 'text-vibrant-teal',
   },
@@ -55,7 +55,7 @@ export const InnovationArchitecture = () => {
             Three Pillars. One Breakthrough.
           </h2>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Our innovation isn't a single technology—it's the fusion of three critical 
+            Our innovation isn't a single technology. It's the fusion of three critical 
             disciplines that, together, unlock unprecedented performance.
           </p>
         </motion.div>

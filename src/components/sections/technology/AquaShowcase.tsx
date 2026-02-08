@@ -112,7 +112,7 @@ export const AquaShowcase = () => {
               <span className="text-white font-semibold">first-class objects</span>.
             </p>
             <p className="text-lg md:text-xl text-white/80 leading-relaxed mt-2">
-              Like water: flexible in form, consistent in essence—flowing across any industry challenge.
+              Like water: flexible in form, consistent in essence, flowing across any industry challenge.
             </p>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-vibrant-teal/30 bg-vibrant-teal/10 px-4 py-2 text-white/80 text-sm">
@@ -138,7 +138,7 @@ export const AquaShowcase = () => {
             <p className="text-white/80 text-base md:text-lg leading-relaxed">
               AQUA enables the compiler to <span className="text-white font-semibold">reason</span>,{' '}
               <span className="text-white font-semibold">transform</span>, and{' '}
-              <span className="text-white font-semibold">generate</span> code — faster while leave less carbon footprint.
+              <span className="text-white font-semibold">generate</span> code faster while leaving less carbon footprint.
             </p>
           </div>
         </motion.div>

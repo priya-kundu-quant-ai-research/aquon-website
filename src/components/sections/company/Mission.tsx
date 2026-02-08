@@ -11,7 +11,7 @@ const sections = [
       'Eliminate information leakage in portfolio management.',
       'Reduce operational inefficiency across the investment workflow.',
       'Deliver mathematically verified infrastructure for critical optimization decisions.',
-      'Build systems on trust and correctness—not just speed.',
+      'Build systems on trust and correctness, not just speed.',
     ],
   },
   {
@@ -19,7 +19,7 @@ const sections = [
     title: 'Our Vision',
     bullets: [
       'Give every investment firm institutional-grade technology without an institutional-grade team.',
-      'Let portfolio managers focus on alpha generation—not tooling and validation.',
+      'Let portfolio managers focus on alpha generation, not tooling and validation.',
       'Automate strategy validation, execution, and monitoring with mathematical certainty.',
     ],
   },
@@ -28,7 +28,7 @@ const sections = [
     title: 'Our Values',
     bullets: [
       'Trust first: precision, rigor, and uncompromising standards.',
-      'Empower human expertise—technology augments, not replaces.',
+      'Empower human expertise, technology augments, not replaces.',
       'Scientific innovation: apply cutting-edge computer science to real financial problems.',
       'Clarity, reliability, and measurable impact in every release.',
     ],

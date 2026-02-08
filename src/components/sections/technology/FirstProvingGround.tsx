@@ -86,8 +86,8 @@ export const FirstProvingGround = () => {
                 <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                   With 25 years of domain expertise in quantitative finance, capital markets
                   became the ideal proving ground for AQUA. Portfolio optimization is one of
-                  the most computationally demanding challenges in finance—multi-layered,
-                  constrained, and requiring both speed and precision.
+                  the most computationally demanding challenges in finance. It's multi-layered,
+                  constrained, and requires both speed and precision.
                 </p>
               </motion.div>
 
@@ -147,10 +147,10 @@ export const FirstProvingGround = () => {
                 The Real World Imapct
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
-                This is just the Beginning
+                ZETON proves what AQUA can do.
               </h2>
               <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-                ZETON proves what AQUA can do. First we conquer Financial Computing and then go beyond the horizon.
+                First we conquer Financial Computing and then go beyond the horizon.
               </p>
             </div>
 
@@ -179,6 +179,17 @@ export const FirstProvingGround = () => {
               </div>
             </div>
           </motion.div>
+                  
+          {/* Closing statement — stays in the same viewport */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.25 }}
+            className="text-center text-lg md:text-2xl font-semibold text-deep-navy mt-6 md:mt-8 max-w-5xl mx-auto"
+          >
+            The principles that make ZETON revolutionary are universal.
+          </motion.p>
         </div>
       </div>
     </section>

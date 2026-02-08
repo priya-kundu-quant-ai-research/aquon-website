@@ -11,7 +11,7 @@ const industries = [
     title: 'Finance',
     headline: 'Portfolio Optimization',
     focus:
-      'Capital markets portfolio construction using Markowitz’s Efficient Frontier balances expected return against risk under real-world constraints, aiming to maximize return for a given risk or minimize risk for a target return — forming the foundation of modern portfolio optimization.',
+      'Capital markets portfolio construction using Markowitz’s Efficient Frontier balances expected return against risk under real-world constraints, aiming to maximize return for a given risk or minimize risk for a target return, forming the foundation of modern portfolio optimization.',
     accent: '#14B8A6',
     iconColor: 'text-vibrant-teal',
     tint: 'from-vibrant-teal/18 to-vibrant-teal/5',
@@ -105,9 +105,9 @@ export const TheHorizon = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-deep-navy mb-3 md:mb-4">
             Finance is Just the Beginning.
           </h2>
-          <p className="text-base md:text-xl text-neutral-600 max-w-3xl mx-auto">
+          {/* <p className="text-base md:text-xl text-neutral-600 max-w-3xl mx-auto">
             The principles that make ZETON revolutionary are universal.
-          </p>
+          </p> */}
         </motion.div>
 
         {/* 3-panel layout: left column = two halves, right column = one tall panel */}

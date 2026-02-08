@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Calendar, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+
 
 export const FinalCTA = () => {
   return (
@@ -24,18 +26,22 @@ export const FinalCTA = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold px-8 py-6 text-lg">
-              <Calendar className="mr-2 h-5 w-5" />
-              Schedule a Demo
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-deep-navy font-semibold px-8 py-6 text-lg"
-            >
-              Calculate Your ROI
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link href="/contact" className="cursor-pointer">
+              <Button size="lg" className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold px-8 py-6 text-lg">
+                <Calendar className="mr-2 h-5 w-5" />
+                Schedule a Demo
+              </Button>
+            </Link>
+            <Link href="/why-zeton" className="cursor-pointer">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-deep-navy font-semibold px-8 py-6 text-lg"
+              >
+                Calculate Your ROI
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
@@ -47,11 +53,11 @@ export const FinalCTA = () => {
             className="mt-12 pt-8 border-t border-white/10"
           >
             <p className="text-white/60 text-sm mb-4">Trusted by leading investment firms</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 text-white/40 text-sm">
+            {/* <div className="flex flex-wrap justify-center items-center gap-8 text-white/40 text-sm">
               <span>✓ SOC 2 Compliant</span>
               <span>✓ Bank-Grade Security</span>
               <span>✓ 99.9% Uptime</span>
-            </div>
+            </div> */}
           </motion.div>
         </motion.div>
       </div>

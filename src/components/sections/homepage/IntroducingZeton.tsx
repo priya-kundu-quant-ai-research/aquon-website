@@ -163,7 +163,7 @@ export const IntroducingZeton = () => {
           </div>
 
           <p className="text-deep-navy/70 text-center max-w-3xl mx-auto mt-5 text-md leading-relaxed">
-            One seamless workflow from strategy design to execution to continuous monitoring — powered by the Aqua compiler for verified performance.
+            One seamless workflow from strategy design to execution to continuous monitoring, powered by the Aqua compiler for verified performance.
           </p>
         </motion.div>
 

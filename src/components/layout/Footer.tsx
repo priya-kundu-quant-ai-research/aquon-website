@@ -3,7 +3,7 @@ import Link from 'next/link';
 export const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="container mx-auto px-6 py-0">
+      <div className="container mx-auto px-6 py-4">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Column 1: Brand */}
           <div>
@@ -36,11 +36,11 @@ export const Footer = () => {
                   Customers
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/pricing" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
                   Pricing
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -60,11 +60,11 @@ export const Footer = () => {
                   Technology
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/careers" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
                   Careers
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/contact" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
                   Contact Us
@@ -94,11 +94,11 @@ export const Footer = () => {
                   Case Studies
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/docs" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
                   Documentation
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -110,22 +110,22 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/aquon-ai-inc/about/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-300 hover:text-vibrant-teal transition-colors"
                 >
-                  LinkedIn
+                  LinkedIn Aquon
                 </a>
               </li>
               <li>
                 <a
-                  href="https://twitter.com"
+                  href="https://www.linkedin.com/company/zeton-ai/about/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-300 hover:text-vibrant-teal transition-colors"
                 >
-                  Twitter
+                  LinkedIn Zeton
                 </a>
               </li>
             </ul>
