@@ -24,7 +24,7 @@ const awards = [
   {
     icon: Trophy,
     title: 'NYU TAC Award',
-    subtitle: '2025',
+    subtitle: 'Fall 2025',
     description: 'Technology, Acceleration, and Commercialization Award for product viability.',
     amount: '$65,000',
     color: 'from-pink-500 to-pink-600',
@@ -62,7 +62,7 @@ export const Recognition = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <Card className="bg-white/10 backdrop-blur-sm border-white/20 h-full hover:bg-white/15 transition-all">
-                  <CardContent className="p-8 text-center">
+                  <CardContent className="p- text-center">
                     <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${award.color} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
                       <IconComponent className="w-12 h-12 text-white" strokeWidth={1.5} />
                     </div>
@@ -82,6 +82,28 @@ export const Recognition = () => {
               </motion.div>
             );
           })}
+
+              {/* Context Box */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="md:col-span-3 max-w-5xl mx-auto bg-gradient-to-r from-vibrant-teal/5 to-rich-purple/5 rounded-2xl p-8 border border-vibrant-teal/20"
+              >
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-deep-navy mb-4">
+                    Built in New York&apos;s Innovation Ecosystem
+                  </h3>
+                  <p className="text-neutral-700 leading-relaxed max-w-none mx-auto text-center">
+                    As a <span className="font-semibold text-deep-navy">Startup NY company</span>, 
+                    we benefit from New York State tax incentives that support our growth and long-term 
+                    innovation. We are also an <span className="font-semibold text-deep-navy">NYU Future 
+                      Labs company</span>, and now operate from our office at the NYU building—placing us at 
+                      the center of one of New York&apos;s strongest technology and research communities.
+                  </p>
+                </div>
+              </motion.div>
         </div>
       </div>
     </section>

@@ -261,7 +261,7 @@ export const QuantifiedImpact = () => {
             <h3 className="text-2xl font-bold text-deep-navy mb-4">
               Consistent Outperformance Across Market Conditions
             </h3>
-            <p className="text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-neutral-700 leading-relaxed max-w-none mx-auto whitespace-nowrap">
               The optimizer doesn't just adjust risk to achieve higher returns, it improves the efficiency 
               of portfolio construction itself.
             </p>

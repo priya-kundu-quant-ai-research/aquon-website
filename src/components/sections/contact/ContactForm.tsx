@@ -219,7 +219,16 @@ export const ContactForm = () => {
                     <div>
                       <p className="font-semibold text-deep-navy text-sm mb-1">General Inquiries</p>
                       <a href="mailto:hello@aquon.com" className="text-vibrant-teal hover:underline text-sm">
-                        hello@aquon.com
+                        hello@aquon.ai
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 mb-8">
+                    <Mail className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-deep-navy text-sm mb-1">Sales Related</p>
+                      <a href="mailto:hello@aquon.com" className="text-vibrant-teal hover:underline text-sm">
+                        marketing@quant-ai-research.com
                       </a>
                     </div>
                   </div>
@@ -229,8 +238,9 @@ export const ContactForm = () => {
                     <MapPin className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-neutral-700 text-sm">
-                        123 Financial District<br />
-                        New York, NY 10004<br />
+                        370, Jay Street, NYU Tandon<br />
+                        7th Floor, Room TBD
+                        Brooklyn, NY 11201<br />
                         United States
                       </p>
                     </div>
