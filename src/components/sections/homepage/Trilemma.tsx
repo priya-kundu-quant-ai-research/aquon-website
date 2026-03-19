@@ -3,26 +3,26 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { AnimatedInView, FadeIn } from '@/components/core/AnimatedInView';
 import { motion } from 'framer-motion';
-import { TrendingDown, Zap, AlertCircle } from 'lucide-react';
+import { FileText, TrendingDown, Clock } from 'lucide-react';
 
 const challenges = [
   {
-    title: 'Bloated Overheads',
-    description: 'Large analyst teams and slow decision cycles are compressing your margins.',
-    icon: TrendingDown,
+    icon: FileText, // or FileText
+    title: 'Manual Construction',
+    description: 'Static model portfolios and manual allocation decisions limit your ability to scale personalized strategies.',
     color: 'text-vibrant-teal',
   },
   {
-    title: 'Leaking Alpha',
-    description: 'Outdated infrastructure and execution inefficiency leave performance on the table.',
-    icon: Zap,
+    icon: TrendingDown, // or TrendingDown
+    title: 'Fragmented Analysis',
+    description: 'Evaluating historical performance and risk across disparate tools slows down your decision-making process.',
     color: 'text-rich-purple',
   },
   {
-    title: 'Reactive Management',
-    description: "Data overload and missed regime shifts -> you're always a step behind the market.",
-    icon: AlertCircle,
-    color: 'text-gold/80',
+    icon: Clock, // or Clock
+    title: 'Reactive Monitoring',
+    description: 'Without systematic drift detection, you risk missing critical rebalancing opportunities when market conditions shift.',
+    color: 'text-gold',
   },
 ];
 
@@ -34,10 +34,10 @@ const challenges = [
             transition={{ duration: 0.6 }}
           >
           <div className="container mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-deep-navy">
               The Three Challenges Draining Your Alpha
             </h2>
-            <p className="text-black/70 text-lg max-w-3xl mx-auto">
+            <p className="text-deep-navy/70 text-lg max-w-3xl mx-auto">
               Solving one isn't enough. You need a platform that solves all three.
             </p>
           </div>
@@ -56,10 +56,10 @@ export const Trilemma = () => {
             transition={{ duration: 0.6 }}
           >
           <div className="container mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-deep-navy">
               The Three Challenges Draining Your Alpha
             </h2>
-            <p className="text-black/70 text-lg max-w-3xl mx-auto">
+            <p className="text-deep-navy text-lg max-w-3xl mx-auto">
               Solving one isn't enough. You need a platform that solves all three.
             </p>
           </div>

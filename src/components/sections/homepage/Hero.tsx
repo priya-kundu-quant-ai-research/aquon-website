@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const rotatingWords = ['Alpha.', 'Performance.', 'Opportunity.', 'Edge.', 'Efficiency.'];
+const rotatingWords = ['Intelligence.', 'Clarity.', 'Confidence.', 'Edge.', 'Efficiency.'];
 
 export const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -63,7 +63,7 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Stop Leaking{' '}
+              Portfolio Management Built on{' '}
             </motion.span>
             <span className="inline-block min-w-[300px] md:min-w-[400px] text-left">
               <AnimatePresence mode="wait">
@@ -89,8 +89,14 @@ export const Hero = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto"
         >
-          Zeton is the AI-powered operating system for portfolio management that
-          cuts costs, boosts efficiency, and amplifies your team's performance.
+          Powered by proprietary technology and an intuitive AI assistant.
+          
+          {/* Zeton is the portfolio intelligence platform designed to help financial advisors 
+          design, evaluate, and manage portfolios with a systematic, data-driven approach.  */}
+          <br />
+          {/* <span className="text-vibrant-teal">
+            Powered by proprietary technology and an intuitive AI assistant.
+          </span> */}
         </motion.p>
 
         {/* CTAs */}

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Cpu, Shield, Zap } from 'lucide-react';
+import { ArrowRight, Cpu, TrendingUp, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 export const TechnologyTeaser = () => {
@@ -16,18 +16,19 @@ export const TechnologyTeaser = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10"
+            className="text-center mb-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
-              Powered by Aqua
+              Powered by Purpose-Built Architecture
             </h2>
             <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
-              Our proprietary compiler turns complex financial logic into verified, 
-              high-performance code that you can trust.
+              Zeton leverages a proprietary programming language designed 
+              specifically for optimization workloads. Iterate on portfolio strategies 
+              faster than traditional methods.
             </p>
           </motion.div>
 
-          {/* Visual Flow */}
+          {/* Visual Flow - Keep existing 3-step diagram */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,9 +43,9 @@ export const TechnologyTeaser = () => {
                 <div className="w-24 h-24 rounded-full bg-vibrant-teal/10 border-2 border-vibrant-teal flex items-center justify-center mx-auto mb-4">
                   <Cpu className="text-vibrant-teal" size={40} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-deep-navy mb-2">Financial Logic</h3>
+                <h3 className="text-lg font-bold text-deep-navy mb-2">Portfolio Strategy</h3>
                 <p className="text-sm text-neutral-600">
-                  Your strategies and rules
+                  Define your objectives
                 </p>
               </div>
 
@@ -57,11 +58,11 @@ export const TechnologyTeaser = () => {
               {/* Step 2 */}
               <div className="text-center">
                 <div className="w-24 h-24 rounded-full bg-vibrant-teal/10 border-2 border-vibrant-teal flex items-center justify-center mx-auto mb-4">
-                  <Shield className="text-vibrant-teal" size={40} strokeWidth={1.5} />
+                  <Zap className="text-vibrant-teal" size={40} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-deep-navy mb-2">Aqua Compiler</h3>
+                <h3 className="text-lg font-bold text-deep-navy mb-2">Aqua Optimizer</h3>
                 <p className="text-sm text-neutral-600">
-                  Formal verification
+                  Rapid computation
                 </p>
               </div>
 
@@ -74,20 +75,21 @@ export const TechnologyTeaser = () => {
               {/* Step 3 */}
               <div className="text-center">
                 <div className="w-24 h-24 rounded-full bg-vibrant-teal/10 border-2 border-vibrant-teal flex items-center justify-center mx-auto mb-4">
-                  <Zap className="text-vibrant-teal" size={40} strokeWidth={1.5} />
+                  <TrendingUp className="text-vibrant-teal" size={40} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-deep-navy mb-2">Zeton Platform</h3>
+                <h3 className="text-lg font-bold text-deep-navy mb-2">Optimized Portfolios</h3>
                 <p className="text-sm text-neutral-600">
-                  Reliable execution
+                  Faster iteration
                 </p>
               </div>
             </div>
 
             {/* Result Box */}
-            <div className="mt-8 p-6 bg-vibrant-teal/10 rounded-xl border border-vibrant-teal/40">
+            <div className="mt-8 p-6 bg-vibrant-teal/5 rounded-xl border border-vibrant-teal/20">
               <p className="text-center text-neutral-700">
-                <span className="font-semibold text-deep-navy">The result:</span> Strategies 
-                that are mathematically verified before they ever touch real money.
+                <span className="font-semibold text-deep-navy">The result:</span> Run extensive 
+                backtests and parameter searches in a fraction of the time, enabling you to 
+                explore more strategies and make better-informed portfolio decisions.
               </p>
             </div>
           </motion.div>
@@ -101,7 +103,7 @@ export const TechnologyTeaser = () => {
             className="text-center"
           >
             <Link href="/technology">
-              <Button variant="outline" size="lg"   className="bg-[var(--color-vibrant-teal)] hover:bg-[var(--color-vibrant-teal)]/70 text-white font-semibold px-8">
+              <Button variant="outline" size="lg" className="border-2 border-deep-navy text-deep-navy hover:bg-deep-navy hover:text-white">
                 Explore the Technology
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

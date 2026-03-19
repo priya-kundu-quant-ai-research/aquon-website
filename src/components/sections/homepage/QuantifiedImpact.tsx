@@ -1,117 +1,302 @@
 'use client';
 
-import { AnimatedCounter } from '@/components/core/AnimatedCounter';
-import { AnimatedInView, FadeIn } from '@/components/core/AnimatedInView';
-import { Card, CardContent } from '@/components/ui/card';
-import { Zap, ArrowRight, Users, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
+import { AnimatedCounter } from '@/components/core/AnimatedCounter';
+import { TrendingUp, Shield, Target, Award } from 'lucide-react';
+import { useState } from 'react';
 
-const metrics = [
-  { value: 2600, suffix: '%', label: 'Total Return (10-Year Backtest)' },
-  { value: 2.25, suffix: '', label: 'Sharpe Ratio' },
-  { value: 5.2, suffix: 'x', label: 'NASDAQ Outperformance' },
-  { value: 82, suffix: '%', label: 'ZWAP Win Rate' },
+const benchmarks = [
+  {
+    id: 'sp500',
+    name: 'S&P 500',
+    description: 'Large-cap U.S. equity benchmark',
+    metrics: {
+      totalReturn: { zeton: 1318.61, benchmark: 244.94 },
+      cagr: { zeton: 30.37, benchmark: 13.05 },
+      sharpe: { zeton: 1.356, benchmark: 0.573 },
+      maxDrawdown: { zeton: -20.69, benchmark: -32.23 },
+    },
+  },
+  {
+    id: 'nasdaq',
+    name: 'NASDAQ 100',
+    description: 'Technology-heavy growth index',
+    metrics: {
+      totalReturn: { zeton: 1588.55, benchmark: 485.93 },
+      cagr: { zeton: 32.66, benchmark: 19.14 },
+      sharpe: { zeton: 1.151, benchmark: 0.772 },
+      maxDrawdown: { zeton: -20.69, benchmark: -35.12 },
+    },
+  },
+  {
+    id: 'russell',
+    name: 'Russell 2000',
+    description: 'Small-cap equity benchmark',
+    metrics: {
+      totalReturn: { zeton: 782.44, benchmark: 145.49 },
+      cagr: { zeton: 24.33, benchmark: 9.30 },
+      sharpe: { zeton: 1.050, benchmark: 0.330 },
+      maxDrawdown: { zeton: -20.69, benchmark: -38.45 },
+    },
+  },
+  {
+    id: 'dow',
+    name: 'Dow Jones',
+    description: 'Blue-chip industrial average',
+    metrics: {
+      totalReturn: { zeton: 716.51, benchmark: 184.92 },
+      cagr: { zeton: 23.37, benchmark: 10.93 },
+      sharpe: { zeton: 1.086, benchmark: 0.460 },
+      maxDrawdown: { zeton: -20.69, benchmark: -31.87 },
+    },
+  },
 ];
 
 export const QuantifiedImpact = () => {
+  const [selectedBenchmark, setSelectedBenchmark] = useState('sp500');
+  const currentBenchmark = benchmarks.find(b => b.id === selectedBenchmark) || benchmarks[0];
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-deep-navy">
-          From Army to Platform. From Weeks to Minutes.
-        </h2>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
+            Validated by a Decade of Data
+          </h2>
+          <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+            Historical backtesting demonstrates how our optimization framework improves return 
+            generation and portfolio efficiency relative to passive index exposure.
+          </p>
+        </motion.div>
 
-        {/* Before/After Comparison */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            {/* Before */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center"
+        {/* Benchmark Selector */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-6"
+        >
+          {benchmarks.map((benchmark) => (
+            <button
+              key={benchmark.id}
+              onClick={() => setSelectedBenchmark(benchmark.id)}
+              className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                selectedBenchmark === benchmark.id
+                  ? 'bg-vibrant-teal text-white shadow-lg'
+                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+              }`}
             >
-              <div className="bg-light-gray p-6 rounded-lg">
-                <div className="flex justify-center gap-2 mb-4">
-                  <Users className="w-8 h-8 text-neutral-600" />
-                  <Users className="w-8 h-8 text-neutral-600" />
-                  <Users className="w-8 h-8 text-neutral-600" />
-                  <Users className="w-8 h-8 text-neutral-600" />
-                </div>
-                <p className="font-semibold text-deep-navy mb-2">Before</p>
-                <p className="text-neutral-600 text-sm">Large team, weeks of work</p>
-              </div>
-            </motion.div>
+              {benchmark.name}
+            </button>
+          ))}
+        </motion.div>
 
-            {/* Arrow */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="flex flex-col items-center">
-                <ArrowRight className="w-12 h-12 text-vibrant-teal mb-2" />
-                <p className="text-vibrant-teal font-bold text-xl">60x Faster</p>
-              </div>
-            </motion.div>
-
-            {/* After */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-center"
-            >
-              <div className="bg-vibrant-teal/10 p-6 rounded-lg border-2 border-vibrant-teal">
-                <div className="flex justify-center gap-2 mb-4">
-                  <Users className="w-8 h-8 text-vibrant-teal" />
-                  <Zap className="w-8 h-8 text-vibrant-teal" />
-                </div>
-                <p className="font-semibold text-deep-navy mb-2">After</p>
-                <p className="text-neutral-600 text-sm">One PM + Zeton, minutes</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
+        {/* Selected Benchmark Description */}
+        <motion.div
+          key={selectedBenchmark}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="text-center mb-6"
+        >
+          <p className="text-neutral-600 text-sm">
+            {currentBenchmark.description}
+          </p>
+        </motion.div>
 
         {/* Metrics Grid */}
-        <AnimatedInView stagger={0.15}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {metrics.map((metric, index) => (
-              <FadeIn key={index}>
-                <Card className="bg-gradient-to-br from-deep-navy to-deep-navy/80 border-vibrant-teal/20 hover:border-vibrant-teal/50 transition-all">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-4xl md:text-5xl font-bold text-vibrant-teal mb-2">
-                      <AnimatedCounter
-                        from={0}
-                        to={metric.value}
-                        duration={2}
-                        suffix={metric.suffix}
-                        decimals={2}
-                      />
-                    </div>
-                    <p className="text-sm text-white">{metric.label}</p>
-                  </CardContent>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
-        </AnimatedInView>
+        <motion.div
+          key={`metrics-${selectedBenchmark}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto mb-12"
+        >
+          {/* Total Return */}
+          <Card className="border-2 border-vibrant-teal/20 hover:shadow-xl transition-all">
+            <CardContent className="p-">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-vibrant-teal/10 flex items-center justify-center">
+                  <TrendingUp className="text-vibrant-teal" size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-deep-navy">Total Return</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
+                  <p className="text-3xl font-bold text-vibrant-teal">
+                    <AnimatedCounter from={0} to={currentBenchmark.metrics.totalReturn.zeton} decimals={2} />%
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">{currentBenchmark.name}</p>
+                  <p className="text-xl font-semibold text-neutral-400">
+                    {currentBenchmark.metrics.totalReturn.benchmark.toFixed(2)}%
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-neutral-200">
+                <p className="text-sm font-semibold text-vibrant-teal">
+                  +{(currentBenchmark.metrics.totalReturn.zeton - currentBenchmark.metrics.totalReturn.benchmark).toFixed(2)}% outperformance
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
-        {/* Closing Tagline */}
+          {/* CAGR */}
+          <Card className="border-2 border-rich-purple/20 hover:shadow-xl transition-all">
+            <CardContent className="p-">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-rich-purple/10 flex items-center justify-center">
+                  <Target className="text-rich-purple" size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-deep-navy">CAGR</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
+                  <p className="text-3xl font-bold text-rich-purple">
+                    <AnimatedCounter from={0} to={currentBenchmark.metrics.cagr.zeton} decimals={2} />%
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">{currentBenchmark.name}</p>
+                  <p className="text-xl font-semibold text-neutral-400">
+                    {currentBenchmark.metrics.cagr.benchmark.toFixed(2)}%
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-neutral-200">
+                <p className="text-sm font-semibold text-rich-purple">
+                  {((currentBenchmark.metrics.cagr.zeton / currentBenchmark.metrics.cagr.benchmark) - 1) > 1 
+                    ? `${((currentBenchmark.metrics.cagr.zeton / currentBenchmark.metrics.cagr.benchmark)).toFixed(1)}x higher`
+                    : `+${(currentBenchmark.metrics.cagr.zeton - currentBenchmark.metrics.cagr.benchmark).toFixed(2)}%`
+                  }
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Sharpe Ratio */}
+          <Card className="border-2 border-deep-navy/20 hover:shadow-xl transition-all">
+            <CardContent className="p-">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-deep-navy/10 flex items-center justify-center">
+                  <Award className="text-deep-navy" size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-deep-navy">Sharpe Ratio</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
+                  <p className="text-3xl font-bold text-deep-navy">
+                    <AnimatedCounter from={0} to={currentBenchmark.metrics.sharpe.zeton} decimals={3} />
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">{currentBenchmark.name}</p>
+                  <p className="text-xl font-semibold text-neutral-400">
+                    {currentBenchmark.metrics.sharpe.benchmark.toFixed(3)}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-neutral-200">
+                <p className="text-sm font-semibold text-deep-navy">
+                  {((currentBenchmark.metrics.sharpe.zeton / currentBenchmark.metrics.sharpe.benchmark)).toFixed(1)}x better risk-adjusted returns
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Max Drawdown */}
+          <Card className="border-2 border-green-500/20 hover:shadow-xl transition-all">
+            <CardContent className="p-">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
+                  <Shield className="text-green-500" size={24} />
+                </div>
+                <h3 className="text-lg font-semibold text-deep-navy">Max Drawdown</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
+                  <p className="text-3xl font-bold text-green-500">
+                    <AnimatedCounter from={0} to={currentBenchmark.metrics.maxDrawdown.zeton} decimals={2} />%
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-neutral-500 mb-1">{currentBenchmark.name}</p>
+                  <p className="text-xl font-semibold text-neutral-400">
+                    {currentBenchmark.metrics.maxDrawdown.benchmark.toFixed(2)}%
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-neutral-200">
+                <p className="text-sm font-semibold text-green-500">
+                  {Math.abs(currentBenchmark.metrics.maxDrawdown.benchmark - currentBenchmark.metrics.maxDrawdown.zeton).toFixed(2)}% less downside risk
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Context Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="max-w-5xl mx-auto bg-gradient-to-r from-vibrant-teal/5 to-rich-purple/5 rounded-2xl p-8 border border-vibrant-teal/20"
+        >
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-deep-navy mb-4">
+              Consistent Outperformance Across Market Conditions
+            </h3>
+            <p className="text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+              These results demonstrate that our optimization framework consistently delivers superior 
+              returns and improved risk-adjusted performance across different market segments. The 
+              optimizer doesn't just increase risk to achieve higher returns—it improves the efficiency 
+              of portfolio construction itself.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <div className="px-6 py-3 bg-white rounded-lg shadow-sm">
+              <p className="text-sm text-neutral-600 mb-1">Backtest Period</p>
+              <p className="text-lg font-bold text-deep-navy">10 Years</p>
+            </div>
+            <div className="px-6 py-3 bg-white rounded-lg shadow-sm">
+              <p className="text-sm text-neutral-600 mb-1">Initial Capital</p>
+              <p className="text-lg font-bold text-deep-navy">$100,000</p>
+            </div>
+            <div className="px-6 py-3 bg-white rounded-lg shadow-sm">
+              <p className="text-sm text-neutral-600 mb-1">Rebalancing</p>
+              <p className="text-lg font-bold text-deep-navy">Weekly</p>
+            </div>
+            <div className="px-6 py-3 bg-white rounded-lg shadow-sm">
+              <p className="text-sm text-neutral-600 mb-1">Objective</p>
+              <p className="text-lg font-bold text-deep-navy">Max Sharpe Ratio</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom tagline */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center text-2xl font-semibold text-deep-navy"
+          transition={{ delay: 0.6 }}
+          className="text-center text-xl font-semibold text-deep-navy mt-12"
         >
-          We generate the alpha without the army.
+          Portfolio quality that speaks for itself.
         </motion.p>
       </div>
     </section>

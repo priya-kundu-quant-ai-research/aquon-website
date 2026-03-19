@@ -9,9 +9,17 @@ const awards = [
     icon: Award,
     title: 'NYU Tech Venture',
     subtitle: 'Spring 2025',
-    description: 'Best Poster Award recognizing early research potential.',
+    description: 'Best Poster Award recognizing early research potential across NYU Entrepreneurial Lab..',
     amount: '$2,000',
     color: 'from-cyan-500 to-cyan-600',
+  },
+  {
+    icon: Landmark,
+    title: 'NSF I-Corps',
+    subtitle: 'APPROVED',
+    description: 'National Science Foundation Programs Approved. DoD Research Grant Application in progress.',
+    label: '$50,000',
+    color: 'from-yellow-500 to-yellow-600',
   },
   {
     icon: Trophy,
@@ -20,14 +28,6 @@ const awards = [
     description: 'Technology, Acceleration, and Commercialization Award for product viability.',
     amount: '$65,000',
     color: 'from-pink-500 to-pink-600',
-  },
-  {
-    icon: Landmark,
-    title: 'National Science Foundation',
-    subtitle: 'APPROVED',
-    description: 'I-Corps & SBIR Pitch Approved. DoD Research Grant Application in progress.',
-    label: 'Strategic Grants',
-    color: 'from-yellow-500 to-yellow-600',
   },
 ];
 

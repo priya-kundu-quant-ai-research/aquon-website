@@ -1,189 +1,197 @@
 'use client';
 
-import { Card, CardContent } from '@/components/ui/card';
-import { AnimatedInView, FadeIn } from '@/components/core/AnimatedInView';
-import { motion } from 'framer-motion';
-import { Target, Zap, Eye, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { Target, Zap, Eye, ArrowRight, MessageSquare, Sparkles } from 'lucide-react';
 
 const modules = [
   {
     id: 'z-scope',
     name: 'Z-Scope',
     tagline: 'Portfolio Intelligence',
-    description:
-      'Design and backtest winning strategies in minutes, not weeks. AI-powered construction with formal verification.',
     icon: Target,
     features: [
-      'AI-powered portfolio construction',
-      'Backtesting with formal verification',
-      'Risk analysis and optimization',
+      'Portfolio construction',
+      'Backtesting & evaluation',
+      'Drift monitoring',
     ],
   },
   {
     id: 'z-strike',
     name: 'Z-Strike',
-    tagline: 'Execution Engine',
-    description:
-      'Execute trades with algorithmic precision and document your execution alpha. Smart routing that maximizes performance.',
+    tagline: 'Execution Intelligence',
     icon: Zap,
     features: [
-      'Smart order routing',
-      'Real-time execution analytics',
-      'ZWAP and VWAP algorithms',
+      'Broker-agnostic connectivity',
+      'TWAP & VWAP execution',
+      'Coordinated order placement',
     ],
   },
   {
     id: 'z-sight',
     name: 'Z-Sight',
-    tagline: 'Market AI',
-    description:
-      'Uncover opportunities and risks 24/7 with AI-powered monitoring. Never miss a regime shift or market anomaly.',
+    tagline: 'Market Intelligence',
     icon: Eye,
     features: [
-      'Real-time market intelligence',
-      'Regime shift detection',
-      'Anomaly detection and alerts',
+      'Aggregated financial news',
+      'Sentiment analysis',
+      'Research summaries',
     ],
   },
 ];
 
 export const IntroducingZeton = () => {
   return (
-    <section className="py-0 bg-light-gray">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-          <div className="container mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-deep-navy">
-              Meet Zeton: Your Complete Portfolio OS
-            </h2>
-            <p className="text-deep-navy text-lg max-w-3xl mx-auto">
-              Three powerful modules working together to transform how you manage portfolios.
-            </p>
-          </div>
-          </motion.div>
-        </div>
-
-        {/* Three Modules Grid */}
-        <AnimatedInView stagger={0.2} className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {modules.map((module) => {
-              const IconComponent = module.icon;
-              return (
-                <FadeIn key={module.id}>
-                  <motion.div
-                    whileHover={{ y: -8 }}
-                    transition={{ duration: 0.3 }}
-                    className="h-full"
-                  >
-                    <Card className="bg-white border text-deep-navy h-full hover:shadow-xl transition-all">
-                      <CardContent className="p-5=4">
-                        <div className="flex items-start gap-3">
-                          {/* Icon */}
-                          <div className="w-12 rounded-xl bg-[color-mix(in_oklab,var(--color-vibrant-teal)_15%,white)] flex items-center justify-center shrink-0 self-stretch">
-                            <IconComponent className="text-[var(--color-vibrant-teal)]" size={22} strokeWidth={1.5} />
-                          </div>
-
-                          {/* Text */}
-                          <div className="flex flex-col justify-between">
-                            <h3 className="text-lg font-bold text-deep-navy leading-tight">
-                              {module.name}
-                            </h3>
-                            <p className="text-sm font-semibold text-deep-navy/60 leading-tight">
-                              {module.tagline}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </FadeIn>
-              );
-            })}
-          </div>
-        </AnimatedInView>
-
-        {/* Flow Diagram */}
+    <section className="bg-white py-10">
+      <div className="container mx-auto max-w-6xl px-6">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="rounded-2xl border-[var(--color-rich-purple)]/30 bg-white text-deep-navy p-8 md:p-8"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto mb-8 max-w-3xl text-center"
         >
-          <h3 className="text-xl md:text-3xl font-bold text-deep-navy text-center mb-6">
-            How They Work Together
-          </h3>
-
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 max-w-4xl mx-auto">
-            {/* Step */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-black/5 border border-black/10 flex items-center justify-center mb-2">
-                <Target className="text-deep-navy" size={26} strokeWidth={1.5} />
-              </div>
-              <p className="text-sm font-semibold text-deep-navy">Design Strategy</p>
-            </div>
-
-            {/* Arrow */}
-            <div className="flex items-center justify-center">
-              <ArrowRight className="text-[var(--color-rich-purple)]/80 hidden md:block" size={24} />
-              <div className="md:hidden w-0.5 h-8 bg-black/20" />
-            </div>
-
-            {/* Step */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-black/5 border border-black/10 flex items-center justify-center mb-2">
-                <Zap className="text-deep-navy" size={26} strokeWidth={1.5} />
-              </div>
-              <p className="text-sm font-semibold text-deep-navy">Execute Trades</p>
-            </div>
-
-            {/* Arrow */}
-            <div className="flex items-center justify-center">
-              <ArrowRight className="text-[var(--color-rich-purple)]/80 hidden md:block" size={24} />
-              <div className="md:hidden w-0.5 h-8 bg-black/20" />
-            </div>
-
-            {/* Step */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-black/5 border border-black/10 flex items-center justify-center mb-2">
-                <Eye className="text-deep-navy" size={26} strokeWidth={1.5} />
-              </div>
-              <p className="text-sm font-semibold text-deep-navy">Monitor & Adapt</p>
-            </div>
-          </div>
-
-          <p className="text-deep-navy/70 text-center max-w-3xl mx-auto mt-5 text-md leading-relaxed">
-            One seamless workflow from strategy design to execution to continuous monitoring, powered by the Aqua compiler for verified performance.
+          <p className="mb-2 text-md font-semibold uppercase tracking-[0.24em] text-deep-navy">
+            Introducing Zeton
+          </p>
+          <h2 className="text-4xl font-bold tracking-tight text-deep-navy md:text-5xl">
+            An "All in One platform"
+          </h2>
+          <p className="mt-3 text-base leading-7 text-deep-navy">
+            Zeton unifies portfolio design, market intelligence, and trade execution into one unified workflow.
           </p>
         </motion.div>
 
-        {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-center mt-8 pb-16"
-          >
-            <Link href="/zeton">
-              <Button variant="outline" size="lg"   className="bg-[var(--color-rich-purple)] hover:bg-[var(--color-rish-purple)]/70 text-white font-semibold px-8">
-                Explore Zeton
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </motion.div>
+        {/* Modules */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {modules.map((module, index) => {
+            const Icon = module.icon;
+
+            return (
+              <motion.div
+                key={module.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -4 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <Card className="border border-deep-navy bg-white hover:border-deep-navy/20 transition-all">
+                  <CardContent className="flex flex-col p-">
+                    <div className="mb-4 flex items-center gap-6">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-deep-navy bg-deep-navy/[0.03]">
+                        <Icon className="text-deep-navy" size={20} strokeWidth={1.75} />
+                      </div>
+
+                      <div>
+                        <h3 className="text-2xl font-semibold text-deep-navy leading-tight">
+                          {module.name}
+                        </h3>
+                        <p className="mt-0.5 text-md font-medium text-deep-navy">
+                          {module.tagline}
+                        </p>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-2 text-md text-deep-navy/70">
+                      {module.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-3">
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-vibrant-teal/90" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mx-auto mt-4 max-w-6xl"
+        >
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.35fr_0.95fr]">
+            {/* Left: AI Card */}
+            <Card className="border border-deep-navy bg-white hover:border-deep-navy transition-all">
+              <CardContent className="p- md:p-">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-deep-navy bg-deep-navy/[0.03] px-3 py-1.5 text-md font-medium text-deep-navy">
+                  <Sparkles size={14} className="text-vibrant-teal" />
+                  AI-Powered Navigation
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-vibrant-teal to-rich-purple shadow-lg">
+                    <MessageSquare className="text-white" size={24} strokeWidth={1.75} />
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-bold leading-tight text-deep-navy md:text-3xl">
+                      Navigate complexity with simplicity
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="mt-4 max-w-3xl text-base leading-7 text-deep-navy">
+                  Ask questions, surface analytics, and move across the platform instantly with an AI interface built for investment workflows.
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {[
+                    'Natural language queries',
+                    'Instant analytics',
+                    'Guided workflows',
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-deep-navy bg-deep-navy/[0.03] px-3 py-1.5 text-md text-deep-navy"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Right: CTA Card */}
+            <Card className="border border-rich-purple/25 bg-gradient-to-br from-rich-purple/10 to-white">
+              <CardContent className="flex h-full flex-col justify-between p- md:p-">
+                <div>
+                  <p className="text-md font-semibold uppercase tracking-[0.18em] text-deep-navy">
+                    Explore Zeton
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-deep-navy md:text-3xl">
+                    How the platform works?
+                  </h3>
+                  <p className="mt-3 text-md leading-6 text-deep-navy/65 md:text-base">
+                    Explore portfolio design, market intelligence, execution workflows, and the AI interface in one unified experience.
+                  </p>
+                </div>
+
+                <div className="mt-5">
+                  <Link href="/zeton" className="inline-flex">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-rich-purple text-rich-purple hover:bg-rich-purple hover:text-white font-semibold px-7 py-5 text-base transition-all"
+                    >
+                      Explore the Platform
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
-
