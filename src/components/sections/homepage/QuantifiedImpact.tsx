@@ -71,10 +71,10 @@ export const QuantifiedImpact = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
             Validated by a Decade of Data
           </h2>
-          <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+          {/* <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
             Historical backtesting demonstrates how our optimization framework improves return 
             generation and portfolio efficiency relative to passive index exposure.
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Benchmark Selector */}
@@ -130,7 +130,7 @@ export const QuantifiedImpact = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-deep-navy">Total Return</h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex items-end justify-between gap-4">
                 <div>
                   <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
                   <p className="text-3xl font-bold text-vibrant-teal">
@@ -161,7 +161,7 @@ export const QuantifiedImpact = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-deep-navy">CAGR</h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex items-end justify-between gap-4">
                 <div>
                   <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
                   <p className="text-3xl font-bold text-rich-purple">
@@ -195,7 +195,7 @@ export const QuantifiedImpact = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-deep-navy">Sharpe Ratio</h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex items-end justify-between gap-4">
                 <div>
                   <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
                   <p className="text-3xl font-bold text-deep-navy">
@@ -226,7 +226,7 @@ export const QuantifiedImpact = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-deep-navy">Max Drawdown</h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex items-end justify-between gap-4">
                 <div>
                   <p className="text-xs text-neutral-500 mb-1">Zeton Optimizer</p>
                   <p className="text-3xl font-bold text-green-500">
@@ -262,9 +262,7 @@ export const QuantifiedImpact = () => {
               Consistent Outperformance Across Market Conditions
             </h3>
             <p className="text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-              These results demonstrate that our optimization framework consistently delivers superior 
-              returns and improved risk-adjusted performance across different market segments. The 
-              optimizer doesn't just increase risk to achieve higher returns—it improves the efficiency 
+              The optimizer doesn't just adjust risk to achieve higher returns, it improves the efficiency 
               of portfolio construction itself.
             </p>
           </div>
