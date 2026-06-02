@@ -38,9 +38,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Server not configured" }, { status: 500 });
     }
 
-    const subject = `Schedule Demo: ${body.name} (${body.company})`;
+    const subject = `Contact: ${body.name} (${body.company}) — ${body.interest || "General"}`;
     const text = [
-      "New demo request received:",
+      "New contact request received:",
       "",
       `Name: ${body.name}`,
       `Work Email: ${body.email}`,

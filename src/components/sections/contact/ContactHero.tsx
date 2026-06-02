@@ -12,10 +12,11 @@ export const ContactHero = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            Let's Start a Conversation
+            Let&apos;s start a conversation.
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Whether you're ready for a demo or just have a question, we're here to help.
+            Whether you want to run on the platform, explore the fund, or learn more about Aquon —
+            we&apos;re here.
           </p>
         </motion.div>
       </div>

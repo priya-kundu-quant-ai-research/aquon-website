@@ -15,25 +15,21 @@ export const Story = () => {
           className="max-w-6xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-12 text-center">
-            About Aquon Inc.
+            What we&apos;re building.
           </h2>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Story Content */}
             <div className="space-y-6 text-lg text-neutral-700 leading-relaxed">
               <p>
-                Aquon Inc. builds trustworthy optimization infrastructure for high-impact decision systems. 
-                We believe critical decisions from capital markets to energy grids to global supply chains deserve 
-                computational foundations designed for trust, not just speed.
+                Aquon operates as both a quantitative fund and a technology platform — running our own
+                systematic strategies through AQTF and commercializing the platform beneath them to
+                other emerging managers, family offices, and ETF issuers.
               </p>
               <p>
-                Our approach embeds correctness, auditability, and reproducibility directly into computation through Aqua, 
-                a new compiler class for decision systems. Our first product, Zeton, proves this technology in professional 
-                asset management, where performance and trust are non-negotiable.
-              </p>
-              <p>
-                Founded by quantitative researchers and engineers with deep experience in financial markets and compilers, 
-                we’re building the future of decision systems, one verified line of code at a time.
+                The reference model is BlackRock&apos;s Aladdin at institutional scale and Numerai at
+                venture pace: a credible operating fund anchoring a technology business beneath it,
+                each side reinforcing the other.
               </p>
             </div>
 

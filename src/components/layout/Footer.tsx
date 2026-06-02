@@ -11,7 +11,7 @@ export const Footer = () => {
               Aquon
             </h3>
             <p className="text-sm text-neutral-300">
-              The Operating System for Portfolio Management.
+              Aquon — a fund and a platform, built on the same engine.
             </p>
           </div>
 
@@ -31,16 +31,7 @@ export const Footer = () => {
                   Why Zeton
                 </Link>
               </li>
-              <li>
-                <Link href="/customers" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Customers
-                </Link>
-              </li>
-              {/* <li>
-                <Link href="/pricing" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Pricing
-                </Link>
-              </li> */}
+              {/* Customers — hidden until the first paid Zeton customer */}
             </ul>
           </div>
 

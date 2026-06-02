@@ -78,7 +78,7 @@ export const ContactForm = () => {
           <div className="lg:col-span-2">
             <Card className="border-neutral-200 h-full flex flex-col">
               <CardHeader>
-                <CardTitle className="text-2xl text-deep-navy">Schedule a Demo</CardTitle>
+                <CardTitle className="text-2xl text-deep-navy">Send us a message</CardTitle>
                 <p className="text-neutral-600">
                   Fill out the form below and we'll get back to you within 24 hours.
                 </p>
@@ -222,7 +222,7 @@ export const ContactForm = () => {
                       disabled={isSubmitting}
                       className="w-full bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold"
                     >
-                      {isSubmitting ? 'Sending...' : 'Schedule Demo'}
+                      {isSubmitting ? 'Sending...' : 'Send message'}
                       <Send className="ml-2 h-5 w-5" />
                     </Button>
                   </form>

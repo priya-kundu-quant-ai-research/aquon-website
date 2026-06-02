@@ -11,12 +11,12 @@ export const CompanyHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6">
-            About Aquon
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 max-w-4xl mx-auto">
+            A fund and a platform, built on the same engine.
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-            We're on a mission to transform portfolio management with verified, 
-            AI-powered technology.
+            Aquon is a deep-tech quant firm and an NYU research spin-off, building both sides of the
+            systematic-investing stack.
           </p>
         </motion.div>
       </div>
