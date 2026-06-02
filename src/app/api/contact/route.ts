@@ -8,6 +8,7 @@ type ContactPayload = {
   email: string;
   company: string;
   jobTitle: string;
+  interest?: string;
   aum?: string;
   message: string;
 };
@@ -45,6 +46,7 @@ export async function POST(req: Request) {
       `Work Email: ${body.email}`,
       `Company: ${body.company}`,
       `Job Title: ${body.jobTitle}`,
+      `Interest: ${body.interest || "(not provided)"}`,
       `AUM: ${body.aum || "(not provided)"}`,
       "",
       "Message:",

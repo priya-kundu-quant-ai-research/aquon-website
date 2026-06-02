@@ -14,6 +14,7 @@ export const ContactForm = () => {
     email: '',
     company: '',
     jobTitle: '',
+    interest: 'Platform access',
     aum: '',
     message: '',
   });
@@ -46,6 +47,7 @@ export const ContactForm = () => {
         email: "",
         company: "",
         jobTitle: "",
+        interest: "Platform access",
         aum: "",
         message: "",
       });
@@ -59,7 +61,9 @@ export const ContactForm = () => {
 };
 
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -163,6 +167,25 @@ export const ContactForm = () => {
                     </div>
 
                     <div>
+                      <label htmlFor="interest" className="block text-sm font-medium text-neutral-700 mb-2">
+                        I&apos;m interested in *
+                      </label>
+                      <select
+                        id="interest"
+                        name="interest"
+                        required
+                        value={formData.interest}
+                        onChange={handleChange}
+                        className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm"
+                      >
+                        <option value="Platform access">Platform access</option>
+                        <option value="AQTF pilot inquiry">AQTF pilot inquiry</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="General">General</option>
+                      </select>
+                    </div>
+
+                    <div>
                       <label htmlFor="aum" className="block text-sm font-medium text-neutral-700 mb-2">
                         AUM (Optional)
                       </label>
@@ -218,17 +241,8 @@ export const ContactForm = () => {
                     <Mail className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-deep-navy text-sm mb-1">General Inquiries</p>
-                      <a href="mailto:hello@aquon.com" className="text-vibrant-teal hover:underline text-sm">
+                      <a href="mailto:hello@aquon.ai" className="text-vibrant-teal hover:underline text-sm">
                         hello@aquon.ai
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 mb-8">
-                    <Mail className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-deep-navy text-sm mb-1">Sales Related</p>
-                      <a href="mailto:hello@aquon.com" className="text-vibrant-teal hover:underline text-sm">
-                        marketing@quant-ai-research.com
                       </a>
                     </div>
                   </div>
@@ -238,8 +252,7 @@ export const ContactForm = () => {
                     <MapPin className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-neutral-700 text-sm">
-                        370, Jay Street, NYU Tandon<br />
-                        7th Floor, Room TBD
+                        370 Jay Street, NYU Tandon<br />
                         Brooklyn, NY 11201<br />
                         United States
                       </p>

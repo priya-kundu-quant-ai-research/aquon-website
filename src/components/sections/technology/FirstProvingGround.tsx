@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { TrendingUp, DollarSign } from 'lucide-react';
+import { TrendingUp, Gauge } from 'lucide-react';
 
 export const FirstProvingGround = () => {
   const targetRef = useRef<HTMLElement | null>(null);
@@ -158,23 +158,23 @@ export const FirstProvingGround = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full px-4">
               <div className="bg-vibrant-teal rounded-2xl p-8 text-center shadow-2xl">
                 <TrendingUp className="w-12 h-12 text-white mx-auto mb-4" />
-                <div className="text-6xl font-bold text-white mb-2">60x</div>
+                <div className="text-6xl font-bold text-white mb-2">5&ndash;15&times;</div>
                 <div className="text-xl text-white/90 font-semibold mb-2">
-                  Faster Performance
+                  Faster Portfolio Optimization
                 </div>
                 <div className="text-sm text-white/70">
-                  Traditional: 10 hours. With AQUA: 10 minutes.
+                  End-to-end speedup on Zeton&apos;s 10-year backtest, with zero correctness regressions.
                 </div>
               </div>
 
               <div className="bg-deep-navy rounded-2xl p-8 text-center shadow-2xl">
-                <DollarSign className="w-12 h-12 text-vibrant-teal mx-auto mb-4" />
-                <div className="text-6xl font-bold text-white mb-2">$2.6M</div>
+                <Gauge className="w-12 h-12 text-vibrant-teal mx-auto mb-4" />
+                <div className="text-6xl font-bold text-white mb-2">1.3&ndash;1.9&times;</div>
                 <div className="text-xl text-white/90 font-semibold mb-2">
-                  Annual Savings
+                  Across General Workloads
                 </div>
                 <div className="text-sm text-white/70">
-                  Per firm, through efficiency and reduced headcount.
+                  Consistent acceleration on broader numerical computing, hardware-agnostic by design.
                 </div>
               </div>
             </div>

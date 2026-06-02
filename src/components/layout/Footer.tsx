@@ -73,8 +73,8 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Resources */}
-          <div>
+          {/* Column 4: Resources — hidden until a sanitized public Aqua Technical Brief exists */}
+          {/* <div>
             <h4 className="font-semibold text-white mb-4">
               Resources
             </h4>
@@ -94,13 +94,8 @@ export const Footer = () => {
                   Case Studies
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/docs" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Documentation
-                </Link>
-              </li> */}
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 5: Connect */}
           <div>

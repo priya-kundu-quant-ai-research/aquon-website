@@ -4,14 +4,42 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 
-const founder = {
-  name: 'Carlos de Oliveira',
-  role: 'Founder & CEO, Aquon',
-  credentials: ['Faculty @ NYU', 'ex-Fidelity, ex-BNY Mellon, ex-Ameritrade'],
-  image: '/images/carlos.png',
+type Person = {
+  name: string;
+  role: string;
+  credentials: string[];
+  image?: string;
 };
 
-const advisors = [
+const team: Person[] = [
+  {
+    name: 'Carlos de Oliveira',
+    role: 'Co-Founder, CIO & Portfolio Manager',
+    credentials: [
+      'PhD Mathematics, UC Berkeley · MBA, NYU Stern',
+      '25 yrs: Credit Suisse, BNY Mellon, TD Ameritrade, Fidelity',
+      'Adjunct Faculty, NYU Tandon',
+    ],
+    image: '/images/carlos.png',
+  },
+  {
+    name: 'Priya',
+    role: 'Co-Founder, Engineering & Operations',
+    credentials: ['Co-inventor of Aqua', 'NSF I-Corps program graduate'],
+  },
+  {
+    name: 'Nachiket',
+    role: 'Founding Engineer',
+    credentials: [],
+  },
+  {
+    name: 'Avina',
+    role: 'Founding Engineer',
+    credentials: [],
+  },
+];
+
+const advisors: Person[] = [
   {
     name: 'Willie Bass',
     role: 'Business Advisor, Aquon',
@@ -32,6 +60,14 @@ const advisors = [
   },
 ];
 
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
 export const Team = () => {
   return (
     <section className="py-12 bg-white">
@@ -48,72 +84,75 @@ export const Team = () => {
             Our Team
           </h2>
           <p className="text-neutral-600 text-base">
-            Led by experts in compiler technology, financial systems, and optimization
+            Building both sides of the systematic-investing stack — the fund and the platform.
           </p>
         </motion.div>
 
-        {/* Grid constrained to viewport */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:max-h-[70vh]">
-            
-            {/* Founder */}
+        {/* Team grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {team.map((person, index) => (
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={person.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="border-neutral-200 h-full">
-                <CardContent className="p- flex flex-col items-center text-center gap-4">
-                  
-                  {/* Portrait image – capped */}
-                  <div className="relative w-full max-w-[320px] h-[320px] rounded-2xl overflow-hidden bg-neutral-100">
-                    <Image
-                      src={founder.image}
-                      alt={founder.name}
-                      fill
-                      sizes="320px"
-                      className="object-cover object-top"
-                      priority
-                    />
+                <CardContent className="flex flex-col items-center text-center gap-4">
+                  <div className="relative w-full max-w-[220px] aspect-square rounded-2xl overflow-hidden bg-neutral-100 flex items-center justify-center">
+                    {person.image ? (
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        sizes="220px"
+                        className="object-cover object-top"
+                      />
+                    ) : (
+                      <span className="text-4xl font-bold text-deep-navy/40">
+                        {initials(person.name)}
+                      </span>
+                    )}
                   </div>
-
                   <div>
-                    <h3 className="text-xl font-bold text-deep-navy mb-0.5">
-                      {founder.name}
+                    <h3 className="text-lg font-bold text-deep-navy mb-0.5">
+                      {person.name}
                     </h3>
-                    <p className="text-vibrant-teal font-semibold mb-1.5">
-                      {founder.role}
+                    <p className="text-vibrant-teal font-semibold text-sm mb-1.5">
+                      {person.role}
                     </p>
                     <div className="space-y-0.5">
-                      {founder.credentials.map((cred, idx) => (
+                      {person.credentials.map((cred, idx) => (
                         <p key={idx} className="text-neutral-600 text-xs">
                           {cred}
                         </p>
                       ))}
                     </div>
                   </div>
-
                 </CardContent>
               </Card>
             </motion.div>
+          ))}
+        </div>
 
-            {/* Advisors */}
-            <div className="flex flex-col gap-4">
-              {advisors.map((advisor, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card className="border-neutral-200">
-                    <CardContent className="p-3">
-                      <div className="flex items-center gap-3">
-                        
-                        {/* Fixed thumbnail */}
-                        <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-neutral-100 flex-shrink-0">
+        {/* Advisors */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-center text-xl font-bold text-deep-navy mb-6">Advisors</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {advisors.map((advisor, index) => (
+              <motion.div
+                key={advisor.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="border-neutral-200 h-full">
+                  <CardContent className="p-3">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-neutral-100 flex-shrink-0">
+                        {advisor.image ? (
                           <Image
                             src={advisor.image}
                             alt={advisor.name}
@@ -121,34 +160,35 @@ export const Team = () => {
                             sizes="96px"
                             className="object-cover object-top"
                           />
-                        </div>
-
-                        <div>
-                          <h3 className="text-base font-bold text-deep-navy leading-tight">
-                            {advisor.name}
-                          </h3>
-                          <p className="text-vibrant-teal font-semibold text-xs mt-1">
-                            {advisor.role}
-                          </p>
-                          <div className="mt-0.5 space-y-0.5">
-                            {advisor.credentials.map((cred, idx) => (
-                              <p
-                                key={idx}
-                                className="text-neutral-600 text-xs leading-tight"
-                              >
-                                {cred}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-
+                        ) : (
+                          <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-deep-navy/40">
+                            {initials(advisor.name)}
+                          </span>
+                        )}
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-
+                      <div>
+                        <h3 className="text-base font-bold text-deep-navy leading-tight">
+                          {advisor.name}
+                        </h3>
+                        <p className="text-vibrant-teal font-semibold text-xs mt-1">
+                          {advisor.role}
+                        </p>
+                        <div className="mt-0.5 space-y-0.5">
+                          {advisor.credentials.map((cred, idx) => (
+                            <p
+                              key={idx}
+                              className="text-neutral-600 text-xs leading-tight"
+                            >
+                              {cred}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

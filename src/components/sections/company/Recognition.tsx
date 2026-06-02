@@ -2,23 +2,15 @@
 
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Award, Trophy, Landmark } from 'lucide-react';
+import { Award, Trophy, Landmark, Rocket } from 'lucide-react';
 
 const awards = [
   {
-    icon: Award,
-    title: 'NYU Tech Venture',
-    subtitle: 'Spring 2025',
-    description: 'Best Poster Award recognizing early research potential across NYU Entrepreneurial Lab..',
-    amount: '$2,000',
-    color: 'from-cyan-500 to-cyan-600',
-  },
-  {
     icon: Landmark,
     title: 'NSF I-Corps',
-    subtitle: 'APPROVED',
-    description: 'National Science Foundation Programs Approved. DoD Research Grant Application in progress.',
-    label: '$50,000',
+    subtitle: 'Federal Program',
+    description: 'National Science Foundation customer-discovery program.',
+    amount: '$50,000',
     color: 'from-yellow-500 to-yellow-600',
   },
   {
@@ -28,6 +20,22 @@ const awards = [
     description: 'Technology, Acceleration, and Commercialization Award for product viability.',
     amount: '$65,000',
     color: 'from-pink-500 to-pink-600',
+  },
+  {
+    icon: Rocket,
+    title: 'NYU Summer Launchpad',
+    subtitle: 'Summer 2026 Cohort',
+    description: 'Selective accelerator supporting early-stage NYU ventures.',
+    amount: '$15,000',
+    color: 'from-vibrant-teal to-cyan-600',
+  },
+  {
+    icon: Award,
+    title: 'NYU Tech Venture',
+    subtitle: 'Spring 2025',
+    description: 'Tech Venture Poster Competition recognizing early research potential.',
+    amount: '$2,000',
+    color: 'from-cyan-500 to-cyan-600',
   },
 ];
 
@@ -46,11 +54,11 @@ export const Recognition = () => {
             Recognition & Momentum
           </h2>
           <p className="text-deep-navy text-xl font-semibold">
-            Validated by Leading Innovation Programs
+            ~$132,000 in non-dilutive recognition across four competitive selection processes.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {awards.map((award, index) => {
             const IconComponent = award.icon;
             return (
@@ -74,9 +82,6 @@ export const Recognition = () => {
                         {award.amount}
                       </p>
                     )}
-                    {award.label && (
-                      <p className="text-yellow-600 font-bold text-4xl">{award.label}</p>
-                    )}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -89,7 +94,7 @@ export const Recognition = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="md:col-span-3 max-w-5xl mx-auto bg-gradient-to-r from-vibrant-teal/5 to-rich-purple/5 rounded-2xl p-8 border border-vibrant-teal/20"
+                className="md:col-span-2 lg:col-span-4 max-w-5xl mx-auto bg-gradient-to-r from-vibrant-teal/5 to-rich-purple/5 rounded-2xl p-8 border border-vibrant-teal/20"
               >
                 <div className="text-center">
                   <h3 className="text-2xl font-bold text-deep-navy mb-4">

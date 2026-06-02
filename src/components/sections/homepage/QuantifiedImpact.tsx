@@ -26,7 +26,7 @@ const benchmarks = [
       totalReturn: { zeton: 1588.55, benchmark: 485.93 },
       cagr: { zeton: 32.66, benchmark: 19.14 },
       sharpe: { zeton: 1.151, benchmark: 0.772 },
-      maxDrawdown: { zeton: -20.69, benchmark: -35.12 },
+      maxDrawdown: { zeton: -55.07, benchmark: -35.10 },
     },
   },
   {
@@ -37,7 +37,7 @@ const benchmarks = [
       totalReturn: { zeton: 782.44, benchmark: 145.49 },
       cagr: { zeton: 24.33, benchmark: 9.30 },
       sharpe: { zeton: 1.050, benchmark: 0.330 },
-      maxDrawdown: { zeton: -20.69, benchmark: -38.45 },
+      maxDrawdown: { zeton: -28.63, benchmark: -41.39 },
     },
   },
   {
@@ -48,7 +48,7 @@ const benchmarks = [
       totalReturn: { zeton: 716.51, benchmark: 184.92 },
       cagr: { zeton: 23.37, benchmark: 10.93 },
       sharpe: { zeton: 1.086, benchmark: 0.460 },
-      maxDrawdown: { zeton: -20.69, benchmark: -31.87 },
+      maxDrawdown: { zeton: -26.08, benchmark: -34.85 },
     },
   },
 ];
@@ -56,6 +56,11 @@ const benchmarks = [
 export const QuantifiedImpact = () => {
   const [selectedBenchmark, setSelectedBenchmark] = useState('sp500');
   const currentBenchmark = benchmarks.find(b => b.id === selectedBenchmark) || benchmarks[0];
+  // Honesty guardrail: only claim "less downside" when the optimizer's drawdown is
+  // genuinely shallower than the benchmark's (it is not on the NASDAQ 100 tab).
+  const ddOptimizer = currentBenchmark.metrics.maxDrawdown.zeton;
+  const ddBenchmark = currentBenchmark.metrics.maxDrawdown.benchmark;
+  const optimizerLessDownside = Math.abs(ddOptimizer) < Math.abs(ddBenchmark);
 
   return (
     <section className="py-20 bg-white">
@@ -69,12 +74,14 @@ export const QuantifiedImpact = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
-            Validated by a Decade of Data
+            Validated over a decade. Proven in live markets.
           </h2>
-          {/* <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
-            Historical backtesting demonstrates how our optimization framework improves return 
-            generation and portfolio efficiency relative to passive index exposure.
-          </p> */}
+          <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+            The Zeton optimizer was backtested over a 10-year horizon against major US indices,
+            rebalancing weekly under a max-Sharpe objective. Against the S&amp;P 500, the optimized
+            portfolio delivered materially stronger risk-adjusted returns — and it now runs live on
+            Interactive Brokers, where we&apos;re building the real track record quarter by quarter.
+          </p>
         </motion.div>
 
         {/* Benchmark Selector */}
@@ -241,9 +248,15 @@ export const QuantifiedImpact = () => {
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-neutral-200">
-                <p className="text-sm font-semibold text-green-500">
-                  {Math.abs(currentBenchmark.metrics.maxDrawdown.benchmark - currentBenchmark.metrics.maxDrawdown.zeton).toFixed(2)}% less downside risk
-                </p>
+                {optimizerLessDownside ? (
+                  <p className="text-sm font-semibold text-green-500">
+                    {Math.abs(ddBenchmark - ddOptimizer).toFixed(2)}% less downside risk
+                  </p>
+                ) : (
+                  <p className="text-sm font-semibold text-neutral-500">
+                    Deeper drawdown than the index over this period
+                  </p>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -286,16 +299,24 @@ export const QuantifiedImpact = () => {
           </div>
         </motion.div>
 
-        {/* Bottom tagline */}
-        <motion.p
+        {/* Methodology line + backtest disclaimer */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="text-center text-xl font-semibold text-deep-navy mt-12"
+          className="max-w-5xl mx-auto mt-12 text-center"
         >
-          Portfolio quality that speaks for itself.
-        </motion.p>
+          <p className="text-xs text-neutral-500">
+            10-year walk-forward backtest · $100,000 initial capital · weekly rebalance ·
+            max-Sharpe objective · 4% risk-free rate · 525 weeks analyzed.
+          </p>
+          <p className="text-[11px] leading-relaxed text-neutral-400 mt-3 italic">
+            Hypothetical backtested results. Backtested performance is hypothetical, does not reflect
+            actual trading, and is not indicative of future results. Live results reflect a limited
+            period. Capital is at risk.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

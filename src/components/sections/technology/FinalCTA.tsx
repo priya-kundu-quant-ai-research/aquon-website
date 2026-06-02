@@ -42,22 +42,6 @@ export const TechnologyFinalCTA = () => {
                 </Button>
             </Link>
           </div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-12 pt-8 border-t border-white/10"
-          >
-            <p className="text-white/60 text-sm mb-4">Trusted by leading investment firms</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 text-white/40 text-sm">
-              <span>✓ SOC 2 Compliant</span>
-              <span>✓ Bank-Grade Security</span>
-              <span>✓ 99.9% Uptime</span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
