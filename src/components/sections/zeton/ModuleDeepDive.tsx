@@ -2,15 +2,16 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
-import { Target, Zap, Eye, Check } from 'lucide-react';
+import { Target, Zap, Eye, MessageSquare, Check } from 'lucide-react';
 
 const modules = [
   {
     id: 'z-scope',
     name: 'Z-Scope',
     tagline: 'Portfolio Intelligence',
+    status: 'live',
     description:
-      'Design winning strategies faster than ever with AI-powered portfolio construction and rigorous backtesting.',
+      'Portfolio construction and optimization, backtesting, drift monitoring, and full re-optimization rebalancing — with plan review and approval, institutional risk analytics, and versioning for a complete audit trail.',
     icon: Target,
     accent: {
       text: 'text-vibrant-teal',
@@ -18,16 +19,18 @@ const modules = [
       bgSoft: 'bg-vibrant-teal/10',
     },
     features: [
-      { title: 'AI-Powered Construction', description: 'Build optimal portfolios with machine learning assistance' },
-      { title: 'Formal Verification', description: 'Mathematically verify strategy behavior before deployment' },
-      { title: 'Advanced Backtesting', description: '10+ years of historical data with transaction cost modeling' },
+      { title: 'Construction & optimization', description: 'Build and optimize portfolios, then backtest before deployment' },
+      { title: 'Rebalancing with oversight', description: 'Full re-optimization rebalancing with plan review and approval' },
+      { title: 'Institutional risk analytics', description: 'Sharpe, VaR, volatility, and max drawdown, with full versioning' },
     ],
   },
   {
     id: 'z-strike',
     name: 'Z-Strike',
-    tagline: 'Execution Engine',
-    description: 'Execute trades with precision and document every basis point of execution alpha you capture.',
+    tagline: 'Execution Intelligence',
+    status: 'live',
+    description:
+      'Broker-agnostic execution, live on Interactive Brokers, with order slicing, real-time fill monitoring, cost and slippage simulation, and full trade history.',
     icon: Zap,
     accent: {
       text: 'text-rich-purple',
@@ -35,16 +38,18 @@ const modules = [
       bgSoft: 'bg-rich-purple/10',
     },
     features: [
-      { title: 'Smart Order Routing', description: 'Automatically find the best execution venues' },
-      { title: 'ZWAP & VWAP', description: 'Proprietary algorithms that outperform market benchmarks' },
-      { title: 'Real-Time Analytics', description: 'Track and document execution performance live' },
+      { title: 'Broker-agnostic, live on IBKR', description: 'Order slicing with real-time fill monitoring and full trade history' },
+      { title: 'Cost & slippage simulation', description: 'Model execution cost before you commit capital' },
+      { title: 'VWAP, TWAP & ZWAP', description: 'Standard algorithms plus Aquon’s proprietary ZWAP' },
     ],
   },
   {
     id: 'z-sight',
     name: 'Z-Sight',
-    tagline: 'Market AI',
-    description: 'Never miss an opportunity or risk with 24/7 AI-powered market monitoring and analysis.',
+    tagline: 'Market Intelligence',
+    status: 'in development',
+    description:
+      'News aggregation, sentiment, technical and fundamental analysis, and instrument-level research reports.',
     icon: Eye,
     accent: {
       text: 'text-gold',
@@ -52,9 +57,28 @@ const modules = [
       bgSoft: 'bg-gold/10',
     },
     features: [
-      { title: 'Regime Detection', description: 'Identify market regime shifts before they impact performance' },
-      { title: 'Anomaly Alerts', description: 'Get notified of unusual market behavior instantly' },
-      { title: 'Continuous Intelligence', description: 'Real-time data analysis across all your positions' },
+      { title: 'News & sentiment', description: 'Aggregated financial news with sentiment analysis' },
+      { title: 'Technical & fundamental', description: 'Combined technical and fundamental analysis' },
+      { title: 'Research reports', description: 'Instrument-level research at your fingertips' },
+    ],
+  },
+  {
+    id: 'zee',
+    name: 'Zee',
+    tagline: 'AI Copilot',
+    status: 'in development',
+    description:
+      'A conversational assistant across the platform that explains, recommends, and pre-fills actions.',
+    icon: MessageSquare,
+    accent: {
+      text: 'text-deep-navy',
+      border: 'border-deep-navy',
+      bgSoft: 'bg-deep-navy/10',
+    },
+    features: [
+      { title: 'Explains', description: 'Answers questions about your portfolios and the platform' },
+      { title: 'Recommends', description: 'Surfaces next-best actions in context' },
+      { title: 'Pre-fills actions', description: 'Drafts the workflow so you just review and approve' },
     ],
   },
 ];
@@ -63,10 +87,28 @@ export const ModuleDeepDive = () => {
   return (
     <section className="py-20 bg-light-gray">
       <div className="container mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
+            Five workflows. One platform.
+          </h2>
+          <p className="text-neutral-600 text-lg">
+            Zeton is organized as intelligence domains — each owning a stage of the investment
+            workflow, from construction through execution and oversight.
+          </p>
+        </motion.div>
+
         <div className="space-y-32">
           {modules.map((module, index) => {
             const IconComponent = module.icon;
             const isEven = index % 2 === 0;
+            const isLive = module.status === 'live';
 
             return (
               <motion.div
@@ -95,7 +137,19 @@ export const ModuleDeepDive = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-4xl font-bold text-deep-navy">{module.name}</h3>
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-4xl font-bold text-deep-navy">{module.name}</h3>
+                          <span
+                            className={[
+                              'text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full border',
+                              isLive
+                                ? 'text-vibrant-teal border-vibrant-teal/40 bg-vibrant-teal/10'
+                                : 'text-neutral-500 border-neutral-300 bg-neutral-100',
+                            ].join(' ')}
+                          >
+                            {isLive ? 'Live' : 'In development'}
+                          </span>
+                        </div>
                         <p className={`${module.accent.text} font-semibold`}>{module.tagline}</p>
                       </div>
                     </div>
@@ -126,14 +180,11 @@ export const ModuleDeepDive = () => {
                   {/* Visual */}
                   <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
                     <Card className="bg-white border-neutral-200">
-                      {/* ✅ RESIZE THE HUGE WHITE BOX HERE: change p-8 (and optionally max-w) */}
                       <CardContent className="p-4">
-                        {/* Optional: cap the card size on large screens */}
                         <div className="mx-auto max-w-sm">
                           <div className="aspect-square flex items-center justify-center">
                             <IconComponent
                               className={module.accent.text}
-                              // ✅ icon size (also affects perceived box size)
                               size={160}
                               strokeWidth={0.5}
                             />
@@ -147,6 +198,23 @@ export const ModuleDeepDive = () => {
             );
           })}
         </div>
+
+        {/* Body footer */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mt-24 bg-white rounded-2xl p-8 border border-neutral-200"
+        >
+          <p className="text-neutral-700 leading-relaxed text-center">
+            Multi-client capital management — ownership, injections and withdrawals, and a full
+            capital-events ledger — and an optional market-neutral ETF short hedge are built in. The
+            platform runs on a modular, containerized microservices architecture, is broker-agnostic
+            by design, and is built on a multi-asset data model — equities today, with the foundation
+            already in place to extend to additional asset classes.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

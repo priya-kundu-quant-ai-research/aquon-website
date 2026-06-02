@@ -55,13 +55,14 @@ export const IntroducingZeton = () => {
           className="mx-auto mb-8 max-w-3xl text-center"
         >
           <p className="mb-2 text-md font-semibold uppercase tracking-[0.24em] text-deep-navy">
-            Introducing Zeton
+            Zeton in brief
           </p>
           <h2 className="text-4xl font-bold tracking-tight text-deep-navy md:text-5xl">
-            An "All in One platform"
+            The investment operating system.
           </h2>
           <p className="mt-3 text-base leading-7 text-deep-navy">
-            Zeton unifies portfolio design, market intelligence, and trade execution into one unified workflow.
+            Zeton consolidates the full workflow — construct, analyze, rebalance, execute, oversee —
+            into one platform, organized as intelligence domains.
           </p>
         </motion.div>
 
@@ -124,7 +125,7 @@ export const IntroducingZeton = () => {
               <CardContent className="p- md:p-">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-deep-navy bg-deep-navy/[0.03] px-3 py-1.5 text-md font-medium text-deep-navy">
                   <Sparkles size={14} className="text-vibrant-teal" />
-                  AI-Powered Navigation
+                  Zee — AI Copilot
                 </div>
 
                 <div className="flex items-start gap-4">

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export const ZetonHero = () => {
   return (
@@ -19,13 +20,22 @@ export const ZetonHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6">
-            The Zeton Platform
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 max-w-4xl mx-auto">
+            The investment operating system for the managers the giants can&apos;t serve.
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-            A unified operating system for portfolio management that combines intelligence, 
-            execution, and insight into one seamless workflow.
+            Construct, analyze, rebalance, execute, and oversee — one platform, broker-agnostic,
+            AI-native.
           </p>
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold px-8 py-6 text-lg"
+            >
+              Request platform access
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
