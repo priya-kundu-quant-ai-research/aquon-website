@@ -12,7 +12,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { href: '/zeton', label: 'Platform' },
-  { href: '/why-zeton', label: 'Why Zeton' },
+  { href: '/fund', label: 'Fund' },
   { href: '/technology', label: 'Technology' },
   { href: '/company', label: 'Company' },
 ];

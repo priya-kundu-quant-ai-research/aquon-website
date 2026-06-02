@@ -44,6 +44,20 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Column: Fund */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">
+              Fund
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/fund" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
+                  AQTF
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Column 3: Company */}
           <div>
             <h4 className="font-semibold text-white mb-4">
