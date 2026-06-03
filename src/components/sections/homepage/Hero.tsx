@@ -79,7 +79,7 @@ export const Hero = () => {
               Talk to our team
             </Button>
           </Link>
-          <Link href="/zeton" className="cursor-pointer">
+          <Link href="/zeton#overview-video" className="cursor-pointer">
             <Button
               size="lg"
               variant="outline"

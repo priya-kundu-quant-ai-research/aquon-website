@@ -113,7 +113,7 @@ export const AquaFinancialComputing = () => {
               The principles behind Aqua generalize beyond finance; finance is where we prove them
               first.
             </p>
-            <Link href="/zeton">
+            <Link href="/zeton#overview-video">
               <Button
                 variant="outline"
                 size="lg"

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { ZetonHero } from '@/components/sections/zeton/ZetonHero';
+import { ZetonMeetZeton } from '@/components/sections/zeton/ZetonMeetZeton';
 import { UnifiedWorkflow } from '@/components/sections/zeton/UnifiedWorkflow';
 import { ModuleDeepDive } from '@/components/sections/zeton/ModuleDeepDive';
 import {
-  ZetonProblem,
   ZetonValueProp,
   ZetonMarket,
   ZetonProofPoint,
@@ -20,8 +20,8 @@ export default function ZetonPage() {
   return (
     <div className="pt-20">
       <ZetonHero />
+      <ZetonMeetZeton />
       <UnifiedWorkflow />
-      <ZetonProblem />
       <ModuleDeepDive />
       <ZetonValueProp />
       <ZetonMarket />

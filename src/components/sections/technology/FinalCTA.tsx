@@ -31,13 +31,13 @@ export const TechnologyFinalCTA = () => {
                 Talk to Our Team
                 </Button>
             </Link>
-            <Link href="/zeton" className="cursor-pointer">
-                <Button 
-                size="lg" 
-                variant="outline" 
+            <Link href="/zeton#overview-video" className="cursor-pointer">
+                <Button
+                size="lg"
+                variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-deep-navy font-semibold px-8 py-6 text-lg"
                 >
-                Explore ZETON
+                Explore the platform
                 <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
             </Link>
