@@ -43,23 +43,15 @@ function AquaMotif({ reduced }: { reduced: boolean }) {
     <svg
       viewBox="0 0 200 120"
       aria-hidden="true"
-      className="w-full max-w-[220px] mx-auto"
+      className="w-full"
     >
-      {/* Waveform / sine-like lattice */}
       {[0, 1, 2, 3].map((row) => (
         <g key={row} opacity={0.6 - row * 0.1}>
           {[0, 1, 2, 3, 4, 5, 6].map((col) => {
             const cx = col * 30 + 10;
             const cy = 20 + row * 25 + Math.sin((col + row) * 0.8) * 8;
             return (
-              <circle
-                key={col}
-                cx={cx}
-                cy={cy}
-                r={reduced ? 4 : 3}
-                fill="#1DBFBF"
-                opacity={0.7}
-              >
+              <circle key={col} cx={cx} cy={cy} r={3} fill="#1DBFBF" opacity={0.7}>
                 {!reduced && (
                   <animate
                     attributeName="cy"
@@ -74,7 +66,6 @@ function AquaMotif({ reduced }: { reduced: boolean }) {
           })}
         </g>
       ))}
-      {/* Connecting lines */}
       <polyline
         points="10,30 40,22 70,35 100,18 130,28 160,20 190,32"
         fill="none"
@@ -87,68 +78,103 @@ function AquaMotif({ reduced }: { reduced: boolean }) {
 }
 
 function ZetonMotif({ reduced }: { reduced: boolean }) {
-  const panels = [
-    { x: 20, y: 10, w: 70, h: 40, label: 'Construct' },
-    { x: 110, y: 10, w: 70, h: 40, label: 'Execute' },
-    { x: 20, y: 65, w: 70, h: 40, label: 'Monitor' },
-    { x: 110, y: 65, w: 70, h: 40, label: 'Oversee' },
+  // Layout (viewBox 0 0 200 188):
+  //   Construct at top centre
+  //   Curved arrow down into Execute (left)
+  //   Execute → Monitor → Optimize → Execute  (clockwise triangle loop)
+
+  const construct = { x: 60, y: 5, w: 80, h: 30, cx: 100, cy: 20 };
+  const execute   = { x: 5,  y: 78, w: 75, h: 30, cx: 42,  cy: 93 };
+  const monitor   = { x: 120, y: 78, w: 75, h: 30, cx: 157, cy: 93 };
+  const optimize  = { x: 60, y: 148, w: 80, h: 30, cx: 100, cy: 163 };
+
+  const boxes = [
+    { ...construct, label: 'Construct', delay: 0 },
+    { ...execute,   label: 'Execute',   delay: 0.3 },
+    { ...monitor,   label: 'Monitor',   delay: 0.6 },
+    { ...optimize,  label: 'Optimize',  delay: 0.9 },
   ];
+
   return (
-    <svg viewBox="0 0 200 120" aria-hidden="true" className="w-full max-w-[220px] mx-auto">
-      {panels.map((p, i) => (
-        <g key={i}>
+    <svg viewBox="0 0 200 188" aria-hidden="true" className="w-full">
+      <defs>
+        <marker id="zeton-arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#1DBFBF" opacity="0.7" />
+        </marker>
+      </defs>
+
+      {/* Boxes */}
+      {boxes.map((b) => (
+        <g key={b.label}>
           <rect
-            x={p.x}
-            y={p.y}
-            width={p.w}
-            height={p.h}
-            rx={6}
-            fill="none"
+            x={b.x} y={b.y} width={b.w} height={b.h} rx={6}
+            fill={b.label === 'Construct' ? '#1DBFBF' : 'none'}
+            fillOpacity={b.label === 'Construct' ? 0.12 : 0}
             stroke="#1DBFBF"
             strokeWidth="1.5"
-            strokeOpacity={reduced ? 0.5 : 0.4}
+            strokeOpacity={reduced ? 0.6 : 0.5}
           >
             {!reduced && (
               <animate
                 attributeName="stroke-opacity"
-                values="0.3;0.7;0.3"
-                dur={`${2 + i * 0.4}s`}
+                values="0.3;0.8;0.3"
+                dur={`${2 + b.delay}s`}
                 repeatCount="indefinite"
-                begin={`${i * 0.3}s`}
+                begin={`${b.delay}s`}
               />
             )}
           </rect>
           <text
-            x={p.x + p.w / 2}
-            y={p.y + p.h / 2 + 4}
-            textAnchor="middle"
-            fontSize="9"
-            fill="#0D3D4D"
-            fontFamily="sans-serif"
-            opacity="0.7"
+            x={b.cx} y={b.cy + 4}
+            textAnchor="middle" fontSize="9" fontWeight={b.label === 'Construct' ? 'bold' : 'normal'}
+            fill="#0D3D4D" fontFamily="sans-serif" opacity="0.8"
           >
-            {p.label}
+            {b.label}
           </text>
         </g>
       ))}
+
+      {/* Construct → Execute (curved arrow) */}
+      <path
+        d={`M ${construct.cx},${construct.y + construct.h} C ${construct.cx},55 ${execute.cx},55 ${execute.cx},${execute.y}`}
+        fill="none" stroke="#1DBFBF" strokeWidth="1.2" strokeOpacity="0.5"
+        markerEnd="url(#zeton-arr)"
+      />
+
+      {/* Execute → Monitor (horizontal) */}
+      <line
+        x1={execute.x + execute.w} y1={execute.cy}
+        x2={monitor.x} y2={monitor.cy}
+        stroke="#1DBFBF" strokeWidth="1.2" strokeOpacity="0.5"
+        markerEnd="url(#zeton-arr)"
+      />
+
+      {/* Monitor → Optimize (curved down-left) */}
+      <path
+        d={`M ${monitor.cx},${monitor.y + monitor.h} C ${monitor.cx},130 ${optimize.x + optimize.w},130 ${optimize.x + optimize.w},${optimize.y}`}
+        fill="none" stroke="#1DBFBF" strokeWidth="1.2" strokeOpacity="0.5"
+        markerEnd="url(#zeton-arr)"
+      />
+
+      {/* Optimize → Execute (curved up-left, closing the loop) */}
+      <path
+        d={`M ${optimize.x},${optimize.cy} C ${execute.cx},${optimize.cy} ${execute.cx},130 ${execute.cx},${execute.y + execute.h}`}
+        fill="none" stroke="#1DBFBF" strokeWidth="1.2" strokeOpacity="0.5"
+        markerEnd="url(#zeton-arr)"
+      />
     </svg>
   );
 }
 
 function AqtfMotif({ reduced }: { reduced: boolean }) {
   const points = [10, 40, 55, 30, 75, 50, 105, 25, 135, 45, 165, 20, 190, 35];
-  const pathD = `M ${points[0]},${points[1]} ` +
-    points.slice(2).reduce((acc, v, i) => i % 2 === 0 ? acc + ` L ${v},` : acc + `${v}`, '');
+  const pathD =
+    `M ${points[0]},${points[1]} ` +
+    points.slice(2).reduce((acc, v, i) => (i % 2 === 0 ? acc + ` L ${v},` : acc + `${v}`), '');
 
   return (
-    <svg viewBox="0 0 200 80" aria-hidden="true" className="w-full max-w-[220px] mx-auto">
-      {/* Shaded area under line */}
-      <path
-        d={`${pathD} L 190,80 L 10,80 Z`}
-        fill="#1DBFBF"
-        fillOpacity="0.1"
-      />
-      {/* Main line */}
+    <svg viewBox="0 0 200 80" aria-hidden="true" className="w-full">
+      <path d={`${pathD} L 190,80 L 10,80 Z`} fill="#1DBFBF" fillOpacity="0.1" />
       <path
         d={pathD}
         fill="none"
@@ -158,17 +184,11 @@ function AqtfMotif({ reduced }: { reduced: boolean }) {
         strokeLinejoin="round"
       >
         {!reduced && (
-          <animate
-            attributeName="stroke-dashoffset"
-            values="400;0"
-            dur="1.5s"
-            fill="freeze"
-          />
+          <animate attributeName="stroke-dashoffset" values="400;0" dur="1.5s" fill="freeze" />
         )}
       </path>
-      {/* Target level */}
       <line x1="10" y1="15" x2="190" y2="15" stroke="#8B3FBF" strokeWidth="1" strokeDasharray="4 3" strokeOpacity="0.4" />
-      <text x="195" y="18" fontSize="7" fill="#8B3FBF" fontFamily="sans-serif" opacity="0.6">$250M</text>
+      <text x="192" y="18" fontSize="7" fill="#8B3FBF" fontFamily="sans-serif" opacity="0.6">$250M</text>
     </svg>
   );
 }
@@ -184,7 +204,7 @@ export const ThreePillars = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        {/* Header */}
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -199,11 +219,7 @@ export const ThreePillars = () => {
         </motion.div>
 
         {/* Segmented control */}
-        <div
-          className="flex justify-center mb-8"
-          role="tablist"
-          aria-label="Product pillars"
-        >
+        <div className="flex justify-center mb-10" role="tablist" aria-label="Product pillars">
           <div className="flex gap-2 p-1 bg-neutral-100 rounded-xl">
             {pillars.map((p, i) => (
               <button
@@ -225,7 +241,7 @@ export const ThreePillars = () => {
           </div>
         </div>
 
-        {/* Content stage */}
+        {/* Content stage: graphic left, copy right */}
         <div
           id={`pillar-panel-${pillar.id}`}
           role="tabpanel"
@@ -238,22 +254,29 @@ export const ThreePillars = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={reduced ? { opacity: 1 } : { opacity: 0, y: -8 }}
               transition={{ duration: reduced ? 0 : 0.25 }}
-              className="max-w-xl mx-auto text-center"
+              className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
             >
-              <div className="mb-6">
+              {/* Left: motif */}
+              <div className="flex items-center justify-center">
                 <Motif reduced={reduced} />
               </div>
-              <h3 className="text-2xl font-bold text-deep-navy mb-3">{pillar.title}</h3>
-              <p className="text-neutral-600 text-lg leading-relaxed mb-6">{pillar.copy}</p>
-              <Link href={pillar.href}>
-                <Button
-                  size="lg"
-                  className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold"
-                >
-                  {pillar.cta}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+
+              {/* Right: title, copy, CTA */}
+              <div className="flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-deep-navy mb-3">{pillar.title}</h3>
+                <p className="text-neutral-600 text-lg leading-relaxed mb-6">{pillar.copy}</p>
+                <div>
+                  <Link href={pillar.href}>
+                    <Button
+                      size="lg"
+                      className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold"
+                    >
+                      {pillar.cta}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
