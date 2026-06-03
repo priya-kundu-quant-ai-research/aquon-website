@@ -4,9 +4,9 @@ import { ROICalculator } from '@/components/sections/why-zeton/ROICalculator';
 import { FinalCTA } from '@/components/sections/homepage/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'Why Zeton — your workflow, transformed',
+  title: 'Why Zeton: your workflow, transformed',
   description:
-    'Where the hours go today — and where Zeton gives them back. A workflow comparison for emerging managers.',
+    'Where the hours go today, and where Zeton gives them back. A workflow comparison for emerging managers.',
 };
 
 export default function WhyZetonPage() {

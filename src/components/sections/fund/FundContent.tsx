@@ -19,7 +19,7 @@ export const FundContent = () => {
               We eat our own cooking.
             </h2>
             <p className="text-neutral-600 text-lg leading-relaxed">
-              AQTF (the Aquon Traded Fund) is our own systematic strategy — and the most
+              AQTF (the Aquon Traded Fund) is our own systematic strategy and the most
               demanding customer of our own technology. It is optimized equity portfolios
               benchmarked against major US indices (NASDAQ-100 and Dow Jones), paired with
               ETF-based short hedges to neutralize market exposure, rebalanced weekly, and
@@ -46,7 +46,7 @@ export const FundContent = () => {
             <p className="text-neutral-600 text-lg leading-relaxed">
               A platform is only as believable as the capital that trusts it. AQTF runs real
               money, live, on the same system we license to other managers. Its track record is
-              being built openly over the coming quarters — and every trading day it extends that
+              being built openly over the coming quarters, and every trading day it extends that
               record, it strengthens the case for the platform beneath it.
             </p>
           </motion.div>
@@ -70,7 +70,7 @@ export const FundContent = () => {
               We&apos;re building AQTF toward <span className="font-semibold text-deep-navy">$250M
               in assets under management</span>, growing through a disciplined founding-client
               cohort sourced from a deep institutional network. As the strategy formalizes, we
-              expect to move toward a registered structure — most likely a private fund or a
+              expect to move toward a registered structure, most likely a private fund or a
               publicly listed ETF wrapper.
             </p>
           </motion.div>

@@ -24,8 +24,8 @@ export const ZetonHero = () => {
             The investment operating system for the managers the giants can&apos;t serve.
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-            Construct, analyze, rebalance, execute, and oversee — one platform, broker-agnostic,
-            AI-native.
+            Construct, analyze, rebalance, execute, and oversee. One platform, broker-agnostic
+            and AI-native.
           </p>
           <Link href="/contact">
             <Button

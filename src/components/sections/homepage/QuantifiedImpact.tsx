@@ -79,7 +79,7 @@ export const QuantifiedImpact = () => {
           <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
             The Zeton optimizer was backtested over a 10-year horizon against major US indices,
             rebalancing weekly under a max-Sharpe objective. Against the S&amp;P 500, the optimized
-            portfolio delivered materially stronger risk-adjusted returns — and it now runs live on
+            portfolio delivered materially stronger risk-adjusted returns, and it now runs live on
             Interactive Brokers, where we&apos;re building the real track record quarter by quarter.
           </p>
         </motion.div>

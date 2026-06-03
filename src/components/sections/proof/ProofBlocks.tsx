@@ -9,13 +9,13 @@ const blocks = [
     icon: Wallet,
     title: 'Our own capital.',
     description:
-      'AQTF runs real money, live on Interactive Brokers, on Zeton — multiple client accounts, automated weekly rebalancing, optimized index strategies. The platform’s first and toughest customer is us.',
+      "AQTF runs real money, live on Interactive Brokers, on Zeton. Multiple client accounts, automated weekly rebalancing, optimized index strategies. The platform’s first and toughest customer is us.",
   },
   {
     icon: GraduationCap,
     title: 'Independent recognition.',
     description:
-      '~$132K non-dilutive across NSF I-Corps, NYU TAC, NYU Summer Launchpad, and NYU Tech Venture — plus exclusively licensed IP from NYU.',
+      '~$132K non-dilutive across NSF I-Corps, NYU TAC, NYU Summer Launchpad, and NYU Tech Venture, plus exclusively licensed IP from NYU.',
   },
   {
     icon: Handshake,

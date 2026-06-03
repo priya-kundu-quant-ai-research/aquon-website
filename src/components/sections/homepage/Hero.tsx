@@ -62,8 +62,8 @@ export const Hero = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto"
         >
-          The operating system for the next generation of systematic managers — anchored by our own
-          fund, powered by our own computation engine.
+          The operating system for the next generation of systematic managers, anchored by our own
+          fund and powered by our own computation engine.
         </motion.p>
 
         {/* CTAs */}

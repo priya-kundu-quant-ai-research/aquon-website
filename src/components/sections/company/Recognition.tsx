@@ -104,8 +104,8 @@ export const Recognition = () => {
                     As a <span className="font-semibold text-deep-navy">Startup NY company</span>, 
                     we benefit from New York State tax incentives that support our growth and long-term 
                     innovation. We are also an <span className="font-semibold text-deep-navy">NYU Future 
-                      Labs company</span>, and now operate from our office at the NYU building—placing us at 
-                      the center of one of New York&apos;s strongest technology and research communities.
+                      Labs company</span>, and now operate from our office at the NYU building,
+                      at the center of one of New York&apos;s strongest technology and research communities.
                   </p>
                 </div>
               </motion.div>

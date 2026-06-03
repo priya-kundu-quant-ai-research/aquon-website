@@ -19,7 +19,7 @@ export const Origins = () => {
           <p className="text-neutral-600 text-lg leading-relaxed">
             Aquon is built around Aqua, a numerical computation language developed at NYU and
             exclusively licensed to us. Beyond raw performance, Aqua gives the firm a controlled,
-            audited, low-attack-surface numerical core — a structural advantage as institutional
+            audited, low-attack-surface numerical core. A structural advantage as institutional
             trust comes to depend on software supply-chain integrity.
           </p>
         </motion.div>

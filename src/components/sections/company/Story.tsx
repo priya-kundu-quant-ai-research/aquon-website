@@ -22,7 +22,7 @@ export const Story = () => {
             {/* Left: Story Content */}
             <div className="space-y-6 text-lg text-neutral-700 leading-relaxed">
               <p>
-                Aquon operates as both a quantitative fund and a technology platform — running our own
+                Aquon operates as both a quantitative fund and a technology platform, running our own
                 systematic strategies through AQTF and commercializing the platform beneath them to
                 other emerging managers, family offices, and ETF issuers.
               </p>

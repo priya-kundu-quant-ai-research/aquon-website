@@ -61,7 +61,7 @@ export const IntroducingZeton = () => {
             The investment operating system.
           </h2>
           <p className="mt-3 text-base leading-7 text-deep-navy">
-            Zeton consolidates the full workflow — construct, analyze, rebalance, execute, oversee —
+            Zeton consolidates the full workflow (construct, analyze, rebalance, execute, oversee)
             into one platform, organized as intelligence domains.
           </p>
         </motion.div>
@@ -125,7 +125,7 @@ export const IntroducingZeton = () => {
               <CardContent className="p- md:p-">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-deep-navy bg-deep-navy/[0.03] px-3 py-1.5 text-md font-medium text-deep-navy">
                   <Sparkles size={14} className="text-vibrant-teal" />
-                  Zee — AI Copilot
+                  Zee: AI Copilot
                 </div>
 
                 <div className="flex items-start gap-4">

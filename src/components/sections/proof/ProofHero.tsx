@@ -15,7 +15,7 @@ export const ProofHero = () => {
             Proof, not promises.
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-            We&apos;re early — and we&apos;d rather show you what&apos;s real than borrow someone
+            We&apos;re early. We&apos;d rather show you what&apos;s real than borrow someone
             else&apos;s logo.
           </p>
         </motion.div>

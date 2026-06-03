@@ -22,7 +22,7 @@ export const AquaBrief = () => {
           <p className="text-neutral-600 text-lg leading-relaxed mb-8">
             At the core of everything is Aqua, our NYU-licensed computation engine, purpose-built for
             the quadratic-programming workloads behind modern portfolio construction. Proprietary,
-            audited, and low-attack-surface by design — a structural advantage as institutions
+            audited, and low-attack-surface by design. A structural advantage as institutions
             scrutinize the integrity of the software beneath their capital.
           </p>
           <Link href="/technology">

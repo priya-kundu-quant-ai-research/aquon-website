@@ -34,7 +34,7 @@ export const TippingPointHero = () => {
             <span className="text-vibrant-teal">Software Must Get Smarter.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-            Aqua is Aquon&apos;s proprietary computation engine — built specifically for financial
+            Aqua is Aquon&apos;s proprietary computation engine, built specifically for financial
             computing.
           </p>
         </motion.div>

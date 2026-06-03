@@ -10,7 +10,7 @@ const valueProps = [
   {
     title: 'Aladdin-class, without the nine-figure budget.',
     description:
-      'The optimization, execution quality, and oversight of an institutional system — without a seven-figure license.',
+      'The optimization, execution quality, and oversight of an institutional system, without a seven-figure license.',
   },
   {
     title: 'Sell the kitchen, never the recipes.',
@@ -46,9 +46,8 @@ export const ZetonProblem = () => {
             Emerging funds, family offices, and independent RIAs stitch together spreadsheets, broker
             APIs, point tools, and consultant code to approximate what an Aladdin-class system does in
             one place. The cost is real: allocation errors, undisciplined rebalancing, slippage, weak
-            audit trails, and time lost to plumbing instead of strategy. Their two options —
-            institutional platforms priced out of reach, or a patchwork that never adds up — are
-            equally unsatisfying.
+            audit trails, and time lost to plumbing instead of strategy. Their two options are equally
+            unsatisfying: institutional platforms priced out of reach, or a patchwork that never adds up.
           </p>
         </motion.div>
       </div>

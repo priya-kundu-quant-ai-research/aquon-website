@@ -43,7 +43,7 @@ export const TheStack = () => {
             Aquon is built as a stack. <span className="font-semibold text-deep-navy">Aqua</span>,
             our proprietary computation engine, powers{' '}
             <span className="font-semibold text-deep-navy">Zeton</span>, the investment operating
-            system — and <span className="font-semibold text-deep-navy">AQTF</span>, our own
+            system, and <span className="font-semibold text-deep-navy">AQTF</span>, our own
             systematic fund, runs live on Zeton every trading day. The fund proves the platform. The
             platform funds the engine. The engine keeps the fund ahead.
           </p>
@@ -66,7 +66,7 @@ export const TheStack = () => {
                       <Icon className="text-vibrant-teal" size={28} strokeWidth={1.6} />
                     </div>
                     <h3 className="text-2xl font-bold text-deep-navy">
-                      {layer.name} <span className="text-neutral-400 font-medium text-lg">— {layer.label}</span>
+                      {layer.name} <span className="text-neutral-400 font-medium text-lg">({layer.label})</span>
                     </h3>
                     <p className="text-neutral-600 mt-3 leading-relaxed">{layer.description}</p>
                   </CardContent>

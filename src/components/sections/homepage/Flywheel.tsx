@@ -18,7 +18,7 @@ export const Flywheel = () => {
           </h2>
           <p className="text-white/80 text-lg leading-relaxed">
             Most asset managers can&apos;t build a platform. Most platform companies can&apos;t run a
-            fund. Doing both, credibly, is the hard part — and the durable advantage. Our fund&apos;s
+            fund. Doing both, credibly, is the hard part and the durable advantage. The fund&apos;s
             live track record is the most credible signal that the platform works. The platform&apos;s
             growth funds the technology that keeps the fund competitive. Each side makes the other
             stronger.

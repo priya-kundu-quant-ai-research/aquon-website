@@ -15,7 +15,7 @@ export const WhyZetonHero = () => {
             Your workflow, transformed.
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-            Where the hours go today — and where Zeton gives them back.
+            Where the hours go today, and where Zeton gives them back.
           </p>
         </motion.div>
       </div>

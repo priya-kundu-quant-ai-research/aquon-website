@@ -26,19 +26,19 @@ export const AquaFinancialComputing = () => {
               finance: multi-layered, heavily constrained, and dependent on solving large
               quadratic-programming workloads quickly and correctly. Aqua, a NYU-licensed adaptive
               numerical computation engine, is purpose-built for exactly these workloads. On
-              Zeton&apos;s production 10-year backtest — over half a million solver calls per run —
+              Zeton&apos;s production 10-year backtest (over half a million solver calls per run)
               Aqua delivers{' '}
-              <span className="font-semibold text-deep-navy">5–15× end-to-end speedups with zero
+              <span className="font-semibold text-deep-navy">5x to 15x end-to-end speedups with zero
               correctness regressions</span>, matching reference results to within one part in a
               billion. Across general numerical workloads it delivers{' '}
-              <span className="font-semibold text-deep-navy">1.3–1.9×</span>, and it does so while
+              <span className="font-semibold text-deep-navy">1.3x to 1.9x</span>, and it does so while
               remaining hardware-agnostic: Aqua profiles the machine it runs on and adapts
               automatically, from a constrained cloud VM to a high-core workstation, with no
               configuration from the caller.
             </p>
             <p className="text-neutral-500 text-base leading-relaxed mt-5">
               Aqua can now generate hardware-specialized native code at runtime across different
-              instruction sets — the same source, tuned to the silicon it lands on.
+              instruction sets: the same source, tuned to the silicon it lands on.
             </p>
           </motion.div>
         </div>
@@ -61,7 +61,7 @@ export const AquaFinancialComputing = () => {
               Institutional trust in financial infrastructure increasingly depends on the integrity
               of the software supply chain beneath it. Reliance on broadly distributed open-source
               packages introduces material risk. Aqua is a proprietary, audited, low-attack-surface
-              numerical core — a controlled foundation for the numbers your capital depends on. We
+              numerical core, a controlled foundation for the numbers your capital depends on. We
               expect this dimension of Aqua&apos;s defensibility to grow in importance over the
               coming years.
             </p>
@@ -84,7 +84,7 @@ export const AquaFinancialComputing = () => {
             </h2>
             <p className="text-neutral-600 text-lg leading-relaxed">
               Aqua emerged from a multi-year research program at NYU and is exclusively licensed to
-              Aquon. It is not trivially reproducible — and it gets faster and safer with every cycle
+              Aquon. It is not trivially reproducible, and it gets faster and safer with every cycle
               the platform funds.
             </p>
           </motion.div>

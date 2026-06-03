@@ -15,7 +15,7 @@ export const ContactHero = () => {
             Let&apos;s start a conversation.
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Whether you want to run on the platform, explore the fund, or learn more about Aquon —
+            Whether you want to run on the platform, explore the fund, or learn more about Aquon,
             we&apos;re here.
           </p>
         </motion.div>

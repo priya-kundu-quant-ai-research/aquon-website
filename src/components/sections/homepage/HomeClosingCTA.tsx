@@ -20,9 +20,9 @@ export const HomeClosingCTA = () => {
             Two ways to work with Aquon.
           </h2>
           <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-            <span className="font-semibold text-white">Run on our platform</span> — bring
-            Aladdin-class operations to your practice.{' '}
-            <span className="font-semibold text-white">Invest in the strategy</span> — inquire about
+            <span className="font-semibold text-white">Run on our platform</span> to bring
+            Aladdin-class operations to your practice, or{' '}
+            <span className="font-semibold text-white">invest in the strategy</span> by inquiring about
             the AQTF founding-client pilot.
           </p>
 

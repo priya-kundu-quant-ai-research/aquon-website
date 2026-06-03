@@ -11,7 +11,7 @@ export const Footer = () => {
               Aquon
             </h3>
             <p className="text-sm text-neutral-300">
-              Aquon — a fund and a platform, built on the same engine.
+              Aquon: a fund and a platform, built on the same engine.
             </p>
           </div>
 

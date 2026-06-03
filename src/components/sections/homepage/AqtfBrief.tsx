@@ -20,7 +20,7 @@ export const AqtfBrief = () => {
             We eat our own cooking.
           </h2>
           <p className="text-neutral-600 text-lg leading-relaxed mb-8">
-            AQTF is Aquon&apos;s own systematic fund — market-neutral, benchmarked to major US
+            AQTF is Aquon&apos;s own systematic fund: market-neutral, benchmarked to major US
             indices, hedged with ETFs, rebalanced weekly, and executed through Interactive Brokers.
             It runs on the same platform we license to others, which makes it our most demanding
             customer and our most credible proof. We&apos;re building toward{' '}

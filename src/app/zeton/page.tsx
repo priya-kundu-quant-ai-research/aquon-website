@@ -11,9 +11,9 @@ import {
 import { FinalCTA } from '@/components/sections/homepage/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'Zeton — the investment operating system',
+  title: 'Zeton: the investment operating system',
   description:
-    'Zeton is the broker-agnostic, AI-native investment operating system for emerging managers, family offices, and RIAs — construct, analyze, rebalance, execute, and oversee in one platform.',
+    'Zeton is the broker-agnostic, AI-native investment operating system for emerging managers, family offices, and RIAs. Construct, analyze, rebalance, execute, and oversee in one platform.',
 };
 
 export default function ZetonPage() {

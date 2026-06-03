@@ -11,7 +11,7 @@ const modules = [
     tagline: 'Portfolio Intelligence',
     status: 'live',
     description:
-      'Portfolio construction and optimization, backtesting, drift monitoring, and full re-optimization rebalancing — with plan review and approval, institutional risk analytics, and versioning for a complete audit trail.',
+      'Portfolio construction and optimization, backtesting, drift monitoring, and full re-optimization rebalancing, with plan review and approval, institutional risk analytics, and versioning for a complete audit trail.',
     icon: Target,
     accent: {
       text: 'text-vibrant-teal',
@@ -99,7 +99,7 @@ export const ModuleDeepDive = () => {
             Five workflows. One platform.
           </h2>
           <p className="text-neutral-600 text-lg">
-            Zeton is organized as intelligence domains — each owning a stage of the investment
+            Zeton is organized as intelligence domains, each owning a stage of the investment
             workflow, from construction through execution and oversight.
           </p>
         </motion.div>
@@ -208,10 +208,10 @@ export const ModuleDeepDive = () => {
           className="max-w-4xl mx-auto mt-24 bg-white rounded-2xl p-8 border border-neutral-200"
         >
           <p className="text-neutral-700 leading-relaxed text-center">
-            Multi-client capital management — ownership, injections and withdrawals, and a full
-            capital-events ledger — and an optional market-neutral ETF short hedge are built in. The
+            Multi-client capital management (ownership, injections and withdrawals, and a full
+            capital-events ledger) and an optional market-neutral ETF short hedge are built in. The
             platform runs on a modular, containerized microservices architecture, is broker-agnostic
-            by design, and is built on a multi-asset data model — equities today, with the foundation
+            by design, and is built on a multi-asset data model. Equities today, with the foundation
             already in place to extend to additional asset classes.
           </p>
         </motion.div>

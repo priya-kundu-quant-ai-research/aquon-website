@@ -84,7 +84,7 @@ export const Team = () => {
             Our Team
           </h2>
           <p className="text-neutral-600 text-base">
-            Building both sides of the systematic-investing stack — the fund and the platform.
+            Building both sides of the systematic-investing stack: the fund and the platform.
           </p>
         </motion.div>
 
