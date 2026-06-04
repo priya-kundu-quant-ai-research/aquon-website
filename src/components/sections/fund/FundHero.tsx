@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-export const ZetonHero = () => {
+export const FundHero = () => {
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-deep-navy via-deep-navy to-black overflow-hidden">
       {/* Background decoration */}
@@ -21,18 +21,18 @@ export const ZetonHero = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 max-w-4xl mx-auto">
-            The investment operating system for the managers the giants can&apos;t serve.
+            AQTF: the systematic fund we built our platform to run.
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-            Construct, analyze, rebalance, execute, and oversee. One platform, broker-agnostic
-            and AI-native.
+            Market-neutral. Benchmarked to major US indices. Live on Interactive Brokers.
+            Targeting $250M in assets under management.
           </p>
           <Link href="/contact">
             <Button
               size="lg"
               className="bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold px-8 py-6 text-lg"
             >
-              Request platform access
+              Inquire about the pilot
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

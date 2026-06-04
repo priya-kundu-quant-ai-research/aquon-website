@@ -45,7 +45,7 @@ export const UnifiedWorkflow = () => {
   };
 
   return (
-    <section className="bg-white py-20">
+    <section id="overview-video" className="bg-white py-20">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -55,6 +55,9 @@ export const UnifiedWorkflow = () => {
           transition={{ duration: 0.6 }}
           className="mb-10 text-center"
         >
+          <p className="text-vibrant-teal text-sm font-semibold uppercase tracking-widest mb-3">
+            See Zeton in action.
+          </p>
           <h2 className="mb-4 text-4xl font-bold text-deep-navy md:text-5xl">
             One Unified Workflow
           </h2>

@@ -1,19 +1,19 @@
 import { Hero } from '@/components/sections/homepage/Hero';
-// import { Trilemma } from '@/components/sections/homepage/Trilemma';
-import { IntroducingZeton } from '@/components/sections/homepage/IntroducingZeton';
-import { QuantifiedImpact } from '@/components/sections/homepage/QuantifiedImpact';
-import { TechnologyTeaser } from '@/components/sections/homepage/TechnologyTeaser';
-import { FinalCTA } from '@/components/sections/homepage/FinalCTA';
+import { ThreePillars } from '@/components/sections/homepage/ThreePillars';
+import { Flywheel } from '@/components/sections/homepage/Flywheel';
+import { Evidence } from '@/components/sections/homepage/Evidence';
+import { ProofRow } from '@/components/sections/homepage/ProofRow';
+import { HomeClosingCTA } from '@/components/sections/homepage/HomeClosingCTA';
 
 export default function Home() {
   return (
     <div className="pt-20">
       <Hero />
-      {/* <Trilemma /> */}
-      <IntroducingZeton />
-      <QuantifiedImpact />
-      <TechnologyTeaser />
-      <FinalCTA />
+      <ThreePillars />
+      <Flywheel />
+      <Evidence />
+      <ProofRow />
+      <HomeClosingCTA />
     </div>
   );
 }

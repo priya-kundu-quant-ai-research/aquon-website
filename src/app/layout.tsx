@@ -7,8 +7,12 @@ import { Footer } from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aquon - The Operating System for Portfolio Management",
-  description: "Zeton is the AI-powered operating system for portfolio management that cuts costs, boosts efficiency, and amplifies your team's performance.",
+  title: {
+    default: "Aquon: A fund and a platform, built on the same engine",
+    template: "%s · Aquon",
+  },
+  description:
+    "Aquon is a deep-tech quant firm and NYU research spin-off building both sides of the systematic-investing stack: AQTF, our own systematic fund, and Zeton, the investment operating system, powered by Aqua, our proprietary computation engine.",
 };
 
 export default function RootLayout({

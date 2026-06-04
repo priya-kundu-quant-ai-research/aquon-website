@@ -31,33 +31,17 @@ export const TechnologyFinalCTA = () => {
                 Talk to Our Team
                 </Button>
             </Link>
-            <Link href="/zeton" className="cursor-pointer">
-                <Button 
-                size="lg" 
-                variant="outline" 
+            <Link href="/zeton#overview-video" className="cursor-pointer">
+                <Button
+                size="lg"
+                variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-deep-navy font-semibold px-8 py-6 text-lg"
                 >
-                Explore ZETON
+                Explore the platform
                 <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
             </Link>
           </div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="mt-12 pt-8 border-t border-white/10"
-          >
-            <p className="text-white/60 text-sm mb-4">Trusted by leading investment firms</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 text-white/40 text-sm">
-              <span>✓ SOC 2 Compliant</span>
-              <span>✓ Bank-Grade Security</span>
-              <span>✓ 99.9% Uptime</span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

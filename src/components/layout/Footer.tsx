@@ -11,7 +11,7 @@ export const Footer = () => {
               Aquon
             </h3>
             <p className="text-sm text-neutral-300">
-              The Operating System for Portfolio Management.
+              Aquon: a fund and a platform, built on the same engine.
             </p>
           </div>
 
@@ -31,16 +31,21 @@ export const Footer = () => {
                   Why Zeton
                 </Link>
               </li>
+              {/* Customers — hidden until the first paid Zeton customer */}
+            </ul>
+          </div>
+
+          {/* Column: Fund */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">
+              Fund
+            </h4>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/customers" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Customers
+                <Link href="/fund" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
+                  AQTF
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/pricing" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Pricing
-                </Link>
-              </li> */}
             </ul>
           </div>
 
@@ -73,8 +78,8 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Resources */}
-          <div>
+          {/* Column 4: Resources — hidden until a sanitized public Aqua Technical Brief exists */}
+          {/* <div>
             <h4 className="font-semibold text-white mb-4">
               Resources
             </h4>
@@ -94,13 +99,8 @@ export const Footer = () => {
                   Case Studies
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/docs" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Documentation
-                </Link>
-              </li> */}
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 5: Connect */}
           <div>

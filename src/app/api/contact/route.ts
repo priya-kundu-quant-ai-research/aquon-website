@@ -8,6 +8,7 @@ type ContactPayload = {
   email: string;
   company: string;
   jobTitle: string;
+  interest?: string;
   aum?: string;
   message: string;
 };
@@ -37,14 +38,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Server not configured" }, { status: 500 });
     }
 
-    const subject = `Schedule Demo: ${body.name} (${body.company})`;
+    const subject = `Contact: ${body.name} (${body.company}) [${body.interest || "General"}]`;
     const text = [
-      "New demo request received:",
+      "New contact request received:",
       "",
       `Name: ${body.name}`,
       `Work Email: ${body.email}`,
       `Company: ${body.company}`,
       `Job Title: ${body.jobTitle}`,
+      `Interest: ${body.interest || "(not provided)"}`,
       `AUM: ${body.aum || "(not provided)"}`,
       "",
       "Message:",

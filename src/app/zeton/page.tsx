@@ -1,14 +1,31 @@
+import type { Metadata } from 'next';
 import { ZetonHero } from '@/components/sections/zeton/ZetonHero';
+import { ZetonMeetZeton } from '@/components/sections/zeton/ZetonMeetZeton';
 import { UnifiedWorkflow } from '@/components/sections/zeton/UnifiedWorkflow';
-// import { ModuleDeepDive } from '@/components/sections/zeton/ModuleDeepDive';
+import { ModuleDeepDive } from '@/components/sections/zeton/ModuleDeepDive';
+import {
+  ZetonValueProp,
+  ZetonMarket,
+  ZetonProofPoint,
+} from '@/components/sections/zeton/ZetonNarrative';
 import { FinalCTA } from '@/components/sections/homepage/FinalCTA';
+
+export const metadata: Metadata = {
+  title: 'Zeton: the investment operating system',
+  description:
+    'Zeton is the broker-agnostic, AI-native investment operating system for emerging managers, family offices, and RIAs. Construct, analyze, rebalance, execute, and oversee in one platform.',
+};
 
 export default function ZetonPage() {
   return (
     <div className="pt-20">
       <ZetonHero />
+      <ZetonMeetZeton />
       <UnifiedWorkflow />
-      {/* <ModuleDeepDive /> */}
+      <ModuleDeepDive />
+      <ZetonValueProp />
+      {/* <ZetonMarket /> */}
+      {/* <ZetonProofPoint /> */}
       <FinalCTA />
     </div>
   );
