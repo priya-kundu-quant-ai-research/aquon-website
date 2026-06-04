@@ -128,7 +128,7 @@ export const FundContent = () => {
       </section>
 
       {/* Interested in participating */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ export const FundContent = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

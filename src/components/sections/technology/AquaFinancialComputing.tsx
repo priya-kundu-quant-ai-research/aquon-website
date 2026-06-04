@@ -230,7 +230,7 @@ export const AquaFinancialComputing = () => {
       </section>
 
       {/* Section 4: Where it runs + CTA */}
-      <section className="py-20 bg-light-gray">
+      {/* <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -262,7 +262,7 @@ export const AquaFinancialComputing = () => {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

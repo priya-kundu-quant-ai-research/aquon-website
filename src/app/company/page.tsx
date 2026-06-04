@@ -20,7 +20,7 @@ export default function CompanyPage() {
       <Origins />
       <Team />
       <Recognition />
-      <ActiveDiscussions />
+      {/* <ActiveDiscussions /> */}
       <FinalCTA
         heading="A fund and a platform, built on the same engine."
         body="Whether you want to run on the platform, explore the fund, or learn more about Aquon, we'd love to talk."

@@ -28,7 +28,7 @@ export const Evidence = () => {
           </p>
 
           <p className="text-xs italic text-neutral-500 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Based on hypothetical backtested results across the S&amp;P 500, NASDAQ 100, Dow Jones,
+            Based on backtested results across the S&amp;P 500, NASDAQ 100, Dow Jones,
             and Russell 2000. Backtested performance does not reflect actual trading and is not
             indicative of future results. Detailed methodology and results are available to qualified
             parties on request.

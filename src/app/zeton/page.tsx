@@ -24,8 +24,8 @@ export default function ZetonPage() {
       <UnifiedWorkflow />
       <ModuleDeepDive />
       <ZetonValueProp />
-      <ZetonMarket />
-      <ZetonProofPoint />
+      {/* <ZetonMarket /> */}
+      {/* <ZetonProofPoint /> */}
       <FinalCTA />
     </div>
   );

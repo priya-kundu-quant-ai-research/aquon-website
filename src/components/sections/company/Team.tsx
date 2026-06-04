@@ -16,7 +16,7 @@ const team: Person[] = [
     name: 'Carlos de Oliveira',
     role: 'Co-Founder, CIO & Portfolio Manager',
     credentials: [
-      'PhD Mathematics, UC Berkeley · MBA, NYU Stern',
+      'PhD Mathematics, UC Berkeley and MBA, NYU Stern',
       '25 yrs: Credit Suisse, BNY Mellon, TD Ameritrade, Fidelity',
       'Adjunct Faculty, NYU Tandon',
     ],
@@ -25,17 +25,19 @@ const team: Person[] = [
   {
     name: 'Priya',
     role: 'Co-Founder, Engineering & Operations',
-    credentials: ['Co-inventor of Aqua', 'NSF I-Corps program graduate'],
+    credentials: ['Co-inventor of Aqua and Zeton', "NYU Alumni MS Management of Technology 24'",
+      "Completed NYU TVP Spring '25", 'NSF I-Corps program graduate'],
+    image: '/images/priya.png',
   },
   {
     name: 'Nachiket',
     role: 'Founding Engineer',
-    credentials: [],
+    credentials: ['Co-inventor of Aqua and Zeton', "NYU Alumni MS Computer Engineering 24'"],
   },
   {
     name: 'Avina',
     role: 'Founding Engineer',
-    credentials: [],
+    credentials: ['Co-inventor of Aqua', "NYU Alumni MS Computer Engineering 25'"],
   },
 ];
 

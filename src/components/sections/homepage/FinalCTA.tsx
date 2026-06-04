@@ -16,11 +16,11 @@ interface FinalCTAProps {
 
 export const FinalCTA = ({
   heading = 'Ready to Stop Leaking Alpha?',
-  body = "See how Zeton can transform your portfolio management operations. Request access and we'll walk you through the platform.",
+  body = "Zeton is not a vendorware. Aquon trusts its own capital to it every day: AQTF runs live on it",
   primaryLabel = 'Request platform access',
   primaryHref = '/contact',
-  secondaryLabel = 'Explore Aqua',
-  secondaryHref = '/technology',
+  secondaryLabel = 'Explore AQTF',
+  secondaryHref = '/fund',
 }: FinalCTAProps) => {
   return (
     <section className="py-12 bg-gradient-to-b from-deep-navy to-black">

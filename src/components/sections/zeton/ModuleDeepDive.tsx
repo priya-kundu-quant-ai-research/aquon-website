@@ -96,7 +96,7 @@ export const ModuleDeepDive = () => {
           className="text-center mb-10 max-w-3xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-deep-navy mb-4">
-            Five workflows. One platform.
+            Four workflows. One platform.
           </h2>
           <p className="text-neutral-600 text-lg">
             Zeton is organized as intelligence domains, each owning a stage of the investment
@@ -197,7 +197,7 @@ export const ModuleDeepDive = () => {
         </motion.div>
 
         {/* Body footer */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -211,7 +211,7 @@ export const ModuleDeepDive = () => {
             by design, and is built on a multi-asset data model. Equities today, with the foundation
             already in place to extend to additional asset classes.
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
