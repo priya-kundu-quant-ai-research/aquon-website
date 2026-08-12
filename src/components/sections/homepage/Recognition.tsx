@@ -1,46 +1,47 @@
-import { FileText, Landmark, Award, CheckCircle2, TrendingUp, Handshake } from 'lucide-react';
+import Link from 'next/link';
+import { Zap, CheckCircle2, Repeat, Cpu, LineChart } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
 import type { LucideIcon } from 'lucide-react';
 
-export interface RecognitionItem {
+interface ImpactItem {
   icon: LucideIcon;
   lead: string;
   body: string;
 }
 
-// Copy verbatim from 02 · Section 4 · Recognition. Programs are named, never
-// priced — no dollar figures anywhere in this section. Shared with the Company
-// page, which per 02 shows "the same content as the homepage Recognition".
-export const recognitionItems: RecognitionItem[] = [
+/**
+ * Home "demonstrated impact": what Aqua and Zeton have actually been shown to
+ * do. Every numeral is from the binding claims list, and the 5–15× qualifier
+ * travels with the number. Formal recognition (patent, programs, partnerships)
+ * lives on the Company page instead; a one-line credential rail below links to
+ * it so the Home page keeps the credibility signal without duplicating it.
+ * No dollar figures anywhere.
+ */
+const items: ImpactItem[] = [
   {
-    icon: FileText,
-    lead: 'Patent filed.',
-    body: "Aqua's core numerical methods are the subject of a patent application filed through NYU in June 2026, with our CTO among the named inventors.",
-  },
-  {
-    icon: Landmark,
-    lead: 'Built in the START-UP NY ecosystem.',
-    body: "Operating out of NYU Future Labs with official START-UP NY status, providing state tax benefits and direct access to New York City's premier research community.",
-  },
-  {
-    icon: Award,
-    lead: 'Selected by four competitive programs.',
-    body: 'NSF I-Corps, the NYU TAC Award 2026, NYU Summer Launchpad, and NYU Tech Venture.',
+    icon: Zap,
+    lead: '5–15× faster',
+    body: 'Against our own pre-Aqua implementation, on our own backtest, not a third-party system. The upper end depends on available cores.',
   },
   {
     icon: CheckCircle2,
-    lead: 'Correctness before speed.',
-    body: 'Across 36 production configurations, every financial metric matched the reference result to within one part in a billion, with zero correctness regressions.',
+    lead: 'Correct to one part in a billion',
+    body: 'Every financial metric matched the reference across 36 of 36 configurations, with zero regressions.',
   },
   {
-    icon: TrendingUp,
-    lead: 'Our own capital, on our own platform.',
-    body: 'AQTF, our systematic strategy, runs live on Interactive Brokers through Zeton. Our ideal customer sits in the founding team, so the platform is tested hardest by the person it was built for.',
+    icon: Repeat,
+    lead: '546,000 solver calls',
+    body: 'Made in a single ten-year backtest run.',
   },
   {
-    icon: Handshake,
-    lead: 'Partnerships.',
-    body: 'Active deployment discussions underway with an international brokerage platform exploring white-label integration, alongside an established ETF sponsor serving as an early design partner. Names available under NDA.',
+    icon: Cpu,
+    lead: 'Validated on ARM and x86',
+    body: 'Apple Silicon and AMD Zen2, across 441 automated tests.',
+  },
+  {
+    icon: LineChart,
+    lead: 'Our own capital, on our own platform',
+    body: 'AQTF, our systematic strategy, runs live on Interactive Brokers through Zeton.',
   },
 ];
 
@@ -49,12 +50,12 @@ export const Recognition = () => {
     <section id="recognition" className="scroll-mt-24 py-16 md:py-24 bg-white">
       <div className="container mx-auto px-6">
         <SectionReveal className="max-w-3xl mx-auto text-center mb-14">
-          <p className="text-eyebrow uppercase text-vibrant-teal mb-3">Recognition</p>
+          <p className="text-eyebrow uppercase text-vibrant-teal mb-3">Demonstrated impact</p>
           <h2 className="text-heading-1 text-deep-navy">Earned, not asserted.</h2>
         </SectionReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {recognitionItems.map((item, i) => {
+          {items.map((item, i) => {
             const Icon = item.icon;
             return (
               <SectionReveal
@@ -71,6 +72,21 @@ export const Recognition = () => {
             );
           })}
         </div>
+
+        {/* Credential rail: keeps the formal-recognition signal without duplicating
+            the Company section. One quiet line, no cards. */}
+        <SectionReveal delay={0.1} className="mt-10 text-center">
+          <Link
+            href="/company#recognition"
+            className="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-caption text-neutral-500 hover:text-deep-navy transition-colors"
+          >
+            <span>Patent filed</span>
+            <span aria-hidden="true" className="text-neutral-300">·</span>
+            <span>NYU research spin-off</span>
+            <span aria-hidden="true" className="text-neutral-300">·</span>
+            <span>START-UP NY</span>
+          </Link>
+        </SectionReveal>
       </div>
     </section>
   );

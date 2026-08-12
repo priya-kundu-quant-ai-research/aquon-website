@@ -41,7 +41,7 @@ const vaibhav: Person = {
 
 // Length-matched, obviously-fake filler shown only while the flag is false.
 const VAIBHAV_BIO_PLACEHOLDER: string[] = [
-  'PLACEHOLDER — biography and credentials pending from Vaibhav.',
+  'PLACEHOLDER: biography and credentials pending from Vaibhav.',
   'This card is intentionally incomplete and is not for production.',
   'TEAM_BIOS_COMPLETE is false; flip it only when his real bio arrives.',
   'No other person’s credentials may stand in for his here.',
@@ -102,7 +102,7 @@ function TeamMember({ person, isPlaceholder }: { person: Person; isPlaceholder: 
           {isPlaceholder ? (
             <div className="rounded-lg border-2 border-dashed border-error-red/60 bg-error-red/5 p-3">
               <p className="text-error-red text-xs font-bold uppercase tracking-wide mb-1">
-                Placeholder — do not ship
+                Placeholder: do not ship
               </p>
               <div className="space-y-0.5">
                 {VAIBHAV_BIO_PLACEHOLDER.map((line, idx) => (

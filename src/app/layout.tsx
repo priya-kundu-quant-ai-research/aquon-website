@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Aquon — quantitative portfolio math engineered at hardware speed",
+    default: "Aquon: quantitative portfolio math engineered at hardware speed",
     template: "%s · Aquon",
   },
   description:

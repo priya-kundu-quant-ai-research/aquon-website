@@ -57,7 +57,7 @@ export const AquaNovelty = () => {
 
         <SectionReveal delay={0.15} className="max-w-3xl mx-auto text-center mt-14">
           <p className="text-body-l text-neutral-600 mx-auto prose-measure">
-            Aqua also carries a declarative layer — you state what to optimize and the constraints it
+            Aqua also carries a declarative layer: you state what to optimize and the constraints it
             must respect, rather than how to compute it. That is the surface our patent application
             covers.
           </p>

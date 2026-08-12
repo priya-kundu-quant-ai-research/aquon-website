@@ -62,9 +62,8 @@ export const AquaSection = () => {
             <p className="text-eyebrow uppercase text-vibrant-teal mb-3">The engine</p>
             <h2 className="text-heading-1 text-deep-navy mb-5">Aqua: the engine.</h2>
             <p className="text-body-l text-neutral-600 mb-4 prose-measure">
-              Most numerical software is written once and runs the same way everywhere — on a
-              laptop, a cloud instance, a workstation — which means it is tuned for a machine nobody
-              is actually using.
+              Most numerical software is written once and runs the same way everywhere: on a laptop,
+              a cloud instance, a workstation. It is tuned for a machine nobody is actually using.
             </p>
             <p className="text-body-l text-neutral-600 mb-8 prose-measure">
               Aqua reads the hardware it lands on and routes every operation to the strategy that

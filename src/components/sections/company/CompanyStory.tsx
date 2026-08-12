@@ -13,7 +13,7 @@ export const CompanyStory = () => {
             it will land on.
           </p>
           <p className="text-body-l text-neutral-600 mb-5">
-            That became Aqua — an engine that reads the machine and adapts to it — and, at NYU, a
+            That became Aqua, an engine that reads the machine and adapts to it. At NYU, it became a
             patent application.
           </p>
           <p className="text-body-l text-neutral-600 mb-8">

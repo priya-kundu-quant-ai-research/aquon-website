@@ -125,7 +125,7 @@ export const ZetonSection = () => {
             </p>
             <p className="text-body-l text-neutral-600 mb-8 prose-measure">
               Zeton is that system, built for them: portfolio construction and optimization,
-              execution, market intelligence and oversight — one platform, broker-agnostic, with an
+              execution, market intelligence and oversight. One platform, broker-agnostic, with an
               audit trail under every decision.
             </p>
             <div>
