@@ -46,10 +46,10 @@ export const Header = () => {
           <Image
             src={logoSrc}
             alt="Aquon logo"
-            width={25}
-            height={25}
+            width={376}
+            height={622}
             priority
-            className="w-[25px] h-[25px]"
+            className="h-8 w-auto"
           />
           <span className="text-2xl font-bold text-white">Aquon</span>
         </Link>
