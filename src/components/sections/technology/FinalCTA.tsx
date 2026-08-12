@@ -16,12 +16,12 @@ export const TechnologyFinalCTA = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-xl md:text-xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-heading-1 text-white mb-6">
             Ready to Unlock the Power of AQUA?
           </h2>
-          <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-            Whether you're in finance or exploring optimization challenges in another industry, 
-            we'd love to show you what's possible.
+          <p className="text-body-l text-white/70 mb-8 max-w-2xl mx-auto">
+            Whether you&apos;re in finance or exploring optimization challenges in another industry,
+            we&apos;d love to show you what&apos;s possible.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

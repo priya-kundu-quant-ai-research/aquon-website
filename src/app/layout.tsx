@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Aquon: A fund and a platform, built on the same engine",
+    default: "Aquon — quantitative portfolio math engineered at hardware speed",
     template: "%s · Aquon",
   },
   description:
-    "Aquon is a deep-tech quant firm and NYU research spin-off building both sides of the systematic-investing stack: AQTF, our own systematic fund, and Zeton, the investment operating system, powered by Aqua, our proprietary computation engine.",
+    "Aquon builds Aqua, a computation engine that adapts to the machine it runs on, and Zeton, the investment platform built on top of it.",
 };
 
 export default function RootLayout({

@@ -1,32 +1,33 @@
 import type { Metadata } from 'next';
 import { ZetonHero } from '@/components/sections/zeton/ZetonHero';
-import { ZetonMeetZeton } from '@/components/sections/zeton/ZetonMeetZeton';
+import { ZetonOverview } from '@/components/sections/zeton/ZetonOverview';
 import { UnifiedWorkflow } from '@/components/sections/zeton/UnifiedWorkflow';
 import { ModuleDeepDive } from '@/components/sections/zeton/ModuleDeepDive';
-import {
-  ZetonValueProp,
-  ZetonMarket,
-  ZetonProofPoint,
-} from '@/components/sections/zeton/ZetonNarrative';
+import { ZetonValueProp } from '@/components/sections/zeton/ZetonNarrative';
 import { FinalCTA } from '@/components/sections/homepage/FinalCTA';
 
 export const metadata: Metadata = {
   title: 'Zeton: the investment operating system',
   description:
-    'Zeton is the broker-agnostic, AI-native investment operating system for emerging managers, family offices, and RIAs. Construct, analyze, rebalance, execute, and oversee in one platform.',
+    'Construct, execute, monitor and oversee. One platform, broker-agnostic, built on Aqua.',
 };
 
 export default function ZetonPage() {
   return (
     <div className="pt-20">
       <ZetonHero />
-      <ZetonMeetZeton />
+      <ZetonOverview />
       <UnifiedWorkflow />
       <ModuleDeepDive />
       <ZetonValueProp />
-      {/* <ZetonMarket /> */}
-      {/* <ZetonProofPoint /> */}
-      <FinalCTA />
+      <FinalCTA
+        heading="Ready to run on Zeton?"
+        body="Request platform access, or see the engine underneath it."
+        primaryLabel="Request platform access"
+        primaryHref="/contact"
+        secondaryLabel="How Aqua works"
+        secondaryHref="/technology"
+      />
     </div>
   );
 }

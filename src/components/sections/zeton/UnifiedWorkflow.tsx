@@ -45,7 +45,7 @@ export const UnifiedWorkflow = () => {
   };
 
   return (
-    <section id="overview-video" className="bg-white py-20">
+    <section id="overview-video" className="bg-light-gray py-16 md:py-24">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -55,13 +55,9 @@ export const UnifiedWorkflow = () => {
           transition={{ duration: 0.6 }}
           className="mb-10 text-center"
         >
-          <p className="text-vibrant-teal text-sm font-semibold uppercase tracking-widest mb-3">
-            See Zeton in action.
-          </p>
-          <h2 className="mb-4 text-4xl font-bold text-deep-navy md:text-5xl">
-            One Unified Workflow
-          </h2>
-          <p className="mx-auto max-w-3xl text-lg text-neutral-600">
+          <p className="text-eyebrow uppercase text-rich-purple mb-3">See Zeton in action.</p>
+          <h2 className="text-heading-1 text-deep-navy mb-4">One Unified Workflow</h2>
+          <p className="mx-auto max-w-3xl text-body-l text-neutral-600">
             From strategy design to execution to continuous monitoring, all in one platform.
           </p>
         </motion.div>
@@ -78,7 +74,8 @@ export const UnifiedWorkflow = () => {
             <video
             ref={videoRef}
             src="/videos/zeton-video.mp4"
-            preload="metadata"
+            poster="/videos/zeton-poster.jpg"
+            preload="none"
             playsInline
             autoPlay={false}
             muted={false}

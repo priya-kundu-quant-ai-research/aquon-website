@@ -15,12 +15,13 @@ interface FinalCTAProps {
 }
 
 export const FinalCTA = ({
-  heading = 'Ready to Stop Leaking Alpha?',
-  body = "Zeton is not a vendorware. Aquon trusts its own capital to it every day: AQTF runs live on it",
-  primaryLabel = 'Request platform access',
+  // Defaults are claim-free and fund-free; pages pass their own copy.
+  heading = 'Ready to see Zeton?',
+  body = 'Talk to our team, or explore the platform built on Aqua.',
+  primaryLabel = 'Talk to our team',
   primaryHref = '/contact',
-  secondaryLabel = 'Explore AQTF',
-  secondaryHref = '/fund',
+  secondaryLabel = 'Explore Zeton',
+  secondaryHref = '/zeton',
 }: FinalCTAProps) => {
   return (
     <section className="py-12 bg-gradient-to-b from-deep-navy to-black">
@@ -32,10 +33,10 @@ export const FinalCTA = ({
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-xl md:text-xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-heading-1 text-white mb-6">
             {heading}
           </h2>
-          <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+          <p className="text-body-l text-white/70 mb-8 max-w-2xl mx-auto">
             {body}
           </p>
 

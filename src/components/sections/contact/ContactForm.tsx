@@ -80,7 +80,7 @@ export const ContactForm = () => {
               <CardHeader>
                 <CardTitle className="text-2xl text-deep-navy">Send us a message</CardTitle>
                 <p className="text-neutral-600">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we&apos;ll get back to you within 24 hours.
                 </p>
               </CardHeader>
               <CardContent className="flex-grow flex items-center">
@@ -95,7 +95,7 @@ export const ContactForm = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-deep-navy mb-2">Thank You!</h3>
                     <p className="text-neutral-600">
-                      We've received your message and will be in touch soon.
+                      We&apos;ve received your message and will be in touch soon.
                     </p>
                   </motion.div>
                 ) : (
