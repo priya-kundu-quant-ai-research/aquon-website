@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Target, Zap, Eye, MessageSquare, Check } from 'lucide-react';
+import { SectionReveal } from '@/components/core/SectionReveal';
 
 /**
  * Modules are differentiated by icon only: no per-module colour, no status
@@ -142,27 +142,15 @@ export const ModuleDeepDive = () => {
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 max-w-3xl mx-auto"
-        >
+        <SectionReveal className="text-center mb-10 max-w-3xl mx-auto">
           <h2 className="text-heading-1 text-deep-navy mb-4">Four workflows. One platform.</h2>
           <p className="text-body-l text-neutral-600">
             Zeton is organized as intelligence domains, each owning a stage of the investment
             workflow.
           </p>
-        </motion.div>
+        </SectionReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl mx-auto"
-        >
+        <SectionReveal delay={0.1} className="max-w-4xl mx-auto">
           <Tabs defaultValue="z-studio">
             <TabsList className="flex h-auto w-full flex-wrap justify-center gap-2 bg-transparent p-0 mb-8">
               {modules.map((m) => {
@@ -228,7 +216,7 @@ export const ModuleDeepDive = () => {
               );
             })}
           </Tabs>
-        </motion.div>
+        </SectionReveal>
       </div>
     </section>
   );

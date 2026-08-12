@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { SectionReveal } from '@/components/core/SectionReveal';
 import { Play, Pause, RotateCcw, Volume2, VolumeX } from 'lucide-react';
 
 export const UnifiedWorkflow = () => {
@@ -48,29 +48,17 @@ export const UnifiedWorkflow = () => {
     <section id="overview-video" className="bg-light-gray py-16 md:py-24">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 text-center"
-        >
+        <SectionReveal className="mb-10 text-center">
           <p className="text-eyebrow uppercase text-rich-purple mb-3">See Zeton in action.</p>
           <h2 className="text-heading-1 text-deep-navy mb-4">One Unified Workflow</h2>
           <p className="mx-auto max-w-3xl text-body-l text-neutral-600">
             From strategy design to execution to continuous monitoring, all in one platform.
           </p>
-        </motion.div>
+        </SectionReveal>
 
         {/* Video */}
         <div className="max-w-6xl mx-auto">
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative mx-auto rounded-2xl shadow-xl bg-black overflow-hidden"
-        >
+        <SectionReveal className="relative mx-auto rounded-2xl shadow-xl bg-black overflow-hidden">
             <video
             ref={videoRef}
             src="/videos/zeton-video.mp4"
@@ -128,7 +116,7 @@ export const UnifiedWorkflow = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </SectionReveal>
         </div>
       </div>
     </section>

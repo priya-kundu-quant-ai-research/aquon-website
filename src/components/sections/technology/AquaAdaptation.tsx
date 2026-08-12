@@ -94,7 +94,7 @@ export const AquaAdaptation = () => {
                     <span className="text-sm text-neutral-600">{attr.name}</span>
                     <motion.span
                       key={`${machineId}-${attr.name}`}
-                      initial={reduced ? false : { opacity: 0, y: 4 }}
+                      initial={{ opacity: 0, y: 4 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={reduced ? { duration: 0 } : { duration: 0.3, ease: 'easeOut' }}
                       className="rounded-md bg-vibrant-teal/10 px-2.5 py-0.5 text-sm font-semibold text-deep-navy"

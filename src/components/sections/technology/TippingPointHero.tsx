@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /* viewBox units. preserveAspectRatio="none" stretches to the hero; strokes use
    vector-effect="non-scaling-stroke" so they stay uniform. */
@@ -37,6 +37,10 @@ const areaPath = (p: number) => `${linePath(p)} L ${W} ${H} L 0 ${H} Z`;
 export const TippingPointHero = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const reduce = useReducedMotion();
+  // Gate the reduced-motion switch behind mount so SSR and the first client
+  // render both use the scroll MotionValue (no hydration mismatch on `d`).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start start', 'end start'],
@@ -48,8 +52,9 @@ export const TippingPointHero = () => {
   const area: MotionValue<string> | string = useTransform(pathProgress, (p) => areaPath(p));
 
   // Reduced motion renders the flattened end state, no scroll binding.
-  const lineD = reduce ? linePath(1) : line;
-  const areaD = reduce ? areaPath(1) : area;
+  const flat = reduce && mounted;
+  const lineD = flat ? linePath(1) : line;
+  const areaD = flat ? areaPath(1) : area;
 
   return (
     <section

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
 
@@ -96,15 +95,8 @@ export const ZetonValueProp = () => {
           </SectionReveal>
           <SectionReveal delay={0.1}>
             <ul className="divide-y divide-neutral-200">
-              {valueProps.map((point, index) => (
-                <motion.li
-                  key={point.title}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.07 }}
-                  className="flex gap-3 py-4 first:pt-0 last:pb-0"
-                >
+              {valueProps.map((point) => (
+                <li key={point.title} className="flex gap-3 py-4 first:pt-0 last:pb-0">
                   <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-rich-purple/10">
                     <Check className="h-3.5 w-3.5 text-rich-purple" strokeWidth={3} aria-hidden="true" />
                   </span>
@@ -112,7 +104,7 @@ export const ZetonValueProp = () => {
                     <h3 className="text-heading-3 text-deep-navy">{point.title}</h3>
                     <p className="text-body text-neutral-600 leading-relaxed">{point.description}</p>
                   </div>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </SectionReveal>

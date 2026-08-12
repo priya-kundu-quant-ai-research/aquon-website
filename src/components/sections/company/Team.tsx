@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { SectionReveal } from '@/components/core/SectionReveal';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { TEAM_BIOS_COMPLETE } from '@/lib/flags';
@@ -140,33 +140,17 @@ export const Team = () => {
     <section className="py-16 md:py-24 bg-light-gray">
       <div className="container mx-auto px-6">
         {/* Team — editorial two-up */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10"
-        >
+        <SectionReveal className="text-center mb-10">
           <h2 className="text-heading-1 text-deep-navy">Team</h2>
-        </motion.div>
+        </SectionReveal>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <SectionReveal>
             <TeamMember person={vaibhav} isPlaceholder={!TEAM_BIOS_COMPLETE} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          </SectionReveal>
+          <SectionReveal delay={0.1} >
             <TeamMember person={carlos} isPlaceholder={false} />
-          </motion.div>
+          </SectionReveal>
         </div>
 
         {/* Advisors — three-up, compact */}
@@ -174,13 +158,7 @@ export const Team = () => {
           <h3 className="text-center text-heading-2 text-deep-navy mb-6">Advisors</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {advisors.map((advisor, index) => (
-              <motion.div
-                key={advisor.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+              <SectionReveal key={advisor.name} delay={index * 0.1} >
                 <Card className="border-neutral-200 h-full bg-white">
                   <CardContent className="p-3">
                     <div className="flex items-center gap-3">
@@ -217,7 +195,7 @@ export const Team = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </SectionReveal>
             ))}
           </div>
         </div>

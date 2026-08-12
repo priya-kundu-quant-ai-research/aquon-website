@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { SectionReveal } from '@/components/core/SectionReveal';
 import { Button } from '@/components/ui/button';
 import { Calendar, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -9,13 +9,7 @@ export const TechnologyFinalCTA = () => {
   return (
     <section className="py-12 bg-gradient-to-b from-deep-navy to-black">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center"
-        >
+        <SectionReveal className="max-w-4xl mx-auto text-center">
           <h2 className="text-heading-1 text-white mb-6">
             Ready to Unlock the Power of AQUA?
           </h2>
@@ -42,7 +36,7 @@ export const TechnologyFinalCTA = () => {
                 </Button>
             </Link>
           </div>
-        </motion.div>
+        </SectionReveal>
       </div>
     </section>
   );

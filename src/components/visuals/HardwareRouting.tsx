@@ -107,7 +107,7 @@ export const HardwareRouting = ({
           <AnimatePresence mode="wait">
             <motion.div
               key={machineId}
-              initial={reduced ? false : { opacity: 0, x: 8 }}
+              initial={{ opacity: 0, x: 8 }}
               animate={{ opacity: 1, x: 0 }}
               exit={reduced ? { opacity: 1 } : { opacity: 0, x: -8 }}
               transition={reduced ? { duration: 0 } : { duration: 0.28, ease: [0.65, 0, 0.35, 1] }}

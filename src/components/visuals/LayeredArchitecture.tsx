@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 /**
  * The stack the whole company rests on: hardware at the base, Aqua above it,
@@ -62,6 +63,8 @@ export const LayeredArchitecture = ({
   onDark = false,
 }: Props) => {
   const reduced = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const total = layers.length;
 
   return (
@@ -77,10 +80,11 @@ export const LayeredArchitecture = ({
           return (
             <motion.div
               key={layer.name}
-              initial={reduced ? false : { opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={reduced && mounted ? { opacity: 1, y: 0 } : undefined}
               whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={reduced ? undefined : { duration: 0.5, delay: order * 0.12, ease: 'easeOut' }}
+              transition={{ duration: reduced ? 0 : 0.5, delay: reduced ? 0 : order * 0.12, ease: 'easeOut' }}
               style={{ marginLeft: indent, marginRight: 0 }}
               className={`flex items-baseline justify-between rounded-xl border px-5 py-4 shadow-sm ${
                 onDark ? layer.dark : layer.light

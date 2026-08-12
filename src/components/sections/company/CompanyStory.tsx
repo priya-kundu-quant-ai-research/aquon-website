@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { FlaskConical, Cpu, Layers, TrendingUp } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
@@ -41,6 +41,8 @@ const stages: Stage[] = [
 
 export const CompanyStory = () => {
   const reduced = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start center', 'end center'] });
   const fill = useTransform(scrollYProgress, [0, 0.85], [0, 1]);
@@ -58,7 +60,7 @@ export const CompanyStory = () => {
           <div aria-hidden="true" className="absolute left-4 top-4 bottom-4 w-px bg-neutral-200" />
           <motion.div
             aria-hidden="true"
-            style={{ scaleY: reduced ? 1 : fill }}
+            style={{ scaleY: reduced && mounted ? 1 : fill }}
             className="absolute left-4 top-4 bottom-4 w-px origin-top bg-vibrant-teal"
           />
 

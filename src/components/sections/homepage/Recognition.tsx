@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
@@ -17,6 +18,8 @@ import { SectionReveal } from '@/components/core/SectionReveal';
 /* The speed range as a band from a 1× (pre-Aqua) baseline. Endpoints only. */
 function SpeedBand() {
   const reduced = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
     <div className="mt-4">
       <div className="flex justify-between text-caption text-neutral-500 mb-1.5">
@@ -29,10 +32,11 @@ function SpeedBand() {
         <motion.div
           aria-hidden="true"
           className="absolute inset-y-0 right-0 left-[33%] rounded-full bg-gradient-to-r from-vibrant-teal/60 to-vibrant-teal"
-          initial={reduced ? false : { scaleX: 0 }}
+          initial={{ scaleX: 0 }}
+          animate={reduced && mounted ? { scaleX: 1 } : undefined}
           whileInView={reduced ? undefined : { scaleX: 1 }}
           viewport={{ once: true }}
-          transition={reduced ? undefined : { duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: reduced ? 0 : 0.7, ease: 'easeOut' }}
           style={{ transformOrigin: 'left' }}
         />
       </div>

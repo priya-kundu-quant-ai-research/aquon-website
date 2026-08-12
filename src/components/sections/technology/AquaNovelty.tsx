@@ -138,7 +138,7 @@ export const AquaNovelty = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={reduced ? false : { opacity: 0, x: 8 }}
+                initial={{ opacity: 0, x: 8 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={reduced ? { opacity: 1 } : { opacity: 0, x: -8 }}
                 transition={reduced ? { duration: 0 } : { duration: 0.22, ease: [0.65, 0, 0.35, 1] }}
@@ -150,7 +150,7 @@ export const AquaNovelty = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`v-${active}`}
-                initial={reduced ? false : { opacity: 0 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={reduced ? { opacity: 1 } : { opacity: 0 }}
                 transition={reduced ? { duration: 0 } : { duration: 0.22 }}

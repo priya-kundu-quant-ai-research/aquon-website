@@ -107,7 +107,7 @@ export const ZetonWorkflow = ({ className }: Props) => {
         <AnimatePresence mode="wait">
           <motion.p
             key={active}
-            initial={reduced ? false : { opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduced ? { opacity: 1 } : { opacity: 0, y: -6 }}
             transition={reduced ? { duration: 0 } : { duration: 0.4, ease: 'easeOut' }}
