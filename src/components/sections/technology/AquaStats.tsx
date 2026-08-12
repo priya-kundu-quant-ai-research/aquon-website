@@ -58,7 +58,8 @@ export const AquaStats = () => {
                 </p>
                 <p className="text-sm font-semibold text-deep-navy mt-2">faster</p>
                 <p className="text-xs text-neutral-500 mt-1 leading-snug">
-                  on production portfolio-optimization backtests
+                  vs our own pre-Aqua implementation, on our own backtest, not a third-party system.
+                  Upper end depends on available cores.
                 </p>
               </CardContent>
             </Card>
@@ -78,7 +79,7 @@ export const AquaStats = () => {
                 </p>
                 <p className="text-sm font-semibold text-deep-navy mt-2">across general workloads</p>
                 <p className="text-xs text-neutral-500 mt-1 leading-snug">
-                  consistent acceleration on broader numerical computing
+                  across 209 tests on five hardware configurations
                 </p>
               </CardContent>
             </Card>
@@ -96,7 +97,7 @@ export const AquaStats = () => {
                 <p className="text-3xl font-extrabold text-deep-navy mb-1">1 in 1,000,000,000</p>
                 <p className="text-sm font-semibold text-deep-navy mt-2">correctness parity</p>
                 <p className="text-xs text-neutral-500 mt-1 leading-snug">
-                  results match reference to within one part in a billion, zero regressions
+                  across 36 of 36 configurations, zero regressions
                 </p>
               </CardContent>
             </Card>

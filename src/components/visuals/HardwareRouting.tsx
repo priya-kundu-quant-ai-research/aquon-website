@@ -17,9 +17,9 @@ import { cn } from '@/lib/utils';
  * line states the route in text so nothing depends on the diagram.
  */
 
-type MachineId = 'cloud' | 'workstation';
+export type MachineId = 'cloud' | 'workstation';
 
-const machines: { id: MachineId; name: string; sub: string; routes: string[] }[] = [
+export const machines: { id: MachineId; name: string; sub: string; routes: string[] }[] = [
   {
     id: 'cloud',
     name: 'Constrained cloud',
@@ -51,16 +51,30 @@ function Node({ title, sub, tone = 'plain' }: { title: string; sub: string; tone
 interface Props {
   className?: string;
   detailed?: boolean;
+  /** Controlled machine selection (share state with sibling visuals). */
+  value?: MachineId;
+  onValueChange?: (id: MachineId) => void;
+  /** Hide the built-in selector when a parent renders one. */
+  showSelector?: boolean;
 }
 
-export const HardwareRouting = ({ className, detailed = false }: Props) => {
+export const HardwareRouting = ({
+  className,
+  detailed = false,
+  value,
+  onValueChange,
+  showSelector = true,
+}: Props) => {
   const reduced = useReducedMotion();
-  const [machineId, setMachineId] = useState<MachineId>('cloud');
+  const [internal, setInternal] = useState<MachineId>('cloud');
+  const machineId = value ?? internal;
+  const setMachineId = (id: MachineId) => (onValueChange ? onValueChange(id) : setInternal(id));
   const machine = machines.find((m) => m.id === machineId)!;
 
   return (
     <div className={className}>
       {/* Machine selector */}
+      {showSelector && (
       <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3" role="group" aria-label="Choose a machine">
         {machines.map((m) => {
           const selected = m.id === machineId;
@@ -81,6 +95,7 @@ export const HardwareRouting = ({ className, detailed = false }: Props) => {
           );
         })}
       </div>
+      )}
 
       {/* Clean flow: code -> Aqua -> the route for this machine */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-3" aria-hidden="true">
