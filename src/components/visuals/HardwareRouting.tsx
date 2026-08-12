@@ -89,8 +89,38 @@ export const HardwareRouting = ({ className, detailed = false }: Props) => {
         })}
       </div>
 
+      {/* Mobile: a simplified vertical flow instead of the scaled-down diagram */}
+      <div className="sm:hidden" aria-hidden="true">
+        <div className="flex flex-col items-center gap-2 text-center">
+          <div className="w-full rounded-xl border-2 border-vibrant-teal bg-white px-4 py-2">
+            <span className="text-sm font-bold text-deep-navy">Your code</span>{' '}
+            <span className="text-caption text-neutral-500">unchanged</span>
+          </div>
+          <span className="text-vibrant-teal">↓</span>
+          <div className="w-full rounded-xl border-2 border-vibrant-teal bg-vibrant-teal/10 px-4 py-2">
+            <span className="text-sm font-extrabold text-deep-navy">Aqua</span>{' '}
+            <span className="text-caption text-neutral-600">
+              {detailed ? 'profiles · classifies · routes' : 'profiles the machine'}
+            </span>
+          </div>
+          <span className="text-vibrant-teal">↓</span>
+          <div className="grid w-full grid-cols-1 gap-2">
+            {strategies
+              .filter((s) => s.machine === machine)
+              .map((s) => (
+                <div
+                  key={s.id}
+                  className="rounded-xl border-2 border-vibrant-teal bg-vibrant-teal/10 px-4 py-2 text-sm font-semibold text-deep-navy"
+                >
+                  {s.lines.join(' ')}
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
+
       {/* Diagram (decorative; the same information is in the buttons and the live line) */}
-      <svg viewBox="0 0 340 310" className="w-full" aria-hidden="true">
+      <svg viewBox="0 0 340 310" className="hidden w-full sm:block" aria-hidden="true">
         {/* Fixed segment: Your code → Aqua. This never changes. */}
         <line x1="170" y1="52" x2="170" y2="98" stroke="#1DBFBF" strokeWidth="2" />
 
