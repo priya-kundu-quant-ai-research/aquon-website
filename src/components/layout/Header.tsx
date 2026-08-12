@@ -43,7 +43,14 @@ export const Header = () => {
       <div className="container mx-auto h-full flex items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image src={logoSrc} alt="Aquon logo" width={25} height={25} priority />
+          <Image
+            src={logoSrc}
+            alt="Aquon logo"
+            width={25}
+            height={25}
+            priority
+            className="w-[25px] h-[25px]"
+          />
           <span className="text-2xl font-bold text-white">Aquon</span>
         </Link>
 
