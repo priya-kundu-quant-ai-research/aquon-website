@@ -1,7 +1,9 @@
 'use client';
 
+import { useMounted } from '@/hooks/useMounted';
+
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 /* viewBox units. preserveAspectRatio="none" stretches to the hero; strokes use
    vector-effect="non-scaling-stroke" so they stay uniform. */
@@ -38,9 +40,7 @@ export const TippingPointHero = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const reduce = useReducedMotion();
   // Gate the reduced-motion switch behind mount so SSR and the first client
-  // render both use the scroll MotionValue (no hydration mismatch on `d`).
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start start', 'end start'],

@@ -1,7 +1,9 @@
 'use client';
 
+import { useMounted } from '@/hooks/useMounted';
+
 import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion';
-import { useEffect, useState, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 interface SectionRevealProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
   children: ReactNode;
@@ -32,9 +34,7 @@ export const SectionReveal = ({
   const reduced = useReducedMotion();
   // `mounted` keeps SSR and the first client render identical (both start at
   // `initial`), so no hydration mismatch; the reduced-motion reveal is applied
-  // only after mount.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
   const shown = { opacity: 1, y: 0 };
 
   return (

@@ -1,7 +1,8 @@
 'use client';
 
+import { useMounted } from '@/hooks/useMounted';
+
 import { motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 /**
  * The stack the whole company rests on: hardware at the base, Aqua above it,
@@ -63,8 +64,7 @@ export const LayeredArchitecture = ({
   onDark = false,
 }: Props) => {
   const reduced = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
   const total = layers.length;
 
   return (

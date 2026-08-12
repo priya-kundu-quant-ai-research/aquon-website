@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useMounted } from '@/hooks/useMounted';
+
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { FlaskConical, Cpu, Layers, TrendingUp } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
@@ -41,8 +43,7 @@ const stages: Stage[] = [
 
 export const CompanyStory = () => {
   const reduced = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start center', 'end center'] });
   const fill = useTransform(scrollYProgress, [0, 0.85], [0, 1]);

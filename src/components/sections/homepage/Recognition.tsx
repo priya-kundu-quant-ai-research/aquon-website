@@ -1,7 +1,8 @@
 'use client';
 
+import { useMounted } from '@/hooks/useMounted';
+
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
@@ -18,8 +19,7 @@ import { SectionReveal } from '@/components/core/SectionReveal';
 /* The speed range as a band from a 1× (pre-Aqua) baseline. Endpoints only. */
 function SpeedBand() {
   const reduced = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
   return (
     <div className="mt-4">
       <div className="flex justify-between text-caption text-neutral-500 mb-1.5">
