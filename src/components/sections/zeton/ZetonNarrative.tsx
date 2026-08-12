@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
+import { Check } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
 
 // Copy verbatim from 02 · Zeton · Value.
@@ -90,27 +90,31 @@ export const ZetonValueProp = () => {
           </h2>
         </SectionReveal>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-center">
           <SectionReveal className="rounded-2xl border border-neutral-200 bg-white p-6">
             <PositioningPlot />
           </SectionReveal>
-          <SectionReveal delay={0.1} className="grid grid-cols-1 gap-4">
-            {valueProps.map((point, index) => (
-              <motion.div
-                key={point.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-              >
-                <Card className="border-neutral-200 h-full bg-white">
-                  <CardContent className="py-4">
-                    <h3 className="text-heading-3 text-deep-navy mb-1">{point.title}</h3>
+          <SectionReveal delay={0.1}>
+            <ul className="divide-y divide-neutral-200">
+              {valueProps.map((point, index) => (
+                <motion.li
+                  key={point.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.07 }}
+                  className="flex gap-3 py-4 first:pt-0 last:pb-0"
+                >
+                  <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-rich-purple/10">
+                    <Check className="h-3.5 w-3.5 text-rich-purple" strokeWidth={3} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="text-heading-3 text-deep-navy">{point.title}</h3>
                     <p className="text-body text-neutral-600 leading-relaxed">{point.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.li>
+              ))}
+            </ul>
           </SectionReveal>
         </div>
       </div>

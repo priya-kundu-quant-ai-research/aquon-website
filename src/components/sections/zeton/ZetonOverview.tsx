@@ -1,6 +1,6 @@
 'use client';
 
-import { Table2, Plug, Activity, Mail, ArrowRight, Layers } from 'lucide-react';
+import { Table2, Plug, Activity, Mail, ArrowRight, Layers, Bot } from 'lucide-react';
 import { SectionReveal } from '@/components/core/SectionReveal';
 import type { LucideIcon } from 'lucide-react';
 
@@ -8,7 +8,8 @@ import type { LucideIcon } from 'lucide-react';
  * "What Zeton replaces" — the strongest before/after on the site, made
  * structural: the assembled parts (spreadsheet, broker API, a separate monitor,
  * email) as scattered disconnected pieces, resolving into one connected
- * platform. No invented metrics, so it is safe as well as persuasive. Purple.
+ * platform. On the Zeton side the manual spreadsheet is replaced by an AI
+ * copilot. No invented metrics, so it is safe as well as persuasive. Purple.
  */
 
 const parts: { icon: LucideIcon; label: string; rotate: string }[] = [
@@ -16,6 +17,14 @@ const parts: { icon: LucideIcon; label: string; rotate: string }[] = [
   { icon: Plug, label: 'Broker API', rotate: 'rotate-2' },
   { icon: Activity, label: 'Monitoring tool', rotate: 'rotate-3' },
   { icon: Mail, label: 'Email', rotate: '-rotate-2' },
+];
+
+// Zeton side: the spreadsheet gives way to an AI copilot; the rest are unified.
+const zetonParts: { icon: LucideIcon; label: string }[] = [
+  { icon: Bot, label: 'AI Copilot' },
+  { icon: Plug, label: 'Broker API' },
+  { icon: Activity, label: 'Monitoring tool' },
+  { icon: Mail, label: 'Email' },
 ];
 
 export const ZetonOverview = () => {
@@ -71,7 +80,7 @@ export const ZetonOverview = () => {
                 <span className="text-sm font-bold">One connected workflow</span>
               </div>
               <div className="grid grid-cols-2 gap-2">
-                {parts.map((p) => {
+                {zetonParts.map((p) => {
                   const Icon = p.icon;
                   return (
                     <div
