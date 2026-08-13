@@ -26,17 +26,17 @@ export default function TechnologyPage() {
       <AquaApplication />
 
       {/* The stack: where Aqua sits. Reused from Home. */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6">
           <SectionReveal className="max-w-3xl mx-auto text-center mb-10">
             <h2 className="text-heading-1 text-deep-navy">Aqua is the layer that makes the rest possible.</h2>
           </SectionReveal>
           <LayeredArchitecture />
         </div>
-      </section>
+      </section> */}
 
       <TailRisk />
-      <AquaHorizon />
+      {/* <AquaHorizon /> */}
       <TechnologyFinalCTA />
     </div>
   );

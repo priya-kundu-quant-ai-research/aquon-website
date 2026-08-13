@@ -27,16 +27,20 @@ const carlos: Person = {
   image: '/images/carlos.webp',
 };
 
-// Vaibhav's real title is known and approved; his bio/credentials are NOT here.
-// TEAM_BIOS_COMPLETE is false, so the card renders clearly-marked placeholder
-// text of matching length. NEVER put another person's credentials under his
-// name — a real record under the wrong name would be a false claim if shipped.
-// A production build with this flag false is a bug and must not deploy.
+// Vaibhav's real bio and photo have arrived, so TEAM_BIOS_COMPLETE is now true
+// and his card renders his real credentials, styled to match Carlos's. The
+// placeholder machinery below stays in place as the guard if the flag ever
+// reverts.
 const vaibhav: Person = {
   name: 'Vaibhav',
   role: 'Chief Executive Officer',
-  credentials: [], // real credentials land with the flag flip; intentionally empty
-  image: undefined, // photo pending (§7)
+  credentials: [
+    'Emerging CRO Program, Columbia Business School',
+    '30 years in fintech and consulting: Citi, DTCC, Bank of America, PNC, RBC, BMO',
+    'Cutting-edge solutions across banking and capital markets',
+    'GTM and revenue strategy for deep-tech and AI ventures',
+  ],
+  image: '/images/vaibhav.jpg',
 };
 
 // Length-matched, obviously-fake filler shown only while the flag is false.

@@ -64,13 +64,8 @@ export const AquaApplication = () => {
         {/* Load-bearing concession + the claim */}
         <SectionReveal delay={0.1} className="max-w-3xl mx-auto mt-10">
           <p className="text-body-l text-neutral-700 mb-5 prose-measure mx-auto">
-            <span className="font-semibold text-deep-navy">Aqua does not change that math.</span> It
-            proposes no new formulation and no different risk model. It takes the solvers and
-            estimators already trusted for the job and runs them substantially faster on the hardware
-            in front of you.
-          </p>
-          <p className="text-body-l text-neutral-600 mb-6 prose-measure mx-auto">
-            On our own production backtest that is{' '}
+            <span className="font-semibold text-deep-navy">Aqua does not change that math.</span> On 
+            our own production backtest that is{' '}
             <span className="font-semibold text-deep-navy">5 to 15 times faster</span> than the
             implementation it replaced, measured across 36 configurations, with every financial
             metric matching the reference to within one part in a billion and zero correctness
@@ -85,3 +80,8 @@ export const AquaApplication = () => {
     </section>
   );
 };
+
+
+{/* It proposes no new formulation and no different risk model. It takes the solvers and
+estimators already trusted for the job and runs them substantially faster on the hardware
+in front of you. */}

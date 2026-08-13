@@ -88,7 +88,7 @@ export const CompanyStory = () => {
           <p className="text-heading-2 text-deep-navy mb-10">
             Zeton is what we commercialize. Aqua is why it is different. AQTF is how we know it works.
           </p>
-          <LayeredArchitecture caption="Zeton, the platform we commercialize, runs on Aqua, our engine, which runs on ordinary hardware." />
+          {/* <LayeredArchitecture caption="Zeton, the platform we commercialize, runs on Aqua, our engine, which runs on ordinary hardware." /> */}
         </SectionReveal>
       </div>
     </section>

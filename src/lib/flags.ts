@@ -6,5 +6,6 @@ export const SHOW_TAIL_RISK = false;
 /** NYU licence. Flip on execution; changes one sentence, nothing else. */
 export const NYU_LICENCE_EXECUTED = false;
 
-/** Vaibhav's bio. MUST be true before any production deploy. */
-export const TEAM_BIOS_COMPLETE = false;
+/** Vaibhav's bio. MUST be true before any production deploy.
+ *  His real bio and photo have arrived, so this is now true. */
+export const TEAM_BIOS_COMPLETE = true;

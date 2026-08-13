@@ -10,8 +10,8 @@ export default function Home() {
     <div className="pt-20">
       {/* Hero now carries the layered stack (Zeton on Aqua on hardware). */}
       <Hero />
-      <AquaSection />
       <ZetonSection />
+      <AquaSection />
       <Recognition />
       <Horizon />
       <HomeClosingCTA />
