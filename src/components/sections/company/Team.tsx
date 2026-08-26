@@ -24,7 +24,7 @@ const carlos: Person = {
     'Adjunct Faculty, NYU Tandon',
     "Named inventor on Aqua's patent application",
   ],
-  image: '/images/carlos.webp',
+  image: '/images/carlos.png',
 };
 
 // Vaibhav's real bio and photo have arrived, so TEAM_BIOS_COMPLETE is now true
@@ -40,7 +40,7 @@ const vaibhav: Person = {
     'Cutting-edge solutions across banking and capital markets',
     'GTM and revenue strategy for deep-tech and AI ventures',
   ],
-  image: '/images/vaibhav.jpg',
+  image: '/images/vaibhav.png',
 };
 
 // Length-matched, obviously-fake filler shown only while the flag is false.
