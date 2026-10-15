@@ -39,11 +39,11 @@ function Node({ title, sub, tone = 'plain' }: { title: string; sub: string; tone
     <div
       className={cn(
         'rounded-xl border-2 px-4 py-2.5 text-center',
-        tone === 'aqua' ? 'border-vibrant-teal bg-vibrant-teal/10' : 'border-neutral-200 bg-white'
+        tone === 'aqua' ? 'border-teal-text bg-teal/10' : 'border-navy/10 bg-white'
       )}
     >
-      <div className="text-sm font-bold text-deep-navy">{title}</div>
-      <div className="text-caption text-neutral-500">{sub}</div>
+      <div className="text-sm font-bold text-navy">{title}</div>
+      <div className="text-caption text-gray-text">{sub}</div>
     </div>
   );
 }
@@ -85,12 +85,12 @@ export const HardwareRouting = ({
               aria-pressed={selected}
               onClick={() => setMachineId(m.id)}
               className={cn(
-                'rounded-xl border-2 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2',
-                selected ? 'border-vibrant-teal bg-vibrant-teal/10' : 'border-neutral-200 bg-white hover:border-neutral-300'
+                'rounded-xl border-2 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
+                selected ? 'border-teal-text bg-teal/10' : 'border-navy/10 bg-white hover:border-navy/25'
               )}
             >
-              <span className="block text-sm font-bold text-deep-navy">{m.name}</span>
-              <span className="block text-caption text-neutral-500">{m.sub}</span>
+              <span className="block text-sm font-bold text-navy">{m.name}</span>
+              <span className="block text-caption text-gray-text">{m.sub}</span>
             </button>
           );
         })}
@@ -100,9 +100,9 @@ export const HardwareRouting = ({
       {/* Clean flow: code -> Aqua -> the route for this machine */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-3" aria-hidden="true">
         <Node title="Your code" sub="unchanged" />
-        <ArrowRight className="mx-auto h-4 w-4 rotate-90 sm:rotate-0 text-neutral-300" />
+        <ArrowRight className="mx-auto h-4 w-4 rotate-90 sm:rotate-0 text-mid-gray" />
         <Node title="Aqua" sub={detailed ? 'profiles · classifies · routes' : 'profiles the machine'} tone="aqua" />
-        <ArrowRight className="mx-auto h-4 w-4 rotate-90 sm:rotate-0 text-vibrant-teal" />
+        <ArrowRight className="mx-auto h-4 w-4 rotate-90 sm:rotate-0 text-teal-text" />
         <div className="flex-1 space-y-2">
           <AnimatePresence mode="wait">
             <motion.div
@@ -116,7 +116,7 @@ export const HardwareRouting = ({
               {machine.routes.map((r) => (
                 <div
                   key={r}
-                  className="rounded-xl border-2 border-vibrant-teal bg-vibrant-teal/10 px-4 py-2.5 text-sm font-semibold text-deep-navy"
+                  className="rounded-xl border-2 border-teal-text bg-teal/10 px-4 py-2.5 text-sm font-semibold text-navy"
                 >
                   {r}
                 </div>
@@ -127,11 +127,11 @@ export const HardwareRouting = ({
       </div>
 
       {/* Text equivalent + the load-bearing point */}
-      <p aria-live="polite" className="mt-5 text-body text-neutral-600">
-        On a <span className="font-semibold text-deep-navy">{machine.name.toLowerCase()}</span>, Aqua
+      <p aria-live="polite" className="mt-5 text-body text-gray-text">
+        On a <span className="font-semibold text-navy">{machine.name.toLowerCase()}</span>, Aqua
         routes to {machine.routes[0].toLowerCase()} and {machine.routes[1].toLowerCase()}.
       </p>
-      <p className="mt-1 text-caption text-neutral-500">
+      <p className="mt-1 text-caption text-gray-text">
         Nothing is configured by the caller. Your code never changes; Aqua re-routes underneath.
       </p>
     </div>

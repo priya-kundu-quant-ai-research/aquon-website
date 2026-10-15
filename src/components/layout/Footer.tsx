@@ -1,88 +1,71 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+const columns = [
+  {
+    title: 'Product',
+    links: [
+      { href: '/zeton', label: 'Zeton platform' },
+      { href: '/technology', label: 'Aqua engine' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/company', label: 'About' },
+      { href: '/contact', label: 'Contact' },
+      { href: '/contact?interest=investors', label: 'Investor relations' },
+    ],
+  },
+  {
+    title: 'Follow',
+    links: [
+      { href: 'https://www.linkedin.com/company/aquon-ai-inc/about/', label: 'Aquon on LinkedIn', external: true },
+      { href: 'https://www.linkedin.com/company/zeton-ai/about/', label: 'Zeton on LinkedIn', external: true },
+    ],
+  },
+] as const;
 
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-6 py-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Column 1: Brand (no tagline — the company carries none) */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-2">
-              Aquon
-            </h3>
+    <footer className="border-t border-white/10 bg-midnight text-cream">
+      <div className="mx-auto max-w-[1200px] px-6 pb-10 pt-16 md:px-8">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-2.5">
+              <Image src="/images/brand/aquon-wordmark-light.svg" alt="Aquon" width={909} height={286} className="h-8 w-auto" />
+            </div>
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream-muted">
+              Portfolios built for each client, at scale. An NYU research spin-out.
+            </p>
+            <p className="mt-6 text-sm text-cream/80">New York · Washington, DC</p>
           </div>
 
-          {/* Column 2: Product */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              Product
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/zeton" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Zeton
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/technology" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Technology
-                </Link>
-              </li>
-              <li>
-                <Link href="/company" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Company
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-neutral-300 hover:text-vibrant-teal transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Connect */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">
-              Connect
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/aquon-ai-inc/about/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-300 hover:text-vibrant-teal transition-colors"
-                >
-                  LinkedIn Aquon
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/zeton-ai/about/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-300 hover:text-vibrant-teal transition-colors"
-                >
-                  LinkedIn Zeton
-                </a>
-              </li>
-            </ul>
-          </div>
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-eyebrow uppercase text-cream-muted">{col.title}</h3>
+              <ul className="mt-5 space-y-3 text-sm">
+                {col.links.map((l) => (
+                  <li key={l.href}>
+                    {'external' in l ? (
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-cream/80 transition-colors hover:text-teal-bright">
+                        {l.label}
+                      </a>
+                    ) : (
+                      <Link href={l.href} className="text-cream/80 transition-colors hover:text-teal-bright">
+                        {l.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-neutral-700 text-center text-sm text-neutral-400">
-          <p>© {new Date().getFullYear()} Aquon Inc. All rights reserved.</p>
+        <div className="mt-14 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-cream-muted md:flex-row md:justify-between">
+          <p>© {new Date().getFullYear()} Aquon AI, Inc. All rights reserved.</p>
+          <p>Aqua is exclusively licensed to Aquon AI, Inc. by New York University.</p>
         </div>
       </div>
     </footer>

@@ -44,14 +44,14 @@ export const AquaAdaptation = () => {
   const profile = profiles[machineId];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-20 md:py-28 bg-light-gray">
       <div className="container mx-auto px-6">
-        <SectionReveal className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-eyebrow uppercase text-vibrant-teal mb-3">One engine, many machines</p>
-          <h2 className="text-heading-1 text-deep-navy mb-5">
+        <SectionReveal className="max-w-3xl mx-auto text-center mb-12">
+          <p className="text-eyebrow uppercase text-teal-text mb-3">One engine, many machines</p>
+          <h2 className="font-display text-heading-1 text-navy mb-5">
             The same code, a different route on every machine.
           </h2>
-          <p className="text-body-l text-neutral-600 mx-auto prose-measure">
+          <p className="text-body-l text-gray-text mx-auto prose-measure">
             Aqua profiles the hardware when it starts, classifies what it is working with, and routes
             each operation to the strategy that machine can run fastest. Pick a machine and watch the
             route change. The caller never writes a line of configuration.
@@ -70,12 +70,12 @@ export const AquaAdaptation = () => {
                   aria-pressed={selected}
                   onClick={() => setMachineId(m.id)}
                   className={cn(
-                    'rounded-xl border-2 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2',
-                    selected ? 'border-vibrant-teal bg-vibrant-teal/10' : 'border-neutral-200 bg-white hover:border-neutral-300'
+                    'rounded-xl border-2 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
+                    selected ? 'border-teal-text bg-teal/10' : 'border-navy/10 bg-white hover:border-navy/25'
                   )}
                 >
-                  <span className="block text-sm font-bold text-deep-navy">{m.name}</span>
-                  <span className="block text-caption text-neutral-500">{m.sub}</span>
+                  <span className="block text-sm font-bold text-navy">{m.name}</span>
+                  <span className="block text-caption text-gray-text">{m.sub}</span>
                 </button>
               );
             })}
@@ -83,33 +83,33 @@ export const AquaAdaptation = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Profile: what Aqua sees (qualitative, no invented numbers) */}
-            <div className="rounded-2xl border border-neutral-200 bg-light-gray/40 p-6">
-              <p className="text-eyebrow uppercase text-neutral-500 mb-4">Aqua profiles the machine</p>
+            <div className="rounded-xl border border-navy/10 bg-white p-6">
+              <p className="text-eyebrow uppercase text-gray-text mb-4">Aqua profiles the machine</p>
               <div className="space-y-2.5">
                 {profile.attrs.map((attr) => (
                   <div
                     key={attr.name}
-                    className="flex items-center justify-between rounded-lg bg-white px-4 py-2.5 border border-neutral-200"
+                    className="flex items-center justify-between rounded-lg bg-white px-4 py-2.5 border border-navy/10"
                   >
-                    <span className="text-sm text-neutral-600">{attr.name}</span>
+                    <span className="text-sm text-gray-text">{attr.name}</span>
                     <motion.span
                       key={`${machineId}-${attr.name}`}
                       initial={{ opacity: 0, y: 4 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={reduced ? { duration: 0 } : { duration: 0.3, ease: 'easeOut' }}
-                      className="rounded-md bg-vibrant-teal/10 px-2.5 py-0.5 text-sm font-semibold text-deep-navy"
+                      className="rounded-md bg-teal/15 px-2.5 py-0.5 text-sm font-semibold text-navy"
                     >
                       {attr.value}
                     </motion.span>
                   </div>
                 ))}
               </div>
-              <p className="text-caption text-neutral-500 italic mt-4">{profile.note}</p>
+              <p className="text-caption text-gray-text italic mt-4">{profile.note}</p>
             </div>
 
             {/* Route: the decision */}
-            <div className="rounded-2xl border border-neutral-200 bg-light-gray/40 p-6">
-              <p className="text-eyebrow uppercase text-neutral-500 mb-4">and routes the work</p>
+            <div className="rounded-xl border border-navy/10 bg-white p-6">
+              <p className="text-eyebrow uppercase text-gray-text mb-4">and routes the work</p>
               <HardwareRouting
                 detailed
                 value={machineId}

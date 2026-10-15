@@ -59,7 +59,7 @@ export const TippingPointHero = () => {
   return (
     <section
       ref={targetRef}
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-deep-navy via-[#16213e] to-black overflow-hidden"
+      className="relative min-h-[88vh] flex items-center justify-center bg-midnight pt-[72px] overflow-hidden"
     >
       {/* Scroll-linked growth-ramp → plateau curve, behind the content. */}
       <svg
@@ -93,13 +93,14 @@ export const TippingPointHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <h1 className="text-display-l text-white mb-8">
+          <p className="text-eyebrow uppercase text-teal-bright mb-6">Aqua · the engine beneath Zeton</p>
+          <h1 className="font-display text-display-xl text-cream mb-8">
             When hardware stops getting faster,{' '}
-            <span className="text-vibrant-teal">software has to get smarter.</span>
+            <span className="text-teal-bright">software has to get smarter.</span>
           </h1>
-          <p className="text-body-l text-white/80 max-w-3xl mx-auto">
-            Aqua is Aquon&apos;s computation engine. It reads the machine it runs on and adapts to
-            it, at runtime, with nothing configured by the caller.
+          <p className="text-body-l text-cream/75 max-w-2xl mx-auto">
+            Aqua is the engine underneath Zeton. It reads the machine it runs on and adapts to it, so a
+            firm can serve far more client portfolios on the hardware it already has.
           </p>
         </motion.div>
       </div>

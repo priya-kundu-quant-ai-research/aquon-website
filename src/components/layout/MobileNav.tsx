@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -8,20 +9,15 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 /**
- * Below `md` the header is otherwise a logo and nothing. This is the site's
- * only mobile navigation.
- *
- * Radix Dialog gives us the accessibility contract for free: focus is trapped
- * in the panel while open, Escape closes it, `aria-expanded`/`aria-controls`
- * sit on the trigger, and body scroll is locked. Navigation from the panel only
- * happens through the links and the CTA, so each of those closes the panel on
- * click — no route-watching effect needed.
+ * Below `md` the header is otherwise a logo and nothing. Radix Dialog gives the
+ * accessibility contract: focus trapped while open, Escape closes, scroll
+ * locked. Each link closes the panel on click.
  */
 
-const navLinks = [
-  { href: '/technology', label: 'Technology', accent: 'teal' },
-  { href: '/zeton', label: 'Zeton', accent: 'purple' },
-  { href: '/company', label: 'Company', accent: 'teal' },
+const links = [
+  { href: '/zeton', label: 'Platform' },
+  { href: '/technology', label: 'Technology' },
+  { href: '/company', label: 'Company' },
 ] as const;
 
 export const MobileNav = () => {
@@ -36,7 +32,7 @@ export const MobileNav = () => {
           <button
             type="button"
             aria-label="Open menu"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-cream transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
           >
             <Menu className="h-6 w-6" />
           </button>
@@ -44,40 +40,35 @@ export const MobileNav = () => {
 
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
-          <Dialog.Content className="fixed inset-y-0 right-0 z-[70] flex h-full w-[82%] max-w-sm flex-col bg-deep-navy shadow-2xl focus:outline-none data-[state=open]:animate-in data-[state=open]:slide-in-from-right data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right">
+          <Dialog.Content className="fixed inset-y-0 right-0 z-[70] flex h-full w-[84%] max-w-sm flex-col bg-midnight shadow-2xl focus:outline-none data-[state=open]:animate-in data-[state=open]:slide-in-from-right data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right">
             <Dialog.Title className="sr-only">Site navigation</Dialog.Title>
-            <Dialog.Description className="sr-only">
-              Links to the main pages, plus a way to contact the team.
-            </Dialog.Description>
+            <Dialog.Description className="sr-only">Links to the main pages, plus a way to contact the team.</Dialog.Description>
 
-            {/* Panel header */}
-            <div className="flex h-20 items-center justify-between px-6">
-              <span className="text-lg font-bold text-white">Aquon</span>
+            <div className="flex h-[72px] items-center justify-between border-b border-white/10 px-6">
+              <Image src="/images/brand/aquon-wordmark-light.svg" alt="Aquon" width={909} height={286} className="h-7 w-auto" />
               <Dialog.Close asChild>
                 <button
                   type="button"
                   aria-label="Close menu"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-md text-cream transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
                 >
                   <X className="h-6 w-6" />
                 </button>
               </Dialog.Close>
             </div>
 
-            {/* Links */}
-            <nav className="mt-2 flex flex-col gap-1 px-4">
-              {navLinks.map((link) => {
+            <nav className="mt-4 flex flex-col px-4" aria-label="Main">
+              {links.map((link) => {
                 const active = pathname === link.href;
-                const activeColor =
-                  link.accent === 'purple' ? 'text-rich-purple' : 'text-vibrant-teal';
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={close}
+                    aria-current={active ? 'page' : undefined}
                     className={cn(
-                      'rounded-lg px-4 py-3 text-lg font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal',
-                      active ? `${activeColor} bg-white/5` : 'text-white hover:bg-white/5'
+                      'rounded-md px-4 py-3.5 text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal',
+                      active ? 'bg-white/5 text-cream' : 'text-cream/75 hover:bg-white/5 hover:text-cream'
                     )}
                   >
                     {link.label}
@@ -86,12 +77,11 @@ export const MobileNav = () => {
               })}
             </nav>
 
-            {/* CTA */}
             <div className="mt-auto p-6">
               <Link
                 href="/contact"
                 onClick={close}
-                className="flex w-full items-center justify-center rounded-md bg-vibrant-teal px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-vibrant-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-vibrant-teal"
+                className="flex h-12 w-full items-center justify-center rounded-md bg-gold text-base font-semibold text-gold-ink transition-colors hover:bg-[#FFCB33] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
                 Talk to us
               </Link>

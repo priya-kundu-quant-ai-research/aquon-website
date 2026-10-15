@@ -48,13 +48,13 @@ function Visual({ index }: { index: number }) {
     // Runtime: assumption at write-time gives way to discovery at start-time.
     return (
       <div className="space-y-3">
-        <div className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-white px-4 py-3 opacity-50">
-          <span className="text-caption font-semibold text-neutral-400 line-through">When the code was written</span>
-          <span className="text-caption text-neutral-400">machine assumed</span>
+        <div className="flex items-center gap-3 rounded-lg border border-navy/10 bg-white px-4 py-3 opacity-50">
+          <span className="text-caption font-semibold text-mid-gray line-through">When the code was written</span>
+          <span className="text-caption text-mid-gray">machine assumed</span>
         </div>
-        <div className="flex items-center gap-3 rounded-lg border-2 border-vibrant-teal bg-vibrant-teal/10 px-4 py-3">
-          <span className="text-caption font-semibold text-deep-navy">When the program starts</span>
-          <span className="text-caption text-deep-navy">machine discovered</span>
+        <div className="flex items-center gap-3 rounded-lg border-2 border-teal-text bg-teal/10 px-4 py-3">
+          <span className="text-caption font-semibold text-navy">When the program starts</span>
+          <span className="text-caption text-navy">machine discovered</span>
         </div>
       </div>
     );
@@ -62,8 +62,8 @@ function Visual({ index }: { index: number }) {
   if (index === 1) {
     // Nothing asked of the caller.
     return (
-      <div className="rounded-lg border border-neutral-200 bg-deep-navy px-4 py-4">
-        <code className="block font-mono text-sm text-vibrant-teal">result = solve(problem)</code>
+      <div className="rounded-lg border border-navy/10 bg-deep-navy px-4 py-4">
+        <code className="block font-mono text-sm text-teal-bright">result = solve(problem)</code>
         <div className="mt-3 flex flex-wrap gap-2">
           {['no flags', 'no tuning', 'no hardware branches'].map((t) => (
             <span key={t} className="rounded-md bg-white/10 px-2 py-0.5 font-mono text-[11px] text-white/80">
@@ -76,7 +76,7 @@ function Visual({ index }: { index: number }) {
   }
   // Inspectable: a readable trace.
   return (
-    <div className="rounded-lg border border-neutral-200 bg-deep-navy overflow-hidden">
+    <div className="rounded-lg border border-navy/10 bg-deep-navy overflow-hidden">
       <div className="grid grid-cols-[auto_1fr_1fr] gap-x-4 px-4 py-2 border-b border-white/10 font-mono text-[11px] uppercase tracking-wide text-white/40">
         <span>operation</span>
         <span>path</span>
@@ -86,7 +86,7 @@ function Visual({ index }: { index: number }) {
         {trace.map((row) => (
           <div key={row.op} className="grid grid-cols-[auto_1fr_1fr] gap-x-4 px-4 py-2 font-mono text-xs">
             <span className="text-white/80">{row.op}</span>
-            <span className="text-vibrant-teal">{row.path}</span>
+            <span className="text-teal-bright">{row.path}</span>
             <span className="text-white/50">{row.reason}</span>
           </div>
         ))}
@@ -101,10 +101,10 @@ export const AquaNovelty = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-16 md:py-24 bg-light-gray">
+    <section className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-6">
         <SectionReveal className="max-w-3xl mx-auto text-center mb-10">
-          <h2 className="text-heading-1 text-deep-navy">Three things have to be true at once.</h2>
+          <h2 className="font-display text-heading-1 text-navy">Three things have to be true at once.</h2>
         </SectionReveal>
 
         <SectionReveal className="max-w-4xl mx-auto">
@@ -120,12 +120,12 @@ export const AquaNovelty = () => {
                   aria-selected={selected}
                   onClick={() => setActive(i)}
                   className={cn(
-                    'flex items-center gap-2 rounded-xl border-2 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2',
-                    selected ? 'border-vibrant-teal bg-white shadow-sm' : 'border-transparent bg-white/60 hover:bg-white'
+                    'flex items-center gap-2 rounded-xl border-2 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
+                    selected ? 'border-teal-text bg-white' : 'border-hairline bg-light-gray/60 hover:bg-white'
                   )}
                 >
-                  <Icon className={selected ? 'text-vibrant-teal' : 'text-neutral-400'} size={18} strokeWidth={1.8} aria-hidden="true" />
-                  <span className={cn('text-sm font-semibold', selected ? 'text-deep-navy' : 'text-neutral-500')}>
+                  <Icon className={selected ? 'text-teal-text' : 'text-mid-gray'} size={18} strokeWidth={1.8} aria-hidden="true" />
+                  <span className={cn('text-sm font-semibold', selected ? 'text-navy' : 'text-gray-text')}>
                     {t.label}
                   </span>
                 </button>
@@ -134,7 +134,7 @@ export const AquaNovelty = () => {
           </div>
 
           {/* Active state */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center rounded-2xl border border-neutral-200 bg-white p-6 md:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center rounded-xl border border-navy/10 bg-light-gray/50 p-6 md:p-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -143,8 +143,8 @@ export const AquaNovelty = () => {
                 exit={reduced ? { opacity: 1 } : { opacity: 0, x: -8 }}
                 transition={reduced ? { duration: 0 } : { duration: 0.22, ease: [0.65, 0, 0.35, 1] }}
               >
-                <h3 className="text-heading-3 text-deep-navy mb-2">{truths[active].lead}</h3>
-                <p className="text-body text-neutral-600">{truths[active].body}</p>
+                <h3 className="text-heading-3 text-navy mb-2">{truths[active].lead}</h3>
+                <p className="text-body text-gray-text">{truths[active].body}</p>
               </motion.div>
             </AnimatePresence>
             <AnimatePresence mode="wait">
@@ -162,7 +162,7 @@ export const AquaNovelty = () => {
         </SectionReveal>
 
         <SectionReveal delay={0.1} className="max-w-3xl mx-auto text-center mt-10">
-          <p className="text-body-l text-neutral-600 mx-auto prose-measure">
+          <p className="text-body-l text-gray-text mx-auto prose-measure">
             Aqua also carries a declarative layer: you state what to optimize and the constraints it
             must respect, rather than how to compute it. That is the surface our patent application
             covers.

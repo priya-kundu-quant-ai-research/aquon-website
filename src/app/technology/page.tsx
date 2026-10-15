@@ -2,42 +2,32 @@ import type { Metadata } from 'next';
 import { TippingPointHero } from '@/components/sections/technology/TippingPointHero';
 import { AquaAdaptation } from '@/components/sections/technology/AquaAdaptation';
 import { AquaNovelty } from '@/components/sections/technology/AquaNovelty';
-import { AquaStats } from '@/components/sections/technology/AquaStats';
-import { AquaApplication } from '@/components/sections/technology/AquaApplication';
 import { TailRisk } from '@/components/sections/technology/TailRisk';
-import { AquaHorizon } from '@/components/sections/technology/AquaHorizon';
-import { TechnologyFinalCTA } from '@/components/sections/technology/FinalCTA';
-import { SectionReveal } from '@/components/core/SectionReveal';
-import { LayeredArchitecture } from '@/components/visuals/LayeredArchitecture';
+import { Outcomes, Measured, Protected } from '@/components/technology/TechSections';
+import { ClosingCTA } from '@/components/site/ClosingCTA';
 
 export const metadata: Metadata = {
-  title: 'Aqua: the computation engine',
+  title: 'Aqua: the engine beneath Zeton',
   description:
-    'Aqua is Aquon’s computation engine. It reads the machine it runs on and adapts to it, at runtime, with nothing configured by the caller.',
+    'Aqua reads the machine it runs on and adapts to it, so a firm can serve far more client portfolios on the hardware it already has. Exclusively licensed from NYU.',
 };
 
 export default function TechnologyPage() {
   return (
-    <div className="pt-20">
+    <>
       <TippingPointHero />
+      <Outcomes />
       <AquaAdaptation />
       <AquaNovelty />
-      <AquaStats />
-      <AquaApplication />
-
-      {/* The stack: where Aqua sits. Reused from Home. */}
-      {/* <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <SectionReveal className="max-w-3xl mx-auto text-center mb-10">
-            <h2 className="text-heading-1 text-deep-navy">Aqua is the layer that makes the rest possible.</h2>
-          </SectionReveal>
-          <LayeredArchitecture />
-        </div>
-      </section> */}
-
+      <Measured />
+      <Protected />
       <TailRisk />
-      {/* <AquaHorizon /> */}
-      <TechnologyFinalCTA />
-    </div>
+      <ClosingCTA
+        heading="See what Aqua does for your book."
+        body="Talk to us about running Zeton, or about licensing Aqua inside your own platform."
+        primary={{ href: '/contact', label: 'Talk to us' }}
+        secondary={{ href: '/zeton', label: 'See the platform' }}
+      />
+    </>
   );
 }

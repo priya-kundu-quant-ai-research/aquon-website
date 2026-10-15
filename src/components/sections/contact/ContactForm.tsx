@@ -1,275 +1,230 @@
 'use client';
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Check, Mail, MapPin, Navigation } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    jobTitle: '',
-    interest: 'Platform access',
-    aum: '',
-    message: '',
-  });
+/** Our two offices; each "Get directions" opens Google Maps to the full address */
+const offices = [
+  { city: 'New York', lines: ['NYU Tandon, 370 Jay Street', 'Brooklyn, NY 11201'] },
+  { city: 'Washington, DC', lines: ['WeWork, 1701 Rhode Island Avenue NW', 'Washington, DC 20036'] },
+];
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+/**
+ * The site's only conversion path. Interests are firms (demo, partnership),
+ * investors, or general. 🔴 No fund options: AQTF is never offered to the
+ * public here (no "pilot", no "explore the fund"). `?interest=investors`
+ * preselects Investor relations (linked from every closing band).
+ */
+const interests = [
+  { value: 'Platform demo', label: 'A platform demo' },
+  { value: 'Partnership or integration', label: 'A partnership or integration' },
+  { value: 'Investor relations', label: 'Investing in Aquon' },
+  { value: 'General', label: 'Something else' },
+] as const;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data?.error || "Failed to submit");
-    }
-
-    setIsSubmitted(true);
-
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        jobTitle: "",
-        interest: "Platform access",
-        aum: "",
-        message: "",
-      });
-    }, 3000);
-  } catch (err) {
-    console.error(err);
-    alert("Something went wrong sending your message. Please try again.");
-  } finally {
-    setIsSubmitting(false);
-  }
+const empty = {
+  name: '',
+  email: '',
+  company: '',
+  jobTitle: '',
+  interest: 'Platform demo',
+  aum: '',
+  message: '',
 };
 
+const field =
+  'block w-full rounded-md border border-gray-text/50 bg-white px-3.5 py-2.5 text-[15px] text-navy placeholder:text-mid-gray transition-colors focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/20';
+const labelCls = 'mb-2 block text-[13px] font-semibold text-navy';
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+export const ContactForm = () => {
+  const [formData, setFormData] = useState(empty);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get('interest');
+    if (wanted === 'investors') {
+      setFormData((f) => ({ ...f, interest: 'Investor relations' }));
+    }
+  }, []);
+
+  const investor = formData.interest === 'Investor relations';
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || 'Failed to submit');
+      }
+      setIsSubmitted(true);
+      setFormData(empty);
+    } catch (err) {
+      console.error(err);
+      setError('Something went wrong sending your message. Please try again, or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          {/* Left: Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="border-neutral-200 h-full flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-2xl text-deep-navy">Send us a message</CardTitle>
-                <p className="text-neutral-600">
-                  Fill out the form below and we&apos;ll get back to you within 24 hours.
-                </p>
-              </CardHeader>
-              <CardContent className="flex-grow flex items-center">
-                {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="py-12 text-center w-full"
-                  >
-                    <div className="w-16 h-16 bg-vibrant-teal rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Send className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-deep-navy mb-2">Thank You!</h3>
-                    <p className="text-neutral-600">
-                      We&apos;ve received your message and will be in touch soon.
-                    </p>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 w-full">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
-                          Name *
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="John Smith"
-                          className="w-full"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
-                          Work Email *
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@company.com"
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
+    <section className="bg-light-gray py-20 md:py-24">
+      <div className="mx-auto grid max-w-[1200px] gap-12 px-6 md:px-8 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
+        <div className="rounded-xl border border-navy/10 bg-white p-8 md:p-10">
+          {isSubmitted ? (
+            <div className="py-16 text-center">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-teal">
+                <Check className="h-7 w-7 text-navy" strokeWidth={2.5} />
+              </div>
+              <h2 className="mt-6 font-display text-heading-1 text-navy">Thank you.</h2>
+              <p className="mt-3 text-body-l text-gray-text">We’ve received your message and will be in touch shortly.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <h2 className="font-display text-heading-1 text-navy">Send us a message</h2>
+                <p className="mt-2 text-body text-gray-text">We reply within one business day.</p>
+              </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-neutral-700 mb-2">
-                          Company *
-                        </label>
-                        <Input
-                          id="company"
-                          name="company"
-                          type="text"
-                          required
-                          value={formData.company}
-                          onChange={handleChange}
-                          placeholder="Your Company"
-                          className="w-full"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="jobTitle" className="block text-sm font-medium text-neutral-700 mb-2">
-                          Job Title *
-                        </label>
-                        <Input
-                          id="jobTitle"
-                          name="jobTitle"
-                          type="text"
-                          required
-                          value={formData.jobTitle}
-                          onChange={handleChange}
-                          placeholder="Portfolio Manager"
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="interest" className="block text-sm font-medium text-neutral-700 mb-2">
-                        I&apos;m interested in *
-                      </label>
-                      <select
-                        id="interest"
-                        name="interest"
-                        required
-                        value={formData.interest}
-                        onChange={handleChange}
-                        className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm"
+              <fieldset>
+                <legend className={labelCls}>I’m interested in</legend>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {interests.map((it) => {
+                    const selected = formData.interest === it.value;
+                    return (
+                      <label
+                        key={it.value}
+                        className={cn(
+                          'flex cursor-pointer items-center gap-3 rounded-md border px-3.5 py-3 text-[15px] transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-navy/30',
+                          selected ? 'border-navy bg-navy/[0.03] text-navy' : 'border-navy/15 text-navy/80 hover:border-navy/35'
+                        )}
                       >
-                        <option value="Platform access">Platform access</option>
-                        <option value="AQTF pilot inquiry">AQTF pilot inquiry</option>
-                        <option value="Partnership">Partnership</option>
-                        <option value="General">General</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="aum" className="block text-sm font-medium text-neutral-700 mb-2">
-                        AUM (Optional)
+                        <input
+                          type="radio"
+                          name="interest"
+                          value={it.value}
+                          checked={selected}
+                          onChange={handleChange}
+                          className="sr-only"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className={cn(
+                            'flex h-4 w-4 flex-none items-center justify-center rounded-full border',
+                            selected ? 'border-navy' : 'border-gray-text/60'
+                          )}
+                        >
+                          {selected && <span className="h-2 w-2 rounded-full bg-gold-deep" />}
+                        </span>
+                        {it.label}
                       </label>
-                      <Input
-                        id="aum"
-                        name="aum"
-                        type="text"
-                        value={formData.aum}
-                        onChange={handleChange}
-                        placeholder="$500M"
-                        className="w-full"
-                      />
-                    </div>
+                    );
+                  })}
+                </div>
+              </fieldset>
 
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
-                        Message *
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        required
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="Tell us about your portfolio management needs..."
-                        rows={5}
-                        className="w-full"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full bg-vibrant-teal hover:bg-vibrant-teal/90 text-white font-semibold"
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send message'}
-                      <Send className="ml-2 h-5 w-5" />
-                    </Button>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Right: Contact Information */}
-          <div className="flex flex-col gap-6">
-            <Card className="border-neutral-200 flex-grow">
-              <CardContent className="p-6 h-full flex flex-col justify-between">
+              <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <h3 className="text-xl font-bold text-deep-navy mb-6">Other Ways to Reach Us</h3>
-                  <div className="flex items-start gap-3 mb-8">
-                    <Mail className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-deep-navy text-sm mb-1">General Inquiries</p>
-                      <a href="mailto:hello@aquon.ai" className="text-vibrant-teal hover:underline text-sm">
-                        hello@aquon.ai
-                      </a>
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-deep-navy mb-4">Office</h3>
-                  <div className="flex items-start gap-3 mb-8">
-                    <MapPin className="w-5 h-5 text-vibrant-teal mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-neutral-700 text-sm">
-                        370 Jay Street, NYU Tandon<br />
-                        Brooklyn, NY 11201<br />
-                        United States
-                      </p>
-                    </div>
-                  </div>
+                  <label htmlFor="name" className={labelCls}>Name</label>
+                  <input id="name" name="name" type="text" required autoComplete="name" value={formData.name} onChange={handleChange} className={field} />
                 </div>
-
-                <div className="bg-vibrant-teal/5 border border-vibrant-teal/20 rounded-lg p-4">
-                  <h4 className="text-base font-bold text-deep-navy mb-2">Response Time</h4>
-                  <p className="text-sm text-neutral-700">
-                    We typically respond to all inquiries within 24 hours during business days.
-                  </p>
+                <div>
+                  <label htmlFor="email" className={labelCls}>Work email</label>
+                  <input id="email" name="email" type="email" required autoComplete="email" value={formData.email} onChange={handleChange} className={field} />
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                <div>
+                  <label htmlFor="company" className={labelCls}>{investor ? 'Firm or fund' : 'Company'}</label>
+                  <input id="company" name="company" type="text" required autoComplete="organization" value={formData.company} onChange={handleChange} className={field} />
+                </div>
+                <div>
+                  <label htmlFor="jobTitle" className={labelCls}>Role</label>
+                  <input id="jobTitle" name="jobTitle" type="text" required autoComplete="organization-title" value={formData.jobTitle} onChange={handleChange} className={field} />
+                </div>
+              </div>
+
+              {!investor && (
+                <div>
+                  <label htmlFor="aum" className={labelCls}>
+                    Assets under management <span className="font-normal text-gray-text">(optional)</span>
+                  </label>
+                  <input id="aum" name="aum" type="text" value={formData.aum} onChange={handleChange} placeholder="e.g. $750M" className={field} />
+                </div>
+              )}
+
+              <div>
+                <label htmlFor="message" className={labelCls}>Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={investor ? 'Tell us a little about you and what you’d like to know.' : 'Tell us about your firm and what you’d like to see.'}
+                  className={field}
+                />
+              </div>
+
+              {error && <p className="text-[14px] text-[#B4232F]" role="alert">{error}</p>}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex h-12 w-full items-center justify-center rounded-md bg-gold-deep px-6 text-[15px] font-semibold text-navy transition-colors hover:bg-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
+              >
+                {isSubmitting ? 'Sending…' : 'Send message'}
+              </button>
+            </form>
+          )}
         </div>
+
+        <aside className="space-y-10 lg:pt-4">
+          <div>
+            <h3 className="text-eyebrow uppercase text-gray-text">Email</h3>
+            <a href="mailto:hello@aquon.ai" className="mt-3 flex items-center gap-3 text-body-l font-medium text-navy hover:text-teal-text">
+              <Mail className="h-5 w-5 text-teal-text" aria-hidden="true" />
+              hello@aquon.ai
+            </a>
+          </div>
+          {offices.map((o) => (
+            <div key={o.city}>
+              <h3 className="text-eyebrow uppercase text-gray-text">{o.city}</h3>
+              <p className="mt-3 flex gap-3 text-body text-navy">
+                <MapPin className="mt-1 h-5 w-5 flex-none text-teal-text" aria-hidden="true" />
+                <span>
+                  {o.lines.map((l, i) => (
+                    <span key={l} className={cn('block', i === 0 && 'font-medium')}>
+                      {l}
+                    </span>
+                  ))}
+                </span>
+              </p>
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(o.lines.join(', '))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-8 mt-3 inline-flex items-center gap-2 rounded-md border border-navy/20 px-3.5 py-2 text-[14px] font-medium text-navy transition-colors hover:border-teal-text hover:text-teal-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              >
+                <Navigation className="h-4 w-4" aria-hidden="true" />
+                Get directions
+                <span className="sr-only"> to our {o.city} office (opens Google Maps)</span>
+              </a>
+            </div>
+          ))}
+        </aside>
       </div>
     </section>
   );
